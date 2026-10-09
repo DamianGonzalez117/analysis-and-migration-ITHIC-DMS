@@ -1,0 +1,97 @@
+# Mapeo declarativo ITHIC (.txt separado por |) -> DSM (PostgreSQL).
+#
+# clave:        campo que identifica el registro en ambos lados.
+# parametros:   parámetros de la consulta DSM; desde_nombre extrae el año del
+#               nombre del archivo y sumar lo convierte a año completo.
+# consulta:     SQL con placeholders :nombre (se convierten a $1, $2, ...).
+# campos:       columnas que se comparan y generan reportes de diferencias.
+# migracion:    tabla destino y columnas para los INSERT de faltantes.
+#               conflicto "nada" no toca existentes; "actualizar" hace upsert.
+
+nombre: pagares
+descripcion: Pagarés (promissory notes) de ITHIC contra DSM
+
+clave:
+  fuente: COI_UUID
+  dsm: COI_UUID
+  tipo: uuid
+
+parametros:
+  - nombre: year
+    tipo: entero
+    desde_nombre: 'pagares-(\d+)\.txt$'
+    sumar: 2000
+
+consulta: |
+  select con.external_id CON_ID, con.short_name CON_SHORT_NAME,
+  upper(replace(cast(con.contract_id as varchar),'-','')) CON_UUID,
+  con.amount CON_AMOUNT, pn.external_id COI_ID,
+  upper(replace(cast(pn.promissory_note_id as varchar),'-','')) COI_UUID,
+  pn.settled COI_SETTLED, pn.reference COI_REFERENCE,
+  pn.amount COI_AMOUNT, pn.tax_amount COI_TAX,
+  to_char(pn.record_date,'dd/mm/yyyy') COI_RECORD_DATE,
+  to_char(pn.expiration_date,'dd/mm/yyyy') COI_EXPIRATION_DATE,
+  rel.obs_id OBS_ID, es.name OBS_NAME, pn.object_status_id,
+  (select coalesce(sum(coalesce(ipn.related_amount,0)),0) from invoice_promissory_note ipn
+      where 1 = 1
+          and ipn.promissory_note_id = pn.promissory_note_id) monto_relacionado
+  from contracts con
+  inner join subsidiaries sub on con.subsidiary_id = sub.subsidiary_id
+  inner join promissory_notes pn  on con.contract_id = pn.contract_id
+  inner join object_status obs on pn.object_status_id = obs.object_status_id
+  inner join relation_states_object_status rel on obs.object_status_id = rel.object_status_id
+  inner join cat_status es on obs.cat_status_id = es.cat_status_id
+  where subsidiary_number = 0
+  and con.year = :year
+  order by cast(con.external_id as integer) desc, cast(pn.external_id as integer) asc
+
+campos:
+  - fuente: COI_AMOUNT
+    dsm: COI_AMOUNT
+    tipo: decimal
+  - fuente: COI_RECORD_DATE
+    dsm: COI_RECORD_DATE
+    tipo: fecha
+  - fuente: COI_EXPIRATION_DATE
+    dsm: COI_EXPIRATION_DATE
+    tipo: fecha
+  - fuente: OBS_NAME
+    dsm: OBS_NAME
+    tipo: texto
+
+reporte:
+  carpeta: pagares
+
+# Ajusta estas columnas al esquema real de DSM antes de ejecutar `ithic migrar`.
+migracion:
+  tabla: promissory_notes
+  conflicto: nada
+  clave:
+    fuente: COI_UUID
+    columna: promissory_note_id
+    tipo: uuid_postgres
+  columnas:
+    - fuente: CON_UUID
+      columna: contract_id
+      tipo: uuid_postgres
+    - fuente: COI_ID
+      columna: external_id
+      tipo: texto
+    - fuente: COI_AMOUNT
+      columna: amount
+      tipo: decimal
+    - fuente: COI_TAX
+      columna: tax_amount
+      tipo: decimal
+    - fuente: COI_REFERENCE
+      columna: reference
+      tipo: texto
+    - fuente: COI_SETTLED
+      columna: settled
+      tipo: entero
+    - fuente: COI_RECORD_DATE
+      columna: record_date
+      tipo: fecha_iso
+    - fuente: COI_EXPIRATION_DATE
+      columna: expiration_date
+      tipo: fecha_iso

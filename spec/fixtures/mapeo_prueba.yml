@@ -1,0 +1,37 @@
+nombre: pagares
+descripcion: Mapeo de prueba
+clave:
+  fuente: COI_UUID
+  dsm: COI_UUID
+  tipo: uuid
+parametros:
+  - nombre: year
+    tipo: entero
+    desde_nombre: 'pagares-(\d+)\.txt$'
+    sumar: 2000
+consulta: |
+  select * from promissory_notes where year = :year and otra = :year
+campos:
+  - fuente: COI_AMOUNT
+    dsm: COI_AMOUNT
+    tipo: decimal
+  - fuente: OBS_NAME
+    dsm: OBS_NAME
+    tipo: texto
+  - fuente: COI_EXPIRATION_DATE
+    dsm: COI_EXPIRATION_DATE
+    tipo: fecha
+migracion:
+  tabla: promissory_notes
+  conflicto: nada
+  clave:
+    fuente: COI_UUID
+    columna: promissory_note_id
+    tipo: uuid_postgres
+  columnas:
+    - fuente: COI_AMOUNT
+      columna: amount
+      tipo: decimal
+    - fuente: COI_EXPIRATION_DATE
+      columna: expiration_date
+      tipo: fecha_iso
