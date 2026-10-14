@@ -1,0 +1,3188 @@
+{
+  "generado_en": "2026-10-13T22:30:54Z",
+  "fuente": "generar_mapa.rb",
+  "catalogs": {
+    "cce": {
+      "1": "dcb71078-e94f-4c10-a7c6-a784d11cd0fa",
+      "2": "d0ff3936-dd34-4bec-85da-be91fbe9e56e",
+      "3": "4a9c778b-9015-4f50-90f8-92a0039672f8",
+      "4": "28d1b236-d9e1-48d3-aa78-c998434578f5",
+      "5": "b4d83e0a-11ae-467a-83fc-46c64eb6c354",
+      "12": "02b06d31-8606-4f5f-8a7f-2f33c251ee41",
+      "11": "f122722a-7691-4522-ba9e-d30d2275d7cd",
+      "14": "3e08dcf6-75eb-4ac8-83a2-50430b348bf0",
+      "15": "084f316b-5aa5-4245-b07c-d047f4a94410",
+      "44": "d01f8185-b996-4dff-96e4-2b2d66f735b9",
+      "47": "f26b2e30-a98e-445b-a1c4-75562fdee1f1",
+      "48": "d0794f22-30de-49d8-9ffa-8633f20001f5",
+      "49": "494d5647-0498-46d4-8bd9-d0ff7ef738c0",
+      "51": "9b6370fd-e76b-4efa-a5a8-9ddceefecc0b",
+      "54": "9ec8e9fc-f778-42c3-8a06-b49c3dfdb3d0",
+      "19": "d196e1dd-14fb-47ff-88ec-523ffdd78788",
+      "30": "83739e99-c5dd-4a1d-9243-f59e6a162f8b",
+      "41": "a310d8d5-5623-45dc-be1f-b86603fa3741",
+      "43": "2f1c5dc0-a71e-4ede-83ea-3c7cdbe55951",
+      "10": "01a0c451-84f9-72b0-842e-c8cc86fc99fc",
+      "9": "2d8469a1-5b39-4308-86d3-2f5fe5289519",
+      "8": "7aae16a8-7518-4865-b9c9-01e624142778",
+      "7": "2442d533-e86d-4e8c-9488-44f318b34fae",
+      "6": "79a810c8-60c0-45ce-b811-4f2adbd75b3c",
+      "13": "f6aec94d-d9c7-46c8-8db7-51f8d8d48f4d",
+      "31": "3eeb2457-a63b-4364-bcd7-624e57757003",
+      "32": "01a0c451-84fa-768e-98e1-b7aef592849f",
+      "33": "6b1e1eb9-0004-4fb2-88cf-79010661823f",
+      "34": "79e137e8-a23a-472e-8fe6-2cb844280dcb",
+      "35": "01a0c451-84fa-7113-bb32-4763f5160795",
+      "36": "8d223c92-04ca-4984-9a86-b72a4a58e92a",
+      "37": "d7914ef1-7c3c-4f2d-881d-8b621e36d41b",
+      "38": "01a0c451-84fa-7c62-9deb-b788f8a86a02",
+      "39": "01a0c451-84fa-758b-8f94-8577a30e33a6",
+      "40": "76e81a92-8caa-4513-a37a-ae6a056d448b",
+      "50": "b9396260-2459-4525-a707-84eba00bab1b",
+      "17": "95d27283-642f-4e5b-8626-11372ced7c07",
+      "16": "dd8e7e55-7cf1-4aac-91c7-878b166f2a61",
+      "18": "01a0c451-84fb-73c7-83c1-dccee9270118",
+      "20": "483ebed8-3dbd-43bd-b963-5110ec14449c",
+      "21": "892d4adf-1326-4cc5-a88d-68036e1ea8e8",
+      "24": "01a0c451-87ee-775d-9154-55476f13b703",
+      "22": "0e2fd506-1136-4045-9192-d1749ea79aaf",
+      "23": "01a0c451-87ee-7748-b727-31d2e80f176f",
+      "25": "01a0c451-87ef-770f-9160-b1214ba7ba21",
+      "26": "01a0c451-87ef-7a5b-a459-4293c139c342",
+      "27": "01a0c451-87ef-7534-ac70-094d93be8ed9",
+      "28": "01a0c451-87f0-7a93-a3ff-2785efd1a812",
+      "29": "01a0c451-87f0-7423-a352-3c5090a7d15f",
+      "42": "1862dedf-95d1-4f56-8707-521f8cf4f23a",
+      "52": "01a0c451-87f1-71e1-999b-a08e126a6877",
+      "53": "ab7f4764-7e58-41af-aca6-f97b65cfa975",
+      "45": "e246e86b-660e-46ac-bff4-f6288fa5ccda",
+      "46": "91a4d2ee-7636-4140-916f-95d3a65765ab",
+      "55": "01a0c451-87f2-74ff-87aa-e794a3b69c55",
+      "56": "01a0c451-87f2-7b13-a000-fd9fc9b158b0",
+      "57": "fecf9982-d530-420e-889a-f61bd6ced6f3",
+      "58": "01a0c451-87f3-7f79-935d-9a1f1f33c679",
+      "60": "ea79dfc1-f377-4711-a90c-1e5127e43559",
+      "61": "310aff77-1685-449f-8956-2fb59c23c6a1",
+      "65": "756dcac9-d2e6-4ee7-beb7-027d097565e5",
+      "68": "01a0c451-87f4-7a54-a4fb-4b3172aa2980",
+      "70": "01a0c451-87f4-79a5-a8a6-6adefa515b4a",
+      "71": "27c97c42-be05-4083-ae33-f88679b0234d",
+      "83": "363cbe98-4bef-435a-897b-f5d156cf96b0",
+      "85": "1c263bd7-2b4c-4d8d-9ec8-ec61365a5504",
+      "62": "7f485ca3-b795-49f1-a906-55bbf8422236",
+      "63": "01a0c451-87f6-7d88-834d-690d20004e7f",
+      "66": "35a60359-6563-4617-bd8e-0d7add626adb",
+      "67": "694f40f6-0e3c-47b5-94c2-e514cf861923",
+      "73": "01a0c451-87f7-79ce-87c3-dfad1847f023",
+      "74": "01a0c451-87f7-7fed-a1fd-19142126e8f8",
+      "75": "01a0c451-87f7-750c-928e-5358d71fcec5",
+      "76": "01a0c451-87f8-7ede-b03d-2c8fa07ce5b5",
+      "77": "01a0c451-87f8-785b-90de-1b8f91f77448",
+      "78": "01a0c451-87f8-72b4-8320-dc23c9c4f31b",
+      "79": "01a0c451-87f8-7514-9016-5001e2bdd3e2",
+      "80": "01a0c451-87f9-7a43-8864-4ca513341c26",
+      "81": "01a0c451-87f9-74c1-9312-9adbf11e1298",
+      "6670001400": "01a0c451-87f9-7903-a8f9-9ecece1b40f8",
+      "82": "01a0c451-87fa-78b4-bf3f-fa9259a991d5",
+      "7400001400": "01a0c451-87fa-7e8d-8fc7-fc709ca4a71f",
+      "84": "0e8d8f9e-f93d-4b42-b2f2-6b32c3755097",
+      "59": "4fd8f7ad-1f70-45c2-a7e8-5313b7e75893",
+      "64": "01a0c451-87fb-7b69-bbd6-40a5be02d88b",
+      "69": "01a0c451-87fb-72d3-ba10-200d68215cf8",
+      "72": "7e02777e-75e0-4d49-b2fe-7747c2e418f8",
+      "86": "8bbdbec3-8c4a-4e51-b4c5-51fdce4aa089",
+      "87": "8193991b-fc2b-4244-9ec9-23e83928b9fa",
+      "88": "9b5dae3b-ef5b-47af-a687-7927e1c7fe67",
+      "89": "09cf2826-50eb-4c01-8d1a-b1cd3464efa5",
+      "90": "edab6fe6-6956-4644-9f16-995e7fadac67",
+      "91": "01a0c451-87fe-73aa-9e7f-80eed7ad75a3"
+    },
+    "art": {
+      "18": "a4b357a8-5860-4611-aa10-ccd27594ef3e",
+      "19": "884dd373-1235-4745-bb35-b3aef760eb1d",
+      "1": "acd318b2-a397-436a-b4ce-385b09d655c2",
+      "2": "3b0af6fe-0832-40e4-862f-697481ca5538",
+      "3": "afffa7b4-c731-4f7e-b623-47182073009d",
+      "4": "44fa306e-3a52-4fe4-9760-1cff782de4d4",
+      "15": "f3ff6f69-7be3-4861-9331-90657669f32e",
+      "14": "6771c811-f112-4ec0-ac95-a8dee9474430",
+      "20": "307d8d38-ec39-411f-901f-f5c6280c45b2",
+      "5": "45242062-b39b-4ba9-81f8-01e6e64b36c2",
+      "6": "74de489e-fdb7-4441-ac1b-9e9a7fbad27e",
+      "8": "4f00e70a-a4ee-442b-8ebb-67b4bb294d91",
+      "9": "429392f6-a907-48e4-be3e-5800286bae7a",
+      "10": "20fdc804-7d10-4eac-bdcc-03d3679266a6",
+      "11": "c4a5af7f-1152-4fc7-90ed-ee6e69a32843",
+      "12": "e3cc3833-1023-482f-99b3-6bf3013fda77",
+      "13": "14dadcdb-47a5-43bd-867c-c779f5ec085e",
+      "7": "68d1df15-4900-4a53-b8f5-fdb303357076",
+      "16": "58ea8a09-cf17-4c46-9a80-62ed05221b92",
+      "17": "1d8d9ee9-f1d2-4488-84c1-9c9befbe4a35",
+      "21": "53718e5b-0aa3-4865-a2dd-2571cf039fbf",
+      "22": "bd02e67c-ae9e-436e-aa3d-0e7b187c295c",
+      "31": "d48afa84-7f44-4572-b04e-9992bddab73f",
+      "23": "c1d3203d-43c6-468f-93b8-aea779282f9d",
+      "24": "4ecaff46-61fd-40f3-be3e-f721f9ef176d",
+      "32": "4b1351b9-e4be-4388-b1ff-6c817353e00a",
+      "25": "a6e9a574-b2ec-4033-b41b-7b1b1ffcaea0",
+      "26": "7c1ceb2f-c4ff-4605-9edb-15b13ee8053a",
+      "27": "4c93e3fd-4108-423b-a2ed-8a3b0c68a2b9",
+      "28": "b094d5a3-4bf2-45aa-a0e1-5f1728d912e7",
+      "29": "61c5e31b-f02e-4c5c-8d3b-a4b700355921",
+      "30": "34d84536-0300-4d19-8820-0dab8a441e40",
+      "33": "0736325c-ee8e-4b9e-b1ec-8434b399d19c"
+    },
+    "sales_type": {
+      "45": "01a0c43a-8181-73ff-b74a-8732c5c23c33",
+      "47": "01a0c43a-8181-7c63-8ac1-ed8bc6623c8d",
+      "52": "01a0c43a-8182-7510-9776-9be1143cbb6f",
+      "53": "01a0c43a-8182-779b-b08b-f94b49e56a8b",
+      "54": "01a0c43a-8182-74bf-acc4-5bcc0dcb1dbf",
+      "55": "01a0c43a-8183-77f5-93e2-54c02d16b2ae",
+      "56": "01a0c43a-8183-764d-b084-93b411b6c14c",
+      "57": "01a0c43a-8183-7137-a905-bbcbdf8a5635",
+      "58": "01a0c43a-8184-7a93-8e88-7692d2df2fcf",
+      "59": "01a0c43a-8184-71e1-a0ea-0eaa56c2492e",
+      "60": "01a0c43a-8184-73f2-bcba-a0948ba0c911",
+      "42": "01a0c43a-8185-71f5-be35-e59b6e7cd53b",
+      "43": "01a0c43a-8185-7349-a4b8-50302c03d3a0",
+      "62": "01a0c43a-8185-70d6-9423-b7ba10075f20",
+      "65": "01a0c43a-8186-7d1d-afa5-196e28c2840e",
+      "1": "01a0c43a-8186-76c4-a873-fcdba9986063",
+      "2": "01a0c43a-8186-79cb-833d-8b267f736d9d",
+      "3": "01a0c43a-8186-79a9-a371-130cf24769dc",
+      "4": "01a0c43a-8187-7cdf-b7b3-8afeafe64b76",
+      "5": "01a0c43a-8187-7dc9-8916-8592449662ac",
+      "6": "01a0c43a-8187-720c-a74c-08cbfb1a9e76",
+      "7": "01a0c43a-8187-7aa2-b264-d8698a784ae7",
+      "8": "01a0c43a-8188-78a5-b971-60939b8d2fea",
+      "9": "01a0c43a-8188-7f2b-92ef-b8d8e1d0d8dc",
+      "10": "01a0c43a-8188-75ee-837a-945d2376f561",
+      "11": "01a0c43a-8188-721f-8f62-a0ed84007200",
+      "12": "01a0c43a-8189-71b7-ae16-a31f3b411ea9",
+      "13": "01a0c43a-8189-74e1-ad88-5eb9e57845bb",
+      "14": "01a0c43a-8189-794b-9cac-de8e016db6c0",
+      "15": "01a0c43a-8189-78e5-9ac3-bfe232c67a16",
+      "16": "01a0c43a-8189-78fe-a052-26cad0045dfd",
+      "17": "01a0c43a-818a-78a5-95e3-2c19cdc87c21",
+      "18": "01a0c43a-818a-78c4-ba7c-352b3b29aa53",
+      "19": "01a0c43a-818a-7cd9-8dad-698052ca2df7",
+      "20": "01a0c43a-818a-7ad6-83bc-18f20c590291",
+      "21": "01a0c43a-818b-73aa-861c-a90f2066afd4",
+      "22": "01a0c43a-818b-7635-a213-e14bff965026",
+      "23": "01a0c43a-818b-75e1-80b2-8c73c16f7ad1",
+      "24": "01a0c43a-818c-7e46-8bc0-756358f8254d",
+      "25": "01a0c43a-818c-7f0c-822e-c903a35a9bd9",
+      "26": "01a0c43a-818c-73e2-bd5a-6dd29271b74b",
+      "27": "01a0c43a-818c-79e6-8a83-2a8f0ca39919",
+      "28": "01a0c43a-818d-716a-8127-c98818a81096",
+      "29": "01a0c43a-818d-7493-ab5c-6a0105942ff2",
+      "30": "01a0c43a-818d-742c-ba41-a52c9965ebd7",
+      "31": "01a0c43a-818e-70d1-93e3-ed6e9ab88b1c",
+      "32": "01a0c43a-8483-77b8-87f1-d8d0a1f9a3a1",
+      "33": "01a0c43a-8483-74f3-baee-6c81e1a8481e",
+      "34": "01a0c43a-8483-7067-9a69-0c5722e759c9",
+      "35": "01a0c43a-8484-70ba-8aba-4c35b615e2f9",
+      "36": "01a0c43a-8484-7d9a-ae68-07d6bf411d09",
+      "37": "01a0c43a-8484-7d3f-8214-66a2d520a287",
+      "38": "01a0c43a-8484-74ee-84c0-ff73752e1608",
+      "39": "01a0c43a-8485-7663-9dcb-c2c91e947258",
+      "40": "01a0c43a-8485-700b-8566-4d6224fed355",
+      "41": "01a0c43a-8485-7ac8-bd51-8ef97c085156",
+      "61": "01a0c43a-8485-70a4-a969-115b19721e5e",
+      "44": "01a0c43a-8486-7d85-ac48-a666d3459a7f",
+      "46": "01a0c43a-8486-7e43-b204-2905df9ddf5b",
+      "63": "01a0c43a-8486-7b86-bf2f-867dad9e8c3f",
+      "64": "01a0c43a-8486-7b01-8f4e-fcb6e68de9fb",
+      "48": "01a0c43a-8487-74eb-9e6f-6e406aa58009",
+      "49": "01a0c43a-8487-77f7-800f-cc29715c6324",
+      "50": "01a0c43a-8487-7a95-b2b7-0eb64a735b1b",
+      "51": "01a0c43a-8487-712c-b1d8-75fac8530496",
+      "68": "01a0c43a-8488-736d-9df8-05326d68d986",
+      "69": "01a0c43a-8488-719a-beda-0ccf5946c4f7",
+      "70": "01a0c43a-8488-741d-a22f-0be309a44b6d",
+      "66": "01a0c43a-8488-76c0-bb22-65ce01ee5afd",
+      "72": "01a0c43a-8489-72da-b910-dfb12ca1760c",
+      "73": "01a0c43a-8489-7ca2-ad08-3ec96b1c19ce",
+      "74": "01a0c43a-8489-793a-9bee-bfd642412552",
+      "75": "01a0c43a-8489-7149-8985-5debc2587a48",
+      "77": "01a0c43a-848a-73c7-bb84-8ee89a658817",
+      "67": "01a0c43a-848a-71dc-8ca8-cf77a3d5acea",
+      "71": "01a0c43a-848a-77a8-b670-b24608feb909",
+      "76": "01a0c43a-848a-7442-981c-45404ea47f3d",
+      "78": "01a0c43a-848b-731a-a61c-a9f77143d346"
+    },
+    "sd": {
+      "1": "da813a40-b034-4365-9765-6fd360b3a1f2",
+      "2": "a11662cd-61eb-49b6-b496-cd3f18bb7d11",
+      "3": "03a4affb-9190-4852-9675-40fbc554dfa2",
+      "4": "73ce0c7b-d0c7-4c96-a9f8-19824b4d82cd",
+      "5": "15216ac6-cdb9-4226-9e3e-aa4d5df3af0b",
+      "6": "5b5596e5-6609-4b98-befc-c842ffe2341c",
+      "7": "22e620f3-c7b7-4c40-b8ce-78f31d4d83c9",
+      "8": "308214fa-c856-48bf-934e-d3d9c9111ae4",
+      "9": "48e44e03-3ebc-4cb3-a073-25105a8643c0",
+      "10": "b19f1c7d-622a-4b95-952c-103a0a679e51",
+      "11": "162b4b19-ac46-4e79-b3e6-5166d5046651",
+      "12": "a1e3f975-fd0b-4dca-9dfa-f0ba002ea1c5",
+      "13": "43d2d7df-c2aa-4cee-b3d3-af421a1dbc5a",
+      "14": "80546ae1-abde-45f5-857b-8f01694c04db",
+      "15": "7c7d016e-821b-497e-b7a1-3ca4130ee44e",
+      "16": "0c899505-2c7f-4bea-979f-22a44dec80a9",
+      "17": "15514c66-a5f3-45b7-9216-3ae97c8cb977",
+      "18": "653988ae-9ba2-43b9-abaf-f49b7851b2b3",
+      "19": "55b5c3cb-456a-45d6-b4f5-78af5a03a405",
+      "21": "475aced8-1e01-4255-9c14-d87d5cde63d3",
+      "20": "a8501a6d-5382-4e87-9463-d8dbfd1a0aa9",
+      "22": "75e2bbc4-14c9-4202-9369-086355aa9ceb",
+      "23": "7d01a808-185b-4365-be51-afb84d05045e",
+      "24": "7c5795c4-3fbb-47e7-8cbf-433b75bb4e63",
+      "25": "c1ff5924-4cb9-463e-bd79-2787f52f5ffd",
+      "26": "000b1257-bcfc-407b-a866-224b3086f26c",
+      "27": "a3f69ce0-36a5-4348-a918-2a32d1593536",
+      "52": "747f6c23-d8ee-4ca1-93ef-70b0ed1074f3",
+      "28": "b9168dda-031c-417f-9bd1-742a9183d7f4",
+      "29": "2af0f6fa-2710-4d2c-b5f1-556e83d6d693",
+      "30": "e7b407d7-e10a-4beb-b508-455966b8d4b2",
+      "31": "00c78019-5741-4f2b-a1ea-7d54e6c2b07d",
+      "32": "13f15bf9-bb8d-4fd1-8e35-cd8996c066d6",
+      "33": "c9a2fc9f-1411-460f-9108-662dba9bdd42",
+      "34": "51c800bb-2662-45fe-9425-e6adc2e606a8",
+      "35": "55718200-a3f2-4cc6-b9c9-4a97e994b6c8",
+      "36": "3401e3d6-fee4-4e8d-866f-3eea8a6bc23e",
+      "37": "61ebcb9c-f160-4620-8cbb-5b1c6745df21",
+      "38": "63c7b7ca-d5f7-44fd-916b-26de95a29de6",
+      "39": "bf816595-b209-4e60-b306-39819ea3c3e4",
+      "40": "c6b80de3-517b-4625-bbab-65d75032f7cc",
+      "41": "2ce533bf-da7d-4c21-97f1-0fd34146449f",
+      "42": "f1e08f3b-9cb6-4d5b-bf4f-bc0f0e9d5ce2",
+      "43": "875d7b69-47a9-40ea-9458-45ff094746fb",
+      "44": "49fdc5a8-8453-4fcf-b4b5-92853d222520",
+      "45": "edb09280-ec22-48f9-93f1-e97efd540ebb",
+      "46": "cf8eff06-6535-4835-9dfb-9ffef5e77633",
+      "47": "57d3f7b6-4fb8-43da-897e-d4dff81cca60",
+      "48": "a370d9fe-4d18-4462-8891-cebef1c46632",
+      "49": "3402863e-79fa-4623-aab2-6cd5cc0a8a18",
+      "50": "22e76be0-bd82-481d-93e8-9995096176fb",
+      "51": "a126f1de-6a52-4a16-9f30-e175334feed3",
+      "53": "00f3d7f2-2cde-4735-914b-ceabb93527b2",
+      "54": "d6ce5493-7d9b-4118-9df9-b1c5c5034ce6",
+      "55": "c748cdbf-12c0-45b5-b60e-4d09aeded20c",
+      "56": "151e915c-6e9c-4ec8-b5a7-35789558e5b7",
+      "57": "0776bb74-4d7b-4c81-9aba-ac589b10c3c6",
+      "58": "a93b2d7b-22bb-4467-9742-ec20a5382d93",
+      "59": "fcabf511-b606-4f0b-ba41-0397ad372cdf",
+      "60": "f2fd9087-0e4a-481f-862b-cfd085b8b937",
+      "61": "8b675030-cfef-405f-a47f-dd8852e68b1e",
+      "62": "d0838f47-99e1-425b-868e-e0a7b9da6a89"
+    }
+  },
+  "sin_match": {
+    "cce": [
+
+    ],
+    "art": [
+
+    ],
+    "sales_type": [
+
+    ],
+    "sd": [
+
+    ]
+  },
+  "detalle": {
+    "cce": {
+      "1": [
+        {
+          "uuid": "dcb71078-e94f-4c10-a7c6-a784d11cd0fa",
+          "nombre": "PRODUCTOS INTEGRADO",
+          "uso_en_consumos": 4588,
+          "creado": "2026-09-22 00:03:42.057889+00"
+        },
+        {
+          "uuid": "01a0c451-84f6-7a3f-8244-290b916abf33",
+          "nombre": "PRODUCTOS INTEGRADO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:45.344603+00"
+        }
+      ],
+      "2": [
+        {
+          "uuid": "d0ff3936-dd34-4bec-85da-be91fbe9e56e",
+          "nombre": "INGRESOS VIRTUALES",
+          "uso_en_consumos": 408,
+          "creado": "2026-09-22 00:03:42.304459+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-7ad8-9174-6d1f5917143e",
+          "nombre": "INGRESOS VIRTUALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:45.535526+00"
+        }
+      ],
+      "3": [
+        {
+          "uuid": "4a9c778b-9015-4f50-90f8-92a0039672f8",
+          "nombre": "MONTO PROMOESPACIOS",
+          "uso_en_consumos": 37,
+          "creado": "2026-09-22 00:03:42.544007+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-71ae-ae60-b2576970468d",
+          "nombre": "MONTO PROMOESPACIOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:45.728639+00"
+        }
+      ],
+      "4": [
+        {
+          "uuid": "28d1b236-d9e1-48d3-aa78-c998434578f5",
+          "nombre": "INGRESOS PROMOCIONES",
+          "uso_en_consumos": 144,
+          "creado": "2026-09-22 00:03:42.801556+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-7c96-b167-6d6706fc554e",
+          "nombre": "INGRESOS PROMOCIONES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:45.920163+00"
+        }
+      ],
+      "5": [
+        {
+          "uuid": "b4d83e0a-11ae-467a-83fc-46c64eb6c354",
+          "nombre": "RECUPERACIONES GOBIERNO",
+          "uso_en_consumos": 181,
+          "creado": "2026-09-22 00:03:43.093164+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-734f-bdc6-5afb1c771b21",
+          "nombre": "RECUPERACIONES GOBIERNO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:46.106197+00"
+        }
+      ],
+      "12": [
+        {
+          "uuid": "02b06d31-8606-4f5f-8a7f-2f33c251ee41",
+          "nombre": "INGRESOS WEB",
+          "uso_en_consumos": 234,
+          "creado": "2026-09-22 00:03:44.935283+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-7322-bffc-531309d059c9",
+          "nombre": "INGRESOS WEB",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:46.297382+00"
+        }
+      ],
+      "11": [
+        {
+          "uuid": "f122722a-7691-4522-ba9e-d30d2275d7cd",
+          "nombre": "MONTO INTERACTIVIDAD",
+          "uso_en_consumos": 10,
+          "creado": "2026-09-22 00:03:44.666983+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-7b85-9e28-4bfded970c85",
+          "nombre": "MONTO INTERACTIVIDAD",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:46.491633+00"
+        }
+      ],
+      "14": [
+        {
+          "uuid": "3e08dcf6-75eb-4ac8-83a2-50430b348bf0",
+          "nombre": "COSTOS VERTIGO",
+          "uso_en_consumos": 47,
+          "creado": "2026-09-22 00:03:45.45411+00"
+        },
+        {
+          "uuid": "01a0c451-84f7-7c95-b35d-d04fac5adaea",
+          "nombre": "COSTOS VERTIGO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:46.67945+00"
+        }
+      ],
+      "15": [
+        {
+          "uuid": "084f316b-5aa5-4245-b07c-d047f4a94410",
+          "nombre": "MONTO DIVERSOS",
+          "uso_en_consumos": 10,
+          "creado": "2026-09-22 00:03:45.695779+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-767c-b813-81fad6fc38dd",
+          "nombre": "MONTO DIVERSOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:46.872251+00"
+        }
+      ],
+      "44": [
+        {
+          "uuid": "d01f8185-b996-4dff-96e4-2b2d66f735b9",
+          "nombre": "CONTENTV",
+          "uso_en_consumos": 450,
+          "creado": "2026-09-22 00:03:53.380821+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-7b4a-9a41-fbb149b0761f",
+          "nombre": "CONTENTV",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:47.061509+00"
+        }
+      ],
+      "47": [
+        {
+          "uuid": "f26b2e30-a98e-445b-a1c4-75562fdee1f1",
+          "nombre": "CLUB DE GOLF",
+          "uso_en_consumos": 646,
+          "creado": "2026-09-22 00:03:54.099128+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-76a3-8da9-75a23647bfb2",
+          "nombre": "CLUB DE GOLF",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:47.260922+00"
+        }
+      ],
+      "48": [
+        {
+          "uuid": "d0794f22-30de-49d8-9ffa-8633f20001f5",
+          "nombre": "EVENTOS",
+          "uso_en_consumos": 144,
+          "creado": "2026-09-22 00:03:54.40506+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-7474-9d04-2e70826113d6",
+          "nombre": "EVENTOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:47.459239+00"
+        }
+      ],
+      "49": [
+        {
+          "uuid": "494d5647-0498-46d4-8bd9-d0ff7ef738c0",
+          "nombre": "COMERCIALIZACION MONARCAS",
+          "uso_en_consumos": 20,
+          "creado": "2026-09-22 00:03:54.668201+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-7b02-acf2-516b03733085",
+          "nombre": "COMERCIALIZACION MONARCAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:47.65089+00"
+        }
+      ],
+      "51": [
+        {
+          "uuid": "9b6370fd-e76b-4efa-a5a8-9ddceefecc0b",
+          "nombre": "COMERCIALIZACION ATLAS",
+          "uso_en_consumos": 4,
+          "creado": "2026-09-22 00:03:55.202327+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-7c35-bdaa-26d6176f2cfd",
+          "nombre": "COMERCIALIZACION ATLAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:47.850233+00"
+        }
+      ],
+      "54": [
+        {
+          "uuid": "9ec8e9fc-f778-42c3-8a06-b49c3dfdb3d0",
+          "nombre": "NACIONAL",
+          "uso_en_consumos": 22,
+          "creado": "2026-09-22 00:03:55.965553+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-7b70-bd25-cfce0d856846",
+          "nombre": "NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:48.068044+00"
+        }
+      ],
+      "19": [
+        {
+          "uuid": "d196e1dd-14fb-47ff-88ec-523ffdd78788",
+          "nombre": "VENTAS INTERNACIONALES CONTENIDO",
+          "uso_en_consumos": 2316,
+          "creado": "2026-09-22 00:03:46.733311+00"
+        },
+        {
+          "uuid": "01a0c451-84f8-7644-a328-c49ed570d077",
+          "nombre": "VENTAS INTERNACIONALES CONTENIDO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:48.266671+00"
+        }
+      ],
+      "30": [
+        {
+          "uuid": "83739e99-c5dd-4a1d-9243-f59e6a162f8b",
+          "nombre": "AZTECA INTERNET",
+          "uso_en_consumos": 7523,
+          "creado": "2026-09-22 00:03:49.817338+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-754a-a99e-e69d5cf70d39",
+          "nombre": "AZTECA INTERNET",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:48.483818+00"
+        }
+      ],
+      "41": [
+        {
+          "uuid": "a310d8d5-5623-45dc-be1f-b86603fa3741",
+          "nombre": "DI GRAL VE",
+          "uso_en_consumos": 263,
+          "creado": "2026-09-22 00:03:52.660571+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-7f77-97ee-d7410f4edc8e",
+          "nombre": "DI GRAL VE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:48.686897+00"
+        }
+      ],
+      "43": [
+        {
+          "uuid": "2f1c5dc0-a71e-4ede-83ea-3c7cdbe55951",
+          "nombre": "VENTAS INTERNACIONALES",
+          "uso_en_consumos": 12892,
+          "creado": "2026-09-22 00:03:53.131641+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-7ba5-8915-fe14d8050940",
+          "nombre": "VENTAS INTERNACIONALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:48.877484+00"
+        }
+      ],
+      "10": [
+        {
+          "uuid": "01a0c451-84f9-72b0-842e-c8cc86fc99fc",
+          "nombre": "PREMIOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:49.075536+00"
+        },
+        {
+          "uuid": "b0658c3a-5407-4bc0-8d36-25423b742624",
+          "nombre": "PREMIOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:44.412994+00"
+        }
+      ],
+      "9": [
+        {
+          "uuid": "2d8469a1-5b39-4308-86d3-2f5fe5289519",
+          "nombre": "KAZA AZTECA AMERICA",
+          "uso_en_consumos": 6,
+          "creado": "2026-09-22 00:03:44.141726+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-7b08-a752-86e39c610fec",
+          "nombre": "KAZA AZTECA AMERICA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:49.268029+00"
+        }
+      ],
+      "8": [
+        {
+          "uuid": "7aae16a8-7518-4865-b9c9-01e624142778",
+          "nombre": "MONTO BLOQ P40",
+          "uso_en_consumos": 11,
+          "creado": "2026-09-22 00:03:43.898465+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-7347-b9f0-9138d2ce7f0e",
+          "nombre": "MONTO BLOQ P40",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:49.461027+00"
+        }
+      ],
+      "7": [
+        {
+          "uuid": "2442d533-e86d-4e8c-9488-44f318b34fae",
+          "nombre": "MONTO COMPLEMENTARIOS LOCALES",
+          "uso_en_consumos": 135,
+          "creado": "2026-09-22 00:03:43.65665+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-7f58-9793-034fd43a9a3d",
+          "nombre": "MONTO COMPLEMENTARIOS LOCALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:49.653189+00"
+        }
+      ],
+      "6": [
+        {
+          "uuid": "79a810c8-60c0-45ce-b811-4f2adbd75b3c",
+          "nombre": "CESION LOCALES",
+          "uso_en_consumos": 1,
+          "creado": "2026-09-22 00:03:43.393727+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-70bb-a8fc-405b49eadd91",
+          "nombre": "CESION LOCALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:49.84713+00"
+        }
+      ],
+      "13": [
+        {
+          "uuid": "f6aec94d-d9c7-46c8-8db7-51f8d8d48f4d",
+          "nombre": "INGRESOS",
+          "uso_en_consumos": 1,
+          "creado": "2026-09-22 00:03:45.198198+00"
+        },
+        {
+          "uuid": "01a0c451-84f9-752e-8a12-a128305ff893",
+          "nombre": "INGRESOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:50.036909+00"
+        }
+      ],
+      "31": [
+        {
+          "uuid": "3eeb2457-a63b-4364-bcd7-624e57757003",
+          "nombre": "GOBIERNO",
+          "uso_en_consumos": 307,
+          "creado": "2026-09-22 00:03:50.078366+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-7c07-a709-0d67ea6b0ada",
+          "nombre": "GOBIERNO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:50.229163+00"
+        }
+      ],
+      "32": [
+        {
+          "uuid": "01a0c451-84fa-768e-98e1-b7aef592849f",
+          "nombre": "INTERACTIVIDAD TVA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:50.414945+00"
+        },
+        {
+          "uuid": "7a6dbf06-54e7-45b0-85c2-0858455154e9",
+          "nombre": "INTERACTIVIDAD TVA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:50.348058+00"
+        }
+      ],
+      "33": [
+        {
+          "uuid": "6b1e1eb9-0004-4fb2-88cf-79010661823f",
+          "nombre": "INTERACTIVIDAD TVA 500334",
+          "uso_en_consumos": 1439,
+          "creado": "2026-09-22 00:03:50.618719+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-7ac0-b390-13ebb60a8b8c",
+          "nombre": "INTERACTIVIDAD TVA 500334",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:50.609823+00"
+        }
+      ],
+      "34": [
+        {
+          "uuid": "79e137e8-a23a-472e-8fe6-2cb844280dcb",
+          "nombre": "INTERACTIVIDAD TVA 500355",
+          "uso_en_consumos": 12,
+          "creado": "2026-09-22 00:03:50.880522+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-7a21-abfb-2fb2b543c8a4",
+          "nombre": "INTERACTIVIDAD TVA 500355",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:50.805537+00"
+        }
+      ],
+      "35": [
+        {
+          "uuid": "01a0c451-84fa-7113-bb32-4763f5160795",
+          "nombre": "IRREVERENTV",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:50.997548+00"
+        },
+        {
+          "uuid": "ad76e041-c05f-4b28-ad46-271ac86b6348",
+          "nombre": "IRREVERENTV",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:51.142536+00"
+        }
+      ],
+      "36": [
+        {
+          "uuid": "8d223c92-04ca-4984-9a86-b72a4a58e92a",
+          "nombre": "CONCIERTOS",
+          "uso_en_consumos": 21,
+          "creado": "2026-09-22 00:03:51.404342+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-78ca-a312-404926597f77",
+          "nombre": "CONCIERTOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:51.187683+00"
+        }
+      ],
+      "37": [
+        {
+          "uuid": "d7914ef1-7c3c-4f2d-881d-8b621e36d41b",
+          "nombre": "ALIANZAS",
+          "uso_en_consumos": 1661,
+          "creado": "2026-09-22 00:03:51.672751+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-72de-810b-dc82b9965656",
+          "nombre": "ALIANZAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:51.395708+00"
+        }
+      ],
+      "38": [
+        {
+          "uuid": "01a0c451-84fa-7c62-9deb-b788f8a86a02",
+          "nombre": "DESARROLLOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:51.587342+00"
+        },
+        {
+          "uuid": "692de774-8719-487c-9f14-187bcac17b3b",
+          "nombre": "DESARROLLOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:51.901129+00"
+        }
+      ],
+      "39": [
+        {
+          "uuid": "01a0c451-84fa-758b-8f94-8577a30e33a6",
+          "nombre": "PROYECTO CGH",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:51.778211+00"
+        },
+        {
+          "uuid": "02a19559-ffb1-40c2-b734-1e8ecef65412",
+          "nombre": "PROYECTO CGH",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:52.150211+00"
+        }
+      ],
+      "40": [
+        {
+          "uuid": "76e81a92-8caa-4513-a37a-ae6a056d448b",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 2896,
+          "creado": "2026-09-22 00:03:52.403856+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-7caf-8d59-be66e9bc8d2b",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:51.974875+00"
+        }
+      ],
+      "50": [
+        {
+          "uuid": "b9396260-2459-4525-a707-84eba00bab1b",
+          "nombre": "AZTECA CONCIERTOS LOCALES",
+          "uso_en_consumos": 11,
+          "creado": "2026-09-22 00:03:54.942497+00"
+        },
+        {
+          "uuid": "01a0c451-84fa-7238-9232-a8641b8b0adf",
+          "nombre": "AZTECA CONCIERTOS LOCALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:52.164817+00"
+        }
+      ],
+      "17": [
+        {
+          "uuid": "95d27283-642f-4e5b-8626-11372ced7c07",
+          "nombre": "IRREVERENTV",
+          "uso_en_consumos": 142,
+          "creado": "2026-09-22 00:03:46.19321+00"
+        },
+        {
+          "uuid": "01a0c451-84fb-7789-8b25-d8e681609cb7",
+          "nombre": "IRREVERENTV",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:52.354108+00"
+        }
+      ],
+      "16": [
+        {
+          "uuid": "dd8e7e55-7cf1-4aac-91c7-878b166f2a61",
+          "nombre": "AZTECA INTERNET",
+          "uso_en_consumos": 5607,
+          "creado": "2026-09-22 00:03:45.934341+00"
+        },
+        {
+          "uuid": "01a0c451-84fb-7c20-aa0f-1acb506ab3db",
+          "nombre": "AZTECA INTERNET ",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:52.555153+00"
+        }
+      ],
+      "18": [
+        {
+          "uuid": "01a0c451-84fb-73c7-83c1-dccee9270118",
+          "nombre": "INTERACTIVIDAD TVA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:52.745565+00"
+        },
+        {
+          "uuid": "263b2877-2147-48ed-a417-32b25380d296",
+          "nombre": "INTERACTIVIDAD TVA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:46.459064+00"
+        }
+      ],
+      "20": [
+        {
+          "uuid": "483ebed8-3dbd-43bd-b963-5110ec14449c",
+          "nombre": "AZTECA VIRTUAL",
+          "uso_en_consumos": 4250,
+          "creado": "2026-09-22 00:03:47.048399+00"
+        },
+        {
+          "uuid": "01a0c451-84fb-780a-b2d4-2447c52f6a21",
+          "nombre": "AZTECA VIRTUAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:52.943612+00"
+        }
+      ],
+      "21": [
+        {
+          "uuid": "892d4adf-1326-4cc5-a88d-68036e1ea8e8",
+          "nombre": "AZTECA INTERNET",
+          "uso_en_consumos": 8,
+          "creado": "2026-09-22 00:03:47.356101+00"
+        },
+        {
+          "uuid": "01a0c451-84fb-746f-8c5b-7ed151ddee48",
+          "nombre": "AZTECA INTERNET",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:53.151586+00"
+        }
+      ],
+      "24": [
+        {
+          "uuid": "01a0c451-87ee-775d-9154-55476f13b703",
+          "nombre": "SANTOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:53.341531+00"
+        },
+        {
+          "uuid": "bf19673a-67c2-4825-90c3-b481f8061cc2",
+          "nombre": "SANTOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:48.20381+00"
+        }
+      ],
+      "22": [
+        {
+          "uuid": "0e2fd506-1136-4045-9192-d1749ea79aaf",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 146,
+          "creado": "2026-09-22 00:03:47.685539+00"
+        },
+        {
+          "uuid": "01a0c451-87ee-7c58-bd4e-d4fc6716cce5",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:53.530112+00"
+        }
+      ],
+      "23": [
+        {
+          "uuid": "01a0c451-87ee-7748-b727-31d2e80f176f",
+          "nombre": "JAGUARES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:53.719582+00"
+        },
+        {
+          "uuid": "75b1e67e-a0a3-4266-80bb-5269b8035803",
+          "nombre": "JAGUARES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:47.933704+00"
+        }
+      ],
+      "25": [
+        {
+          "uuid": "01a0c451-87ef-770f-9160-b1214ba7ba21",
+          "nombre": "NECAXA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:53.907026+00"
+        },
+        {
+          "uuid": "0b56a8ed-848d-4ae9-98d8-c203753e4779",
+          "nombre": "NECAXA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:48.459752+00"
+        }
+      ],
+      "26": [
+        {
+          "uuid": "01a0c451-87ef-7a5b-a459-4293c139c342",
+          "nombre": "PUEBLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:54.096358+00"
+        },
+        {
+          "uuid": "1c140fb4-14e8-4063-8767-2102492b41a2",
+          "nombre": "PUEBLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:48.717765+00"
+        }
+      ],
+      "27": [
+        {
+          "uuid": "01a0c451-87ef-7534-ac70-094d93be8ed9",
+          "nombre": "PACHUCA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:54.283304+00"
+        },
+        {
+          "uuid": "08e6273f-7ef9-4991-9519-cf0667e3208c",
+          "nombre": "PACHUCA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:48.959625+00"
+        }
+      ],
+      "28": [
+        {
+          "uuid": "01a0c451-87f0-7a93-a3ff-2785efd1a812",
+          "nombre": "MONARCAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:54.470771+00"
+        },
+        {
+          "uuid": "deb248c6-d186-4fac-a505-44277976af39",
+          "nombre": "MONARCAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:49.239851+00"
+        }
+      ],
+      "29": [
+        {
+          "uuid": "01a0c451-87f0-7423-a352-3c5090a7d15f",
+          "nombre": "CRUZ AZUL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:54.662546+00"
+        },
+        {
+          "uuid": "959e8e6a-5790-46ec-a45a-f0cfa04b6c86",
+          "nombre": "CRUZ AZUL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:49.534465+00"
+        }
+      ],
+      "42": [
+        {
+          "uuid": "1862dedf-95d1-4f56-8707-521f8cf4f23a",
+          "nombre": "REGALIAS Y DISCOS",
+          "uso_en_consumos": 50,
+          "creado": "2026-09-22 00:03:52.903989+00"
+        },
+        {
+          "uuid": "01a0c451-87f0-7133-821b-0b3a72aa0ec2",
+          "nombre": "REGALIAS Y DISCOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:54.858196+00"
+        }
+      ],
+      "52": [
+        {
+          "uuid": "01a0c451-87f1-71e1-999b-a08e126a6877",
+          "nombre": "TV DE PAGA ",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:55.052975+00"
+        },
+        {
+          "uuid": "44820d1d-3fd6-4132-a30f-af1c756088f4",
+          "nombre": "TV DE PAGA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:55.464503+00"
+        }
+      ],
+      "53": [
+        {
+          "uuid": "ab7f4764-7e58-41af-aca6-f97b65cfa975",
+          "nombre": "TV DE PAGA",
+          "uso_en_consumos": 4,
+          "creado": "2026-09-22 00:03:55.696133+00"
+        },
+        {
+          "uuid": "01a0c451-87f1-7b79-9b73-6e876743c7d1",
+          "nombre": "TV DE PAGA ",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:55.244072+00"
+        }
+      ],
+      "45": [
+        {
+          "uuid": "e246e86b-660e-46ac-bff4-f6288fa5ccda",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 6,
+          "creado": "2026-09-22 00:03:53.617564+00"
+        },
+        {
+          "uuid": "01a0c451-87f1-77fb-8862-46983a2a5eca",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:55.433943+00"
+        }
+      ],
+      "46": [
+        {
+          "uuid": "91a4d2ee-7636-4140-916f-95d3a65765ab",
+          "nombre": "LICENCIAS",
+          "uso_en_consumos": 17,
+          "creado": "2026-09-22 00:03:53.85682+00"
+        },
+        {
+          "uuid": "01a0c451-87f2-7270-b09b-58502ccab5bf",
+          "nombre": "LICENCIAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:55.635931+00"
+        }
+      ],
+      "55": [
+        {
+          "uuid": "01a0c451-87f2-74ff-87aa-e794a3b69c55",
+          "nombre": "VENTA CONTENIDO NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:55.832502+00"
+        },
+        {
+          "uuid": "3d4eac35-9e7d-47a0-b5f7-e321c6e3693f",
+          "nombre": "VENTA CONTENIDO NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:56.231656+00"
+        }
+      ],
+      "56": [
+        {
+          "uuid": "01a0c451-87f2-7b13-a000-fd9fc9b158b0",
+          "nombre": "VENTA SEÑAL NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:56.029126+00"
+        },
+        {
+          "uuid": "a2922a17-73cd-4bbb-8320-d188501941ab",
+          "nombre": "VENTA SEÑAL NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:56.477423+00"
+        }
+      ],
+      "57": [
+        {
+          "uuid": "fecf9982-d530-420e-889a-f61bd6ced6f3",
+          "nombre": "VENTA TV DE PAGA NACIONAL",
+          "uso_en_consumos": 3,
+          "creado": "2026-09-22 00:03:56.751338+00"
+        },
+        {
+          "uuid": "01a0c451-87f3-73d7-a75c-b6b281bdc9ee",
+          "nombre": "VENTA TV DE PAGA NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:56.216248+00"
+        }
+      ],
+      "58": [
+        {
+          "uuid": "01a0c451-87f3-7f79-935d-9a1f1f33c679",
+          "nombre": "VENTA DECOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:56.410681+00"
+        },
+        {
+          "uuid": "326786fb-ef35-4e28-96c3-475fac3640c4",
+          "nombre": "VENTA DECOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:57.00767+00"
+        }
+      ],
+      "60": [
+        {
+          "uuid": "ea79dfc1-f377-4711-a90c-1e5127e43559",
+          "nombre": "NACIONAL",
+          "uso_en_consumos": 365,
+          "creado": "2026-09-22 00:03:57.525018+00"
+        },
+        {
+          "uuid": "01a0c451-87f3-76eb-9ddf-06c6fd531da0",
+          "nombre": "NACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:56.602296+00"
+        }
+      ],
+      "61": [
+        {
+          "uuid": "310aff77-1685-449f-8956-2fb59c23c6a1",
+          "nombre": "GOBIERNO",
+          "uso_en_consumos": 192,
+          "creado": "2026-09-22 00:03:57.785397+00"
+        },
+        {
+          "uuid": "01a0c451-87f3-75a5-a2a0-210623a7da07",
+          "nombre": "GOBIERNO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:56.793111+00"
+        }
+      ],
+      "65": [
+        {
+          "uuid": "756dcac9-d2e6-4ee7-beb7-027d097565e5",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 15,
+          "creado": "2026-09-22 00:03:58.886553+00"
+        },
+        {
+          "uuid": "01a0c451-87f4-706e-8d3e-b1cf06ec25d8",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:56.97991+00"
+        }
+      ],
+      "68": [
+        {
+          "uuid": "01a0c451-87f4-7a54-a4fb-4b3172aa2980",
+          "nombre": "TOTAL PLAY",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:57.167634+00"
+        },
+        {
+          "uuid": "3d77dd6c-dbd3-4698-ab81-2609e9d2623b",
+          "nombre": "TOTAL PLAY",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:59.706468+00"
+        }
+      ],
+      "70": [
+        {
+          "uuid": "01a0c451-87f4-79a5-a8a6-6adefa515b4a",
+          "nombre": "INGRESOS PRODUCCION",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:57.355127+00"
+        },
+        {
+          "uuid": "8c17e664-3a1f-4540-b66b-bac0027a5561",
+          "nombre": "INGRESOS PRODUCCION",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:00.225354+00"
+        }
+      ],
+      "71": [
+        {
+          "uuid": "27c97c42-be05-4083-ae33-f88679b0234d",
+          "nombre": "VETIGO",
+          "uso_en_consumos": 18,
+          "creado": "2026-09-22 00:04:00.463892+00"
+        },
+        {
+          "uuid": "01a0c451-87f5-7393-a959-e03e3e6bcea5",
+          "nombre": "VETIGO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:57.550949+00"
+        }
+      ],
+      "83": [
+        {
+          "uuid": "363cbe98-4bef-435a-897b-f5d156cf96b0",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 314,
+          "creado": "2026-09-22 00:04:03.524827+00"
+        },
+        {
+          "uuid": "01a0c451-87f5-72e6-a871-e802d7d5202f",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:57.747765+00"
+        }
+      ],
+      "85": [
+        {
+          "uuid": "1c263bd7-2b4c-4d8d-9ec8-ec61365a5504",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 5,
+          "creado": "2026-09-22 00:04:04.044667+00"
+        },
+        {
+          "uuid": "01a0c451-87f5-776f-a22d-e653203e9527",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:57.954919+00"
+        }
+      ],
+      "62": [
+        {
+          "uuid": "7f485ca3-b795-49f1-a906-55bbf8422236",
+          "nombre": "PRODUCCIÓN COMERCIAL",
+          "uso_en_consumos": 105,
+          "creado": "2026-09-22 00:03:58.07143+00"
+        },
+        {
+          "uuid": "01a0c451-87f6-7426-b470-ce93410e240b",
+          "nombre": "PRODUCCION COMERCIAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:58.148489+00"
+        }
+      ],
+      "63": [
+        {
+          "uuid": "01a0c451-87f6-7d88-834d-690d20004e7f",
+          "nombre": "DIRVTAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:58.337167+00"
+        },
+        {
+          "uuid": "c76ee936-4fb3-49f2-b613-b7b3dd09b54c",
+          "nombre": "DIRVTAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:58.354608+00"
+        }
+      ],
+      "66": [
+        {
+          "uuid": "35a60359-6563-4617-bd8e-0d7add626adb",
+          "nombre": "STAFF",
+          "uso_en_consumos": 1,
+          "creado": "2026-09-22 00:03:59.154146+00"
+        },
+        {
+          "uuid": "01a0c451-87f6-73b1-9ab3-b0dd01ac5f88",
+          "nombre": "STAFF",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:58.530488+00"
+        }
+      ],
+      "67": [
+        {
+          "uuid": "694f40f6-0e3c-47b5-94c2-e514cf861923",
+          "nombre": "PRODUCCION",
+          "uso_en_consumos": 67,
+          "creado": "2026-09-22 00:03:59.443374+00"
+        },
+        {
+          "uuid": "01a0c451-87f6-7b27-b06c-af406995c78c",
+          "nombre": "PRODUCCION",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:58.748773+00"
+        }
+      ],
+      "73": [
+        {
+          "uuid": "01a0c451-87f7-79ce-87c3-dfad1847f023",
+          "nombre": "TORNEO DE LIGUILLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:58.933567+00"
+        },
+        {
+          "uuid": "9348f634-299a-4236-b27e-0d93a8b82ca9",
+          "nombre": "TORNEO DE LIGUILLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:00.955579+00"
+        }
+      ],
+      "74": [
+        {
+          "uuid": "01a0c451-87f7-7fed-a1fd-19142126e8f8",
+          "nombre": "TORNEO DE COPA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:59.123992+00"
+        },
+        {
+          "uuid": "ffe351f0-36cb-49d5-a309-b84555736e52",
+          "nombre": "TORNEO DE COPA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:01.204453+00"
+        }
+      ],
+      "75": [
+        {
+          "uuid": "01a0c451-87f7-750c-928e-5358d71fcec5",
+          "nombre": "ESTADIO MORELOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:59.312625+00"
+        },
+        {
+          "uuid": "f8f39f17-bac0-4c3c-ab67-28277fa2fc32",
+          "nombre": "ESTADIO MORELOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:01.453277+00"
+        }
+      ],
+      "76": [
+        {
+          "uuid": "01a0c451-87f8-7ede-b03d-2c8fa07ce5b5",
+          "nombre": "PARTIDOS AMISTOSOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:59.500141+00"
+        },
+        {
+          "uuid": "56901dc5-2f1e-47e7-8ea6-907308a068f9",
+          "nombre": "PARTIDOS AMISTOSOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:01.720514+00"
+        }
+      ],
+      "77": [
+        {
+          "uuid": "01a0c451-87f8-785b-90de-1b8f91f77448",
+          "nombre": "TORNEO DE LIGUILLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:59.694958+00"
+        },
+        {
+          "uuid": "68a2f003-45ac-485b-a7d6-54d7780f5725",
+          "nombre": "TORNEO DE LIGUILLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:01.979423+00"
+        }
+      ],
+      "78": [
+        {
+          "uuid": "01a0c451-87f8-72b4-8320-dc23c9c4f31b",
+          "nombre": "TORNEO DE COPA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:14:59.886237+00"
+        },
+        {
+          "uuid": "044b598e-bc35-4140-ae4b-8570aaad9800",
+          "nombre": "TORNEO DE COPA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:02.2446+00"
+        }
+      ],
+      "79": [
+        {
+          "uuid": "01a0c451-87f8-7514-9016-5001e2bdd3e2",
+          "nombre": "ESTADIO JALISCO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:00.100336+00"
+        },
+        {
+          "uuid": "fe5707d4-721c-4c0c-9ea6-675380d10031",
+          "nombre": "ESTADIO JALISCO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:02.494346+00"
+        }
+      ],
+      "80": [
+        {
+          "uuid": "01a0c451-87f9-7a43-8864-4ca513341c26",
+          "nombre": "PARTIDOS AMISTOSOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:00.310958+00"
+        },
+        {
+          "uuid": "77271a23-af8f-4c4c-abb8-3dc1bdb5cd74",
+          "nombre": "PARTIDOS AMISTOSOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:02.747194+00"
+        }
+      ],
+      "81": [
+        {
+          "uuid": "01a0c451-87f9-74c1-9312-9adbf11e1298",
+          "nombre": "ATLETICO MORELIA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:00.516024+00"
+        },
+        {
+          "uuid": "f29ad85d-3483-47c6-a70a-3040c55eca41",
+          "nombre": "ATLETICO MORELIA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:02.994435+00"
+        }
+      ],
+      "6670001400": [
+        {
+          "uuid": "01a0c451-87f9-7903-a8f9-9ecece1b40f8",
+          "nombre": "59",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:00.71285+00"
+        }
+      ],
+      "82": [
+        {
+          "uuid": "01a0c451-87fa-78b4-bf3f-fa9259a991d5",
+          "nombre": "ADMINISTRACION",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:00.903998+00"
+        },
+        {
+          "uuid": "7698b770-d273-44ff-9253-6f3186f3989f",
+          "nombre": "ADMINISTRACIÓN",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:03.242056+00"
+        }
+      ],
+      "7400001400": [
+        {
+          "uuid": "01a0c451-87fa-7e8d-8fc7-fc709ca4a71f",
+          "nombre": "59",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:01.097399+00"
+        }
+      ],
+      "84": [
+        {
+          "uuid": "0e8d8f9e-f93d-4b42-b2f2-6b32c3755097",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 43,
+          "creado": "2026-09-22 00:04:03.786095+00"
+        },
+        {
+          "uuid": "01a0c451-87fa-760b-b9de-c0d9d2ad3e03",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:01.306116+00"
+        }
+      ],
+      "59": [
+        {
+          "uuid": "4fd8f7ad-1f70-45c2-a7e8-5313b7e75893",
+          "nombre": "EDITORIAL MANDARINA",
+          "uso_en_consumos": 103,
+          "creado": "2026-09-22 00:03:57.266678+00"
+        },
+        {
+          "uuid": "01a0c451-87fb-7524-a126-337234df02dd",
+          "nombre": "EDITORIAL MANDARINA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:01.501547+00"
+        }
+      ],
+      "64": [
+        {
+          "uuid": "01a0c451-87fb-7b69-bbd6-40a5be02d88b",
+          "nombre": "CONTACT POINT",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:01.73307+00"
+        },
+        {
+          "uuid": "b8b4f822-5526-40e6-a7d7-a161832852b0",
+          "nombre": "CONTACT POINT",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:58.639268+00"
+        }
+      ],
+      "69": [
+        {
+          "uuid": "01a0c451-87fb-72d3-ba10-200d68215cf8",
+          "nombre": "VENTA SE�AL NACIONAL (TELEVISA)",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:01.936352+00"
+        },
+        {
+          "uuid": "2f88865f-5e74-43db-9536-23868dff5abc",
+          "nombre": "VENTA SEÑAL NACIONAL (TELEVISA)",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:03:59.960923+00"
+        }
+      ],
+      "72": [
+        {
+          "uuid": "7e02777e-75e0-4d49-b2fe-7747c2e418f8",
+          "nombre": "COMISIONES",
+          "uso_en_consumos": 175,
+          "creado": "2026-09-22 00:04:00.714234+00"
+        },
+        {
+          "uuid": "01a0c451-87fc-7017-ab32-bbc86ed7744b",
+          "nombre": "COMISIONES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:02.15934+00"
+        }
+      ],
+      "86": [
+        {
+          "uuid": "8bbdbec3-8c4a-4e51-b4c5-51fdce4aa089",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 20,
+          "creado": "2026-09-22 00:04:04.327892+00"
+        },
+        {
+          "uuid": "01a0c451-87fc-7f68-aa95-14903fe2eecb",
+          "nombre": "VARIABLE",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:02.348216+00"
+        }
+      ],
+      "87": [
+        {
+          "uuid": "8193991b-fc2b-4244-9ec9-23e83928b9fa",
+          "nombre": "VARIABLE GASTO",
+          "uso_en_consumos": 2526,
+          "creado": "2026-09-22 00:04:04.563567+00"
+        },
+        {
+          "uuid": "01a0c451-87fc-784d-962c-744b20d96ad3",
+          "nombre": "VARIABLE GASTO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:02.547241+00"
+        }
+      ],
+      "88": [
+        {
+          "uuid": "9b5dae3b-ef5b-47af-a687-7927e1c7fe67",
+          "nombre": "PROYECTO CINEMEX",
+          "uso_en_consumos": 84,
+          "creado": "2026-09-22 00:04:04.831535+00"
+        },
+        {
+          "uuid": "01a0c451-87fd-7f1f-a6cd-ee3a50fa2e4b",
+          "nombre": "PROYECTO CINEMEX",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:02.755514+00"
+        }
+      ],
+      "89": [
+        {
+          "uuid": "09cf2826-50eb-4c01-8d1a-b1cd3464efa5",
+          "nombre": "CLARO OLIMPIADAS",
+          "uso_en_consumos": 136,
+          "creado": "2026-09-22 00:04:05.115759+00"
+        },
+        {
+          "uuid": "01a0c451-87fd-764d-9e31-1c610da59eb9",
+          "nombre": "CLARO OLIMPIADAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:02.947614+00"
+        }
+      ],
+      "90": [
+        {
+          "uuid": "edab6fe6-6956-4644-9f16-995e7fadac67",
+          "nombre": "VARIABLE GASTO",
+          "uso_en_consumos": 123,
+          "creado": "2026-09-22 00:04:05.396922+00"
+        },
+        {
+          "uuid": "01a0c451-87fd-716f-a238-5571fd1fb4e4",
+          "nombre": "VARIABLE GASTO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:03.143761+00"
+        }
+      ],
+      "91": [
+        {
+          "uuid": "01a0c451-87fe-73aa-9e7f-80eed7ad75a3",
+          "nombre": "OPERACIONES Y SERVICIOS GOLF 2025",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 20:15:03.348785+00"
+        },
+        {
+          "uuid": "83813325-6437-4dc8-994c-98fae3c8f1cf",
+          "nombre": "OPERACIONES Y SERVICIOS GOLF 2025",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:04:05.672299+00"
+        }
+      ]
+    },
+    "art": {
+      "18": [
+        {
+          "uuid": "a4b357a8-5860-4611-aa10-ccd27594ef3e",
+          "nombre": "INGRESOS POR SERVICIOS",
+          "uso_en_consumos": 646,
+          "creado": "2026-09-22 00:00:05.551965+00"
+        }
+      ],
+      "19": [
+        {
+          "uuid": "884dd373-1235-4745-bb35-b3aef760eb1d",
+          "nombre": "EVENTOS",
+          "uso_en_consumos": 80,
+          "creado": "2026-09-22 00:00:05.807039+00"
+        }
+      ],
+      "1": [
+        {
+          "uuid": "acd318b2-a397-436a-b4ce-385b09d655c2",
+          "nombre": "PRODUCCIONES",
+          "uso_en_consumos": 12125,
+          "creado": "2026-09-22 00:00:01.207306+00"
+        }
+      ],
+      "2": [
+        {
+          "uuid": "3b0af6fe-0832-40e4-862f-697481ca5538",
+          "nombre": "OTROS INGRESOS",
+          "uso_en_consumos": 13921,
+          "creado": "2026-09-22 00:00:01.466326+00"
+        }
+      ],
+      "3": [
+        {
+          "uuid": "afffa7b4-c731-4f7e-b623-47182073009d",
+          "nombre": "CANCELACION DE INGRESOS GRUPO EDITORIAL DIEZ",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:01.715355+00"
+        }
+      ],
+      "4": [
+        {
+          "uuid": "44fa306e-3a52-4fe4-9760-1cff782de4d4",
+          "nombre": "RECUPERACION DE INGRESOS DE SERVICIO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:01.988501+00"
+        }
+      ],
+      "15": [
+        {
+          "uuid": "f3ff6f69-7be3-4861-9331-90657669f32e",
+          "nombre": "INGRESOS NACIONALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:04.773933+00"
+        }
+      ],
+      "14": [
+        {
+          "uuid": "6771c811-f112-4ec0-ac95-a8dee9474430",
+          "nombre": "INGRESOS POR MANAGEMENT",
+          "uso_en_consumos": 1697,
+          "creado": "2026-09-22 00:00:04.508013+00"
+        }
+      ],
+      "20": [
+        {
+          "uuid": "307d8d38-ec39-411f-901f-f5c6280c45b2",
+          "nombre": "VENTA DE TAQUILLA",
+          "uso_en_consumos": 47,
+          "creado": "2026-09-22 00:00:06.106804+00"
+        }
+      ],
+      "5": [
+        {
+          "uuid": "45242062-b39b-4ba9-81f8-01e6e64b36c2",
+          "nombre": "INGRESOS PUBLICIDAD (BANNERS)",
+          "uso_en_consumos": 411,
+          "creado": "2026-09-22 00:00:02.2304+00"
+        }
+      ],
+      "6": [
+        {
+          "uuid": "74de489e-fdb7-4441-ac1b-9e9a7fbad27e",
+          "nombre": "CONTENIDO Y SERVICIOS",
+          "uso_en_consumos": 311,
+          "creado": "2026-09-22 00:00:02.48472+00"
+        }
+      ],
+      "8": [
+        {
+          "uuid": "4f00e70a-a4ee-442b-8ebb-67b4bb294d91",
+          "nombre": "VENTA DE TAQUILLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:02.987666+00"
+        }
+      ],
+      "9": [
+        {
+          "uuid": "429392f6-a907-48e4-be3e-5800286bae7a",
+          "nombre": "ESQUILMOS Y ESTACIOAMIENTOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:03.244089+00"
+        }
+      ],
+      "10": [
+        {
+          "uuid": "20fdc804-7d10-4eac-bdcc-03d3679266a6",
+          "nombre": "PUBLICIDAD",
+          "uso_en_consumos": 48,
+          "creado": "2026-09-22 00:00:03.495931+00"
+        }
+      ],
+      "11": [
+        {
+          "uuid": "c4a5af7f-1152-4fc7-90ed-ee6e69a32843",
+          "nombre": "DERECHOS DE TRANSMISIÓN",
+          "uso_en_consumos": 4,
+          "creado": "2026-09-22 00:00:03.742796+00"
+        }
+      ],
+      "12": [
+        {
+          "uuid": "e3cc3833-1023-482f-99b3-6bf3013fda77",
+          "nombre": "VENTA Y RENTA DE JUGADORES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:04.010576+00"
+        }
+      ],
+      "13": [
+        {
+          "uuid": "14dadcdb-47a5-43bd-867c-c779f5ec085e",
+          "nombre": "INGRESOS ESCUELA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:04.267099+00"
+        }
+      ],
+      "7": [
+        {
+          "uuid": "68d1df15-4900-4a53-b8f5-fdb303357076",
+          "nombre": "INGRESOS EN EL EXTRANJERO",
+          "uso_en_consumos": 4040,
+          "creado": "2026-09-22 00:00:02.729845+00"
+        }
+      ],
+      "16": [
+        {
+          "uuid": "58ea8a09-cf17-4c46-9a80-62ed05221b92",
+          "nombre": "DERECHOS REGALIAS",
+          "uso_en_consumos": 40,
+          "creado": "2026-09-22 00:00:05.035157+00"
+        }
+      ],
+      "17": [
+        {
+          "uuid": "1d8d9ee9-f1d2-4488-84c1-9c9befbe4a35",
+          "nombre": "PRODUCCIONES",
+          "uso_en_consumos": 8,
+          "creado": "2026-09-22 00:00:05.294462+00"
+        }
+      ],
+      "21": [
+        {
+          "uuid": "53718e5b-0aa3-4865-a2dd-2571cf039fbf",
+          "nombre": "DERECHOS DISTRIBUCION DE SEÑAL",
+          "uso_en_consumos": 4935,
+          "creado": "2026-09-22 00:00:06.348735+00"
+        }
+      ],
+      "22": [
+        {
+          "uuid": "bd02e67c-ae9e-436e-aa3d-0e7b187c295c",
+          "nombre": "DERECHOS DE EXHIBICION",
+          "uso_en_consumos": 387,
+          "creado": "2026-09-22 00:00:06.589554+00"
+        }
+      ],
+      "31": [
+        {
+          "uuid": "d48afa84-7f44-4572-b04e-9992bddab73f",
+          "nombre": "PUBLICIDAD INTERNET",
+          "uso_en_consumos": 10635,
+          "creado": "2026-09-22 00:00:08.982475+00"
+        }
+      ],
+      "23": [
+        {
+          "uuid": "c1d3203d-43c6-468f-93b8-aea779282f9d",
+          "nombre": "DERECHOS DE TRANSMISION POR EXPORTACION",
+          "uso_en_consumos": 3,
+          "creado": "2026-09-22 00:00:06.908604+00"
+        }
+      ],
+      "24": [
+        {
+          "uuid": "4ecaff46-61fd-40f3-be3e-f721f9ef176d",
+          "nombre": "DERECHOS DE DISTRIBUCIÓN DE SEÑAL POR EXPORTACIÓN",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:07.157258+00"
+        }
+      ],
+      "32": [
+        {
+          "uuid": "4b1351b9-e4be-4388-b1ff-6c817353e00a",
+          "nombre": "OTROS INGRESOS GASTO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:09.223845+00"
+        }
+      ],
+      "25": [
+        {
+          "uuid": "a6e9a574-b2ec-4033-b41b-7b1b1ffcaea0",
+          "nombre": "ANTICIPO DE CLIENTES CORTO PLAZO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:07.45049+00"
+        }
+      ],
+      "26": [
+        {
+          "uuid": "7c1ceb2f-c4ff-4605-9edb-15b13ee8053a",
+          "nombre": "VENTA DE ACTIVO FIJO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:07.698554+00"
+        }
+      ],
+      "27": [
+        {
+          "uuid": "4c93e3fd-4108-423b-a2ed-8a3b0c68a2b9",
+          "nombre": "INTERESES GANADOS PRESTAMOS  A TERCEROS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:07.954383+00"
+        }
+      ],
+      "28": [
+        {
+          "uuid": "b094d5a3-4bf2-45aa-a0e1-5f1728d912e7",
+          "nombre": "INGRESOS POR SERVICIOS PRESTADOS FILIALES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:08.225922+00"
+        }
+      ],
+      "29": [
+        {
+          "uuid": "61c5e31b-f02e-4c5c-8d3b-a4b700355921",
+          "nombre": "FACTURACIÓN ANTICIPADA C.P.",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-22 00:00:08.472504+00"
+        }
+      ],
+      "30": [
+        {
+          "uuid": "34d84536-0300-4d19-8820-0dab8a441e40",
+          "nombre": "PRODUCCIONES GASTO",
+          "uso_en_consumos": 109,
+          "creado": "2026-09-22 00:00:08.717351+00"
+        }
+      ],
+      "33": [
+        {
+          "uuid": "0736325c-ee8e-4b9e-b1ec-8434b399d19c",
+          "nombre": "PUBLICIDAD LIGUILLA",
+          "uso_en_consumos": 20,
+          "creado": "2026-09-22 00:00:09.471265+00"
+        }
+      ]
+    },
+    "sales_type": {
+      "45": [
+        {
+          "uuid": "01a0c43a-8181-73ff-b74a-8732c5c23c33",
+          "nombre": "INTERACTIVIDAD EXTERNA",
+          "uso_en_consumos": 1189,
+          "creado": "2026-09-21 19:50:06.328818"
+        }
+      ],
+      "47": [
+        {
+          "uuid": "01a0c43a-8181-7c63-8ac1-ed8bc6623c8d",
+          "nombre": "CONTENTV",
+          "uso_en_consumos": 450,
+          "creado": "2026-09-21 19:50:06.554642"
+        }
+      ],
+      "52": [
+        {
+          "uuid": "01a0c43a-8182-7510-9776-9be1143cbb6f",
+          "nombre": "RENTA CAMPO DE GOLF",
+          "uso_en_consumos": 553,
+          "creado": "2026-09-21 19:50:06.769881"
+        }
+      ],
+      "53": [
+        {
+          "uuid": "01a0c43a-8182-779b-b08b-f94b49e56a8b",
+          "nombre": "RENTA EQUIPO DE GOLF",
+          "uso_en_consumos": 64,
+          "creado": "2026-09-21 19:50:06.959221"
+        }
+      ],
+      "54": [
+        {
+          "uuid": "01a0c43a-8182-74bf-acc4-5bcc0dcb1dbf",
+          "nombre": "CAFETERIA",
+          "uso_en_consumos": 29,
+          "creado": "2026-09-21 19:50:07.159945"
+        }
+      ],
+      "55": [
+        {
+          "uuid": "01a0c43a-8183-77f5-93e2-54c02d16b2ae",
+          "nombre": "TAQUILLA",
+          "uso_en_consumos": 43,
+          "creado": "2026-09-21 19:50:07.351852"
+        }
+      ],
+      "56": [
+        {
+          "uuid": "01a0c43a-8183-764d-b084-93b411b6c14c",
+          "nombre": "PATROCINIOS",
+          "uso_en_consumos": 8,
+          "creado": "2026-09-21 19:50:07.545992"
+        }
+      ],
+      "57": [
+        {
+          "uuid": "01a0c43a-8183-7137-a905-bbcbdf8a5635",
+          "nombre": "BOOKING",
+          "uso_en_consumos": 25,
+          "creado": "2026-09-21 19:50:07.756149"
+        }
+      ],
+      "58": [
+        {
+          "uuid": "01a0c43a-8184-7a93-8e88-7692d2df2fcf",
+          "nombre": "ESQUILMOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:07.945223"
+        }
+      ],
+      "59": [
+        {
+          "uuid": "01a0c43a-8184-71e1-a0ea-0eaa56c2492e",
+          "nombre": "STANS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:08.152812"
+        }
+      ],
+      "60": [
+        {
+          "uuid": "01a0c43a-8184-73f2-bcba-a0948ba0c911",
+          "nombre": "ESTATICA ESTADIO",
+          "uso_en_consumos": 24,
+          "creado": "2026-09-21 19:50:08.370544"
+        }
+      ],
+      "42": [
+        {
+          "uuid": "01a0c43a-8185-71f5-be35-e59b6e7cd53b",
+          "nombre": "PROMOESPACIOS",
+          "uso_en_consumos": 638,
+          "creado": "2026-09-21 19:50:08.581625"
+        }
+      ],
+      "43": [
+        {
+          "uuid": "01a0c43a-8185-7349-a4b8-50302c03d3a0",
+          "nombre": "VERTIGO",
+          "uso_en_consumos": 101,
+          "creado": "2026-09-21 19:50:08.781814"
+        }
+      ],
+      "62": [
+        {
+          "uuid": "01a0c43a-8185-70d6-9423-b7ba10075f20",
+          "nombre": "GOBIERNO AGENCIA",
+          "uso_en_consumos": 81,
+          "creado": "2026-09-21 19:50:08.978014"
+        }
+      ],
+      "65": [
+        {
+          "uuid": "01a0c43a-8186-7d1d-afa5-196e28c2840e",
+          "nombre": "EVENTOS",
+          "uso_en_consumos": 63,
+          "creado": "2026-09-21 19:50:09.173745"
+        }
+      ],
+      "1": [
+        {
+          "uuid": "01a0c43a-8186-76c4-a873-fcdba9986063",
+          "nombre": "CONTENIDO / FABRICA",
+          "uso_en_consumos": 12284,
+          "creado": "2026-09-21 19:50:09.372162"
+        },
+        {
+          "uuid": "019cdf46-8e08-7cc9-aba6-4fa2cf30e063",
+          "nombre": "PAQUETE",
+          "uso_en_consumos": 0,
+          "creado": "2026-05-25 18:35:37.555"
+        }
+      ],
+      "2": [
+        {
+          "uuid": "01a0c43a-8186-79cb-833d-8b267f736d9d",
+          "nombre": "CONTENIDO DIGITAL",
+          "uso_en_consumos": 757,
+          "creado": "2026-09-21 19:50:09.568298"
+        },
+        {
+          "uuid": "019cdf46-8e08-7cc9-aba6-4fa3cf30e063",
+          "nombre": "UNITARIO",
+          "uso_en_consumos": 0,
+          "creado": "2026-05-25 18:35:37.555"
+        }
+      ],
+      "3": [
+        {
+          "uuid": "01a0c43a-8186-79a9-a371-130cf24769dc",
+          "nombre": "IRREVERENTV",
+          "uso_en_consumos": 142,
+          "creado": "2026-09-21 19:50:09.769481"
+        }
+      ],
+      "4": [
+        {
+          "uuid": "01a0c43a-8187-7cdf-b7b3-8afeafe64b76",
+          "nombre": "INTERACTIVIDAD INTERNA",
+          "uso_en_consumos": 262,
+          "creado": "2026-09-21 19:50:09.975704"
+        }
+      ],
+      "5": [
+        {
+          "uuid": "01a0c43a-8187-7dc9-8916-8592449662ac",
+          "nombre": "VENTAS DE SENAL NACIONAL",
+          "uso_en_consumos": 9716,
+          "creado": "2026-09-21 19:50:10.177986"
+        }
+      ],
+      "6": [
+        {
+          "uuid": "01a0c43a-8187-720c-a74c-08cbfb1a9e76",
+          "nombre": "NOVELARTS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:10.377161"
+        }
+      ],
+      "7": [
+        {
+          "uuid": "01a0c43a-8187-7aa2-b264-d8698a784ae7",
+          "nombre": "VENTAS AL EXTRANJERO",
+          "uso_en_consumos": 5499,
+          "creado": "2026-09-21 19:50:10.58511"
+        }
+      ],
+      "8": [
+        {
+          "uuid": "01a0c43a-8188-78a5-b971-60939b8d2fea",
+          "nombre": "MEDIOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:10.789311"
+        }
+      ],
+      "9": [
+        {
+          "uuid": "01a0c43a-8188-7f2b-92ef-b8d8e1d0d8dc",
+          "nombre": "REDES SOCIALES",
+          "uso_en_consumos": 10,
+          "creado": "2026-09-21 19:50:11.002242"
+        }
+      ],
+      "10": [
+        {
+          "uuid": "01a0c43a-8188-75ee-837a-945d2376f561",
+          "nombre": "ESTRATEGIAS",
+          "uso_en_consumos": 6,
+          "creado": "2026-09-21 19:50:11.20648"
+        }
+      ],
+      "11": [
+        {
+          "uuid": "01a0c43a-8188-721f-8f62-a0ed84007200",
+          "nombre": "PRODUCCION PI",
+          "uso_en_consumos": 4315,
+          "creado": "2026-09-21 19:50:11.412329"
+        }
+      ],
+      "12": [
+        {
+          "uuid": "01a0c43a-8189-71b7-ae16-a31f3b411ea9",
+          "nombre": "VIRTUALES",
+          "uso_en_consumos": 4251,
+          "creado": "2026-09-21 19:50:11.6222"
+        }
+      ],
+      "13": [
+        {
+          "uuid": "01a0c43a-8189-74e1-ad88-5eb9e57845bb",
+          "nombre": "PROMOCIONES",
+          "uso_en_consumos": 2224,
+          "creado": "2026-09-21 19:50:11.829145"
+        }
+      ],
+      "14": [
+        {
+          "uuid": "01a0c43a-8189-794b-9cac-de8e016db6c0",
+          "nombre": "STARSYSTEM",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:12.030067"
+        }
+      ],
+      "15": [
+        {
+          "uuid": "01a0c43a-8189-78e5-9ac3-bfe232c67a16",
+          "nombre": "CONTROL EDITORIAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:12.222402"
+        }
+      ],
+      "16": [
+        {
+          "uuid": "01a0c43a-8189-78fe-a052-26cad0045dfd",
+          "nombre": "VENTA DE CONCIERTOS",
+          "uso_en_consumos": 11,
+          "creado": "2026-09-21 19:50:12.417602"
+        }
+      ],
+      "17": [
+        {
+          "uuid": "01a0c43a-818a-78a5-95e3-2c19cdc87c21",
+          "nombre": "TAQUILLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:12.611454"
+        }
+      ],
+      "18": [
+        {
+          "uuid": "01a0c43a-818a-78c4-ba7c-352b3b29aa53",
+          "nombre": "INGRESO ESTADIO (TAQUILLA)",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:12.821139"
+        }
+      ],
+      "19": [
+        {
+          "uuid": "01a0c43a-818a-7cd9-8dad-698052ca2df7",
+          "nombre": "VENDIMIA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:13.035387"
+        }
+      ],
+      "20": [
+        {
+          "uuid": "01a0c43a-818a-7ad6-83bc-18f20c590291",
+          "nombre": "PUBLICIDAD Y EXCLUSIVAS",
+          "uso_en_consumos": 68,
+          "creado": "2026-09-21 19:50:13.229899"
+        }
+      ],
+      "21": [
+        {
+          "uuid": "01a0c43a-818b-73aa-861c-a90f2066afd4",
+          "nombre": "DERECHOS DE TRANSMISION",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:13.432935"
+        }
+      ],
+      "22": [
+        {
+          "uuid": "01a0c43a-818b-7635-a213-e14bff965026",
+          "nombre": "INGRESO GOBIERNO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:13.623916"
+        }
+      ],
+      "23": [
+        {
+          "uuid": "01a0c43a-818b-75e1-80b2-8c73c16f7ad1",
+          "nombre": "INGRESO FMF",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:13.822844"
+        }
+      ],
+      "24": [
+        {
+          "uuid": "01a0c43a-818c-7e46-8bc0-756358f8254d",
+          "nombre": "VENTA DE JUGADORES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:14.019918"
+        }
+      ],
+      "25": [
+        {
+          "uuid": "01a0c43a-818c-7f0c-822e-c903a35a9bd9",
+          "nombre": "INGRESOS DE ESCUELA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:14.218229"
+        }
+      ],
+      "26": [
+        {
+          "uuid": "01a0c43a-818c-73e2-bd5a-6dd29271b74b",
+          "nombre": "JAGUARES",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:14.419949"
+        }
+      ],
+      "27": [
+        {
+          "uuid": "01a0c43a-818c-79e6-8a83-2a8f0ca39919",
+          "nombre": "SANTOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:14.61215"
+        }
+      ],
+      "28": [
+        {
+          "uuid": "01a0c43a-818d-716a-8127-c98818a81096",
+          "nombre": "TIJUANA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:14.815617"
+        }
+      ],
+      "29": [
+        {
+          "uuid": "01a0c43a-818d-7493-ab5c-6a0105942ff2",
+          "nombre": "PUEBLA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:15.017604"
+        }
+      ],
+      "30": [
+        {
+          "uuid": "01a0c43a-818d-742c-ba41-a52c9965ebd7",
+          "nombre": "PACHUCA",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:15.214728"
+        }
+      ],
+      "31": [
+        {
+          "uuid": "01a0c43a-818e-70d1-93e3-ed6e9ab88b1c",
+          "nombre": "MONARCAS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:15.412055"
+        }
+      ],
+      "32": [
+        {
+          "uuid": "01a0c43a-8483-77b8-87f1-d8d0a1f9a3a1",
+          "nombre": "CRUZ AZUL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:15.606312"
+        }
+      ],
+      "33": [
+        {
+          "uuid": "01a0c43a-8483-74f3-baee-6c81e1a8481e",
+          "nombre": "GOBIERNO",
+          "uso_en_consumos": 250,
+          "creado": "2026-09-21 19:50:15.802619"
+        }
+      ],
+      "34": [
+        {
+          "uuid": "01a0c43a-8483-7067-9a69-0c5722e759c9",
+          "nombre": "VENTA DE SHOWS",
+          "uso_en_consumos": 16,
+          "creado": "2026-09-21 19:50:15.993616"
+        }
+      ],
+      "35": [
+        {
+          "uuid": "01a0c43a-8484-70ba-8aba-4c35b615e2f9",
+          "nombre": "REGALIAS CONCIERTOS",
+          "uso_en_consumos": 3,
+          "creado": "2026-09-21 19:50:16.187643"
+        }
+      ],
+      "36": [
+        {
+          "uuid": "01a0c43a-8484-7d9a-ae68-07d6bf411d09",
+          "nombre": "DIVERSOS CONCIERTOS",
+          "uso_en_consumos": 2,
+          "creado": "2026-09-21 19:50:16.380542"
+        }
+      ],
+      "37": [
+        {
+          "uuid": "01a0c43a-8484-7d3f-8214-66a2d520a287",
+          "nombre": "PATROCINIOS",
+          "uso_en_consumos": 1661,
+          "creado": "2026-09-21 19:50:16.572287"
+        }
+      ],
+      "38": [
+        {
+          "uuid": "01a0c43a-8484-74ee-84c0-ff73752e1608",
+          "nombre": "DIVERSOS PATROCINIOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:16.762579"
+        }
+      ],
+      "39": [
+        {
+          "uuid": "01a0c43a-8485-7663-9dcb-c2c91e947258",
+          "nombre": "DESARROLLOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:16.956694"
+        }
+      ],
+      "40": [
+        {
+          "uuid": "01a0c43a-8485-700b-8566-4d6224fed355",
+          "nombre": "REGALIAS DESARROLLOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:17.167642"
+        }
+      ],
+      "41": [
+        {
+          "uuid": "01a0c43a-8485-7ac8-bd51-8ef97c085156",
+          "nombre": "DIVERSOS DESALLORROS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:17.378704"
+        }
+      ],
+      "61": [
+        {
+          "uuid": "01a0c43a-8485-70a4-a969-115b19721e5e",
+          "nombre": "OTROS",
+          "uso_en_consumos": 346,
+          "creado": "2026-09-21 19:50:17.575831"
+        }
+      ],
+      "44": [
+        {
+          "uuid": "01a0c43a-8486-7d85-ac48-a666d3459a7f",
+          "nombre": "REGALIAS VE",
+          "uso_en_consumos": 50,
+          "creado": "2026-09-21 19:50:17.792069"
+        }
+      ],
+      "46": [
+        {
+          "uuid": "01a0c43a-8486-7e43-b204-2905df9ddf5b",
+          "nombre": "REVISTA CENTRAL",
+          "uso_en_consumos": 283,
+          "creado": "2026-09-21 19:50:17.986005"
+        }
+      ],
+      "63": [
+        {
+          "uuid": "01a0c43a-8486-7b86-bf2f-867dad9e8c3f",
+          "nombre": "SEÑAL INTERNACIONAL",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:18.177599"
+        }
+      ],
+      "64": [
+        {
+          "uuid": "01a0c43a-8486-7b01-8f4e-fcb6e68de9fb",
+          "nombre": "PUBLICIDAD",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:18.369786"
+        }
+      ],
+      "48": [
+        {
+          "uuid": "01a0c43a-8487-74eb-9e6f-6e406aa58009",
+          "nombre": "CONSIGNACION",
+          "uso_en_consumos": 4,
+          "creado": "2026-09-21 19:50:18.563972"
+        }
+      ],
+      "49": [
+        {
+          "uuid": "01a0c43a-8487-77f7-800f-cc29715c6324",
+          "nombre": "INTERCAMBIO",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:18.756288"
+        }
+      ],
+      "50": [
+        {
+          "uuid": "01a0c43a-8487-7a95-b2b7-0eb64a735b1b",
+          "nombre": "DIRECTO",
+          "uso_en_consumos": 13,
+          "creado": "2026-09-21 19:50:18.959751"
+        }
+      ],
+      "51": [
+        {
+          "uuid": "01a0c43a-8487-712c-b1d8-75fac8530496",
+          "nombre": "COMPLEMENTARIOS",
+          "uso_en_consumos": 402,
+          "creado": "2026-09-21 19:50:19.156326"
+        }
+      ],
+      "68": [
+        {
+          "uuid": "01a0c43a-8488-736d-9df8-05326d68d986",
+          "nombre": "COMPLEMENT TORNEO GOLF",
+          "uso_en_consumos": 13,
+          "creado": "2026-09-21 19:50:19.359965"
+        }
+      ],
+      "69": [
+        {
+          "uuid": "01a0c43a-8488-719a-beda-0ccf5946c4f7",
+          "nombre": "TORNEO DE GOLF WGC",
+          "uso_en_consumos": 235,
+          "creado": "2026-09-21 19:50:19.577672"
+        }
+      ],
+      "70": [
+        {
+          "uuid": "01a0c43a-8488-741d-a22f-0be309a44b6d",
+          "nombre": "TOTAL PLAY",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:19.766748"
+        }
+      ],
+      "66": [
+        {
+          "uuid": "01a0c43a-8488-76c0-bb22-65ce01ee5afd",
+          "nombre": "SERVICIOS DE PRODUCCION",
+          "uso_en_consumos": 106,
+          "creado": "2026-09-21 19:50:19.970971"
+        }
+      ],
+      "72": [
+        {
+          "uuid": "01a0c43a-8489-72da-b910-dfb12ca1760c",
+          "nombre": "OTROS INGRESOS",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:20.157808"
+        }
+      ],
+      "73": [
+        {
+          "uuid": "01a0c43a-8489-7ca2-ad08-3ec96b1c19ce",
+          "nombre": "ACTIVACIONES",
+          "uso_en_consumos": 2,
+          "creado": "2026-09-21 19:50:20.348489"
+        }
+      ],
+      "74": [
+        {
+          "uuid": "01a0c43a-8489-793a-9bee-bfd642412552",
+          "nombre": "PUBLICIDAD BTL",
+          "uso_en_consumos": 42,
+          "creado": "2026-09-21 19:50:20.564705"
+        }
+      ],
+      "75": [
+        {
+          "uuid": "01a0c43a-8489-7149-8985-5debc2587a48",
+          "nombre": "PRODUCCIONES",
+          "uso_en_consumos": 54,
+          "creado": "2026-09-21 19:50:20.758854"
+        }
+      ],
+      "77": [
+        {
+          "uuid": "01a0c43a-848a-73c7-bb84-8ee89a658817",
+          "nombre": "OTROS SERVICIOS",
+          "uso_en_consumos": 48,
+          "creado": "2026-09-21 19:50:20.955976"
+        }
+      ],
+      "67": [
+        {
+          "uuid": "01a0c43a-848a-71dc-8ca8-cf77a3d5acea",
+          "nombre": "UPAX",
+          "uso_en_consumos": 0,
+          "creado": "2026-09-21 19:50:21.16175"
+        }
+      ],
+      "71": [
+        {
+          "uuid": "01a0c43a-848a-77a8-b670-b24608feb909",
+          "nombre": "SERVICIOS DIVERSOS",
+          "uso_en_consumos": 174,
+          "creado": "2026-09-21 19:50:21.352835"
+        }
+      ],
+      "76": [
+        {
+          "uuid": "01a0c43a-848a-7442-981c-45404ea47f3d",
+          "nombre": "CONTENIDO DIGITAL-ADN40",
+          "uso_en_consumos": 81,
+          "creado": "2026-09-21 19:50:21.548388"
+        }
+      ],
+      "78": [
+        {
+          "uuid": "01a0c43a-848b-731a-a61c-a9f77143d346",
+          "nombre": "SERVICIOS NO AIRE",
+          "uso_en_consumos": 2869,
+          "creado": "2026-09-21 19:50:21.743976"
+        }
+      ]
+    },
+    "sd": {
+      "1": {
+        "nombre": "N/A",
+        "candidatos": [
+          {
+            "uuid": "da813a40-b034-4365-9765-6fd360b3a1f2",
+            "nombre": "N/A",
+            "uso_en_consumos": 18957,
+            "creado": "2026-09-22 00:01:26.430261+00"
+          }
+        ]
+      },
+      "2": {
+        "nombre": "NOTICIAS",
+        "candidatos": [
+          {
+            "uuid": "a11662cd-61eb-49b6-b496-cd3f18bb7d11",
+            "nombre": "NOTICIAS",
+            "uso_en_consumos": 11,
+            "creado": "2026-09-22 00:01:26.722472+00"
+          }
+        ]
+      },
+      "3": {
+        "nombre": "ESPECTACULOS",
+        "candidatos": [
+          {
+            "uuid": "03a4affb-9190-4852-9675-40fbc554dfa2",
+            "nombre": "ESPECTACULOS",
+            "uso_en_consumos": 3,
+            "creado": "2026-09-22 00:01:26.986642+00"
+          }
+        ]
+      },
+      "4": {
+        "nombre": "ENTRETENIMIENTO",
+        "candidatos": [
+          {
+            "uuid": "73ce0c7b-d0c7-4c96-a9f8-19824b4d82cd",
+            "nombre": "ENTRETENIMIENTO",
+            "uso_en_consumos": 2,
+            "creado": "2026-09-22 00:01:27.249007+00"
+          }
+        ]
+      },
+      "5": {
+        "nombre": "DEPORTES",
+        "candidatos": [
+          {
+            "uuid": "15216ac6-cdb9-4226-9e3e-aa4d5df3af0b",
+            "nombre": "DEPORTES",
+            "uso_en_consumos": 3,
+            "creado": "2026-09-22 00:01:27.546653+00"
+          }
+        ]
+      },
+      "6": {
+        "nombre": "TELENOVELAS",
+        "candidatos": [
+          {
+            "uuid": "5b5596e5-6609-4b98-befc-c842ffe2341c",
+            "nombre": "TELENOVELAS",
+            "uso_en_consumos": 1,
+            "creado": "2026-09-22 00:01:27.822263+00"
+          }
+        ]
+      },
+      "7": {
+        "nombre": "COMPRADOS",
+        "candidatos": [
+          {
+            "uuid": "22e620f3-c7b7-4c40-b8ce-78f31d4d83c9",
+            "nombre": "COMPRADOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:28.084943+00"
+          }
+        ]
+      },
+      "8": {
+        "nombre": "OTROS",
+        "candidatos": [
+          {
+            "uuid": "308214fa-c856-48bf-934e-d3d9c9111ae4",
+            "nombre": "OTROS",
+            "uso_en_consumos": 15129,
+            "creado": "2026-09-22 00:01:28.342413+00"
+          }
+        ]
+      },
+      "9": {
+        "nombre": "BARRA POLITICA",
+        "candidatos": [
+          {
+            "uuid": "48e44e03-3ebc-4cb3-a073-25105a8643c0",
+            "nombre": "BARRA POLITICA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:28.630983+00"
+          }
+        ]
+      },
+      "10": {
+        "nombre": "FUTBOL",
+        "candidatos": [
+          {
+            "uuid": "b19f1c7d-622a-4b95-952c-103a0a679e51",
+            "nombre": "FUTBOL",
+            "uso_en_consumos": 2,
+            "creado": "2026-09-22 00:01:28.897052+00"
+          }
+        ]
+      },
+      "11": {
+        "nombre": "INFOMERCIALES",
+        "candidatos": [
+          {
+            "uuid": "162b4b19-ac46-4e79-b3e6-5166d5046651",
+            "nombre": "INFOMERCIALES",
+            "uso_en_consumos": 1,
+            "creado": "2026-09-22 00:01:29.17209+00"
+          }
+        ]
+      },
+      "12": {
+        "nombre": "BOX",
+        "candidatos": [
+          {
+            "uuid": "a1e3f975-fd0b-4dca-9dfa-f0ba002ea1c5",
+            "nombre": "BOX",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:29.423881+00"
+          }
+        ]
+      },
+      "13": {
+        "nombre": "SELECCION NACIONAL",
+        "candidatos": [
+          {
+            "uuid": "43d2d7df-c2aa-4cee-b3d3-af421a1dbc5a",
+            "nombre": "SELECCION NACIONAL",
+            "uso_en_consumos": 1,
+            "creado": "2026-09-22 00:01:29.680007+00"
+          }
+        ]
+      },
+      "14": {
+        "nombre": "SEÑALES",
+        "candidatos": [
+          {
+            "uuid": "80546ae1-abde-45f5-857b-8f01694c04db",
+            "nombre": "SEÑALES",
+            "uso_en_consumos": 14105,
+            "creado": "2026-09-22 00:01:29.950481+00"
+          }
+        ]
+      },
+      "15": {
+        "nombre": "PROGRAMAS",
+        "candidatos": [
+          {
+            "uuid": "7c7d016e-821b-497e-b7a1-3ca4130ee44e",
+            "nombre": "PROGRAMAS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:30.262919+00"
+          }
+        ]
+      },
+      "16": {
+        "nombre": "LIGUILLA MX",
+        "candidatos": [
+          {
+            "uuid": "0c899505-2c7f-4bea-979f-22a44dec80a9",
+            "nombre": "LIGUILLA MX",
+            "uso_en_consumos": 48,
+            "creado": "2026-09-22 00:01:30.511295+00"
+          }
+        ]
+      },
+      "17": {
+        "nombre": "TORNEO INTERNACIONAL",
+        "candidatos": [
+          {
+            "uuid": "15514c66-a5f3-45b7-9216-3ae97c8cb977",
+            "nombre": "TORNEO INTERNACIONAL",
+            "uso_en_consumos": 3,
+            "creado": "2026-09-22 00:01:30.782618+00"
+          }
+        ]
+      },
+      "18": {
+        "nombre": "DERECHOS DE EXHIBICION",
+        "candidatos": [
+          {
+            "uuid": "653988ae-9ba2-43b9-abaf-f49b7851b2b3",
+            "nombre": "DERECHOS DE EXHIBICION",
+            "uso_en_consumos": 700,
+            "creado": "2026-09-22 00:01:31.046364+00"
+          }
+        ]
+      },
+      "19": {
+        "nombre": "REGALIAS",
+        "candidatos": [
+          {
+            "uuid": "55b5c3cb-456a-45d6-b4f5-78af5a03a405",
+            "nombre": "REGALIAS",
+            "uso_en_consumos": 11,
+            "creado": "2026-09-22 00:01:31.287166+00"
+          }
+        ]
+      },
+      "21": {
+        "nombre": "DECODIFICADORES",
+        "candidatos": [
+          {
+            "uuid": "475aced8-1e01-4255-9c14-d87d5cde63d3",
+            "nombre": "DECODIFICADORES",
+            "uso_en_consumos": 392,
+            "creado": "2026-09-22 00:01:31.819389+00"
+          }
+        ]
+      },
+      "20": {
+        "nombre": "PUBLICIDAD",
+        "candidatos": [
+          {
+            "uuid": "a8501a6d-5382-4e87-9463-d8dbfd1a0aa9",
+            "nombre": "PUBLICIDAD",
+            "uso_en_consumos": 7,
+            "creado": "2026-09-22 00:01:31.561504+00"
+          }
+        ]
+      },
+      "22": {
+        "nombre": "LATINOAMERICA",
+        "candidatos": [
+          {
+            "uuid": "75e2bbc4-14c9-4202-9369-086355aa9ceb",
+            "nombre": "LATINOAMERICA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:32.14461+00"
+          }
+        ]
+      },
+      "23": {
+        "nombre": "TAQUILLA",
+        "candidatos": [
+          {
+            "uuid": "7d01a808-185b-4365-be51-afb84d05045e",
+            "nombre": "TAQUILLA",
+            "uso_en_consumos": 4,
+            "creado": "2026-09-22 00:01:32.385408+00"
+          }
+        ]
+      },
+      "24": {
+        "nombre": "PRODUCCION",
+        "candidatos": [
+          {
+            "uuid": "7c5795c4-3fbb-47e7-8cbf-433b75bb4e63",
+            "nombre": "PRODUCCION",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:32.651058+00"
+          }
+        ]
+      },
+      "25": {
+        "nombre": "COPA MX",
+        "candidatos": [
+          {
+            "uuid": "c1ff5924-4cb9-463e-bd79-2787f52f5ffd",
+            "nombre": "COPA MX",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:32.893063+00"
+          }
+        ]
+      },
+      "26": {
+        "nombre": "BOLETAJE POR PARTIDO Y POR ZONA",
+        "candidatos": [
+          {
+            "uuid": "000b1257-bcfc-407b-a866-224b3086f26c",
+            "nombre": "BOLETAJE POR PARTIDO Y POR ZONA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:33.126911+00"
+          }
+        ]
+      },
+      "27": {
+        "nombre": "PARTIDOS AMISTOSOS",
+        "candidatos": [
+          {
+            "uuid": "a3f69ce0-36a5-4348-a918-2a32d1593536",
+            "nombre": "PARTIDOS AMISTOSOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:33.368386+00"
+          },
+          {
+            "uuid": "747f6c23-d8ee-4ca1-93ef-70b0ed1074f3",
+            "nombre": "PARTIDOS AMISTOSOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:39.99912+00"
+          }
+        ]
+      },
+      "52": {
+        "nombre": "PARTIDOS AMISTOSOS",
+        "candidatos": [
+          {
+            "uuid": "a3f69ce0-36a5-4348-a918-2a32d1593536",
+            "nombre": "PARTIDOS AMISTOSOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:33.368386+00"
+          },
+          {
+            "uuid": "747f6c23-d8ee-4ca1-93ef-70b0ed1074f3",
+            "nombre": "PARTIDOS AMISTOSOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:39.99912+00"
+          }
+        ]
+      },
+      "28": {
+        "nombre": "AMORTIZACIÓN DE BONOS",
+        "candidatos": [
+          {
+            "uuid": "b9168dda-031c-417f-9bd1-742a9183d7f4",
+            "nombre": "AMORTIZACIÓN DE BONOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:33.627185+00"
+          }
+        ]
+      },
+      "29": {
+        "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS LIGUILLA MX",
+        "candidatos": [
+          {
+            "uuid": "2af0f6fa-2710-4d2c-b5f1-556e83d6d693",
+            "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS LIGUILLA MX",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:33.877908+00"
+          }
+        ]
+      },
+      "30": {
+        "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS COPA MX",
+        "candidatos": [
+          {
+            "uuid": "e7b407d7-e10a-4beb-b508-455966b8d4b2",
+            "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS COPA MX",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:34.112296+00"
+          }
+        ]
+      },
+      "31": {
+        "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS PARTIDOS AMISTOSOS",
+        "candidatos": [
+          {
+            "uuid": "00c78019-5741-4f2b-a1ea-7d54e6c2b07d",
+            "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS PARTIDOS AMISTOSOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:34.368561+00"
+          }
+        ]
+      },
+      "32": {
+        "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS BOLETAJE POR PARTIDO Y POR ZONA",
+        "candidatos": [
+          {
+            "uuid": "13f15bf9-bb8d-4fd1-8e35-cd8996c066d6",
+            "nombre": "CONCESIÓN P/VENTA DE ALIMENTOS BOLETAJE POR PARTIDO Y POR ZONA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:34.644406+00"
+          }
+        ]
+      },
+      "33": {
+        "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO LIGUILLA MX",
+        "candidatos": [
+          {
+            "uuid": "c9a2fc9f-1411-460f-9108-662dba9bdd42",
+            "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO LIGUILLA MX",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:34.890486+00"
+          }
+        ]
+      },
+      "34": {
+        "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO COPA MX",
+        "candidatos": [
+          {
+            "uuid": "51c800bb-2662-45fe-9425-e6adc2e606a8",
+            "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO COPA MX",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:35.145699+00"
+          }
+        ]
+      },
+      "35": {
+        "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO PARTIDOS AMISTOSOS",
+        "candidatos": [
+          {
+            "uuid": "55718200-a3f2-4cc6-b9c9-4a97e994b6c8",
+            "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO PARTIDOS AMISTOSOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:35.404781+00"
+          }
+        ]
+      },
+      "36": {
+        "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO BOLETAJE POR PARTIDO Y POR ZONA",
+        "candidatos": [
+          {
+            "uuid": "3401e3d6-fee4-4e8d-866f-3eea8a6bc23e",
+            "nombre": "OP. ADMÓN. ESTACIONAMIENTO ESTADIO BOLETAJE POR PARTIDO Y POR ZONA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:35.684092+00"
+          }
+        ]
+      },
+      "37": {
+        "nombre": "PATROCINIOS  Y ESPACIOS PUBLICITARIOS",
+        "candidatos": [
+          {
+            "uuid": "61ebcb9c-f160-4620-8cbb-5b1c6745df21",
+            "nombre": "PATROCINIOS  Y ESPACIOS PUBLICITARIOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:35.965229+00"
+          }
+        ]
+      },
+      "38": {
+        "nombre": "AMORTIZACIÓN PATROCINIOS Y ESPACIOS PUBLICITARIOS",
+        "candidatos": [
+          {
+            "uuid": "63c7b7ca-d5f7-44fd-916b-26de95a29de6",
+            "nombre": "AMORTIZACIÓN PATROCINIOS Y ESPACIOS PUBLICITARIOS",
+            "uso_en_consumos": 17,
+            "creado": "2026-09-22 00:01:36.216135+00"
+          }
+        ]
+      },
+      "39": {
+        "nombre": "ESPACIOS PUBLICITARIOS",
+        "candidatos": [
+          {
+            "uuid": "bf816595-b209-4e60-b306-39819ea3c3e4",
+            "nombre": "ESPACIOS PUBLICITARIOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:36.474149+00"
+          }
+        ]
+      },
+      "40": {
+        "nombre": "ANTICIPO TV AZTECA",
+        "candidatos": [
+          {
+            "uuid": "c6b80de3-517b-4625-bbab-65d75032f7cc",
+            "nombre": "ANTICIPO TV AZTECA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:36.728484+00"
+          }
+        ]
+      },
+      "41": {
+        "nombre": "AMORTIZACIÓN DE ANTICIPO TV AZTECA",
+        "candidatos": [
+          {
+            "uuid": "2ce533bf-da7d-4c21-97f1-0fd34146449f",
+            "nombre": "AMORTIZACIÓN DE ANTICIPO TV AZTECA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:37.063659+00"
+          }
+        ]
+      },
+      "42": {
+        "nombre": "ACCIONES EN CAMPAÑA",
+        "candidatos": [
+          {
+            "uuid": "f1e08f3b-9cb6-4d5b-bf4f-bc0f0e9d5ce2",
+            "nombre": "ACCIONES EN CAMPAÑA",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:37.334707+00"
+          }
+        ]
+      },
+      "43": {
+        "nombre": "APOYO FORMACIÓN DE JUGADORES",
+        "candidatos": [
+          {
+            "uuid": "875d7b69-47a9-40ea-9458-45ff094746fb",
+            "nombre": "APOYO FORMACIÓN DE JUGADORES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:37.603445+00"
+          }
+        ]
+      },
+      "44": {
+        "nombre": "VENTA DEFINITIVA  CARTAS DE JUGADORES",
+        "candidatos": [
+          {
+            "uuid": "49fdc5a8-8453-4fcf-b4b5-92853d222520",
+            "nombre": "VENTA DEFINITIVA  CARTAS DE JUGADORES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:37.875788+00"
+          }
+        ]
+      },
+      "45": {
+        "nombre": "RENTA DE CARTAS DE JUGADORES",
+        "candidatos": [
+          {
+            "uuid": "edb09280-ec22-48f9-93f1-e97efd540ebb",
+            "nombre": "RENTA DE CARTAS DE JUGADORES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:38.155408+00"
+          }
+        ]
+      },
+      "46": {
+        "nombre": "AMORTIZACIÓN DE CARTAS DE JUGADORES TEMPORALES (PRESTAMOS)",
+        "candidatos": [
+          {
+            "uuid": "cf8eff06-6535-4835-9dfb-9ffef5e77633",
+            "nombre": "AMORTIZACIÓN DE CARTAS DE JUGADORES TEMPORALES (PRESTAMOS)",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:38.442781+00"
+          }
+        ]
+      },
+      "47": {
+        "nombre": "REGISTROS Y AFILIACIONES",
+        "candidatos": [
+          {
+            "uuid": "57d3f7b6-4fb8-43da-897e-d4dff81cca60",
+            "nombre": "REGISTROS Y AFILIACIONES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:38.691791+00"
+          }
+        ]
+      },
+      "48": {
+        "nombre": "MATRICULA Y PAGOS ANTICIPADOS",
+        "candidatos": [
+          {
+            "uuid": "a370d9fe-4d18-4462-8891-cebef1c46632",
+            "nombre": "MATRICULA Y PAGOS ANTICIPADOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:38.989061+00"
+          }
+        ]
+      },
+      "49": {
+        "nombre": "AMORTIZACIÓN DE PAGOS ANTICIPADOS",
+        "candidatos": [
+          {
+            "uuid": "3402863e-79fa-4623-aab2-6cd5cc0a8a18",
+            "nombre": "AMORTIZACIÓN DE PAGOS ANTICIPADOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:39.255657+00"
+          }
+        ]
+      },
+      "50": {
+        "nombre": "VENTA DE KITS DE UNIFORMES",
+        "candidatos": [
+          {
+            "uuid": "22e76be0-bd82-481d-93e8-9995096176fb",
+            "nombre": "VENTA DE KITS DE UNIFORMES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:39.491835+00"
+          }
+        ]
+      },
+      "51": {
+        "nombre": "ANUALIDAD",
+        "candidatos": [
+          {
+            "uuid": "a126f1de-6a52-4a16-9f30-e175334feed3",
+            "nombre": "ANUALIDAD",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:39.73763+00"
+          }
+        ]
+      },
+      "53": {
+        "nombre": "CARGO POR SERVICIO",
+        "candidatos": [
+          {
+            "uuid": "00f3d7f2-2cde-4735-914b-ceabb93527b2",
+            "nombre": "CARGO POR SERVICIO",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:40.245004+00"
+          }
+        ]
+      },
+      "54": {
+        "nombre": "VENTA DE ARTICULOS OFICIALES",
+        "candidatos": [
+          {
+            "uuid": "d6ce5493-7d9b-4118-9df9-b1c5c5034ce6",
+            "nombre": "VENTA DE ARTICULOS OFICIALES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:40.481456+00"
+          }
+        ]
+      },
+      "55": {
+        "nombre": "DEPOSITOS NO IDENTIFICADOS",
+        "candidatos": [
+          {
+            "uuid": "c748cdbf-12c0-45b5-b60e-4d09aeded20c",
+            "nombre": "DEPOSITOS NO IDENTIFICADOS",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:40.725151+00"
+          }
+        ]
+      },
+      "56": {
+        "nombre": "VENTA DE ACTIVO FIJO",
+        "candidatos": [
+          {
+            "uuid": "151e915c-6e9c-4ec8-b5a7-35789558e5b7",
+            "nombre": "VENTA DE ACTIVO FIJO",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:40.99898+00"
+          }
+        ]
+      },
+      "57": {
+        "nombre": "INTERESES",
+        "candidatos": [
+          {
+            "uuid": "0776bb74-4d7b-4c81-9aba-ac589b10c3c6",
+            "nombre": "INTERESES",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:41.239087+00"
+          }
+        ]
+      },
+      "58": {
+        "nombre": "CAMPAÑAS GOBIERNO",
+        "candidatos": [
+          {
+            "uuid": "a93b2d7b-22bb-4467-9742-ec20a5382d93",
+            "nombre": "CAMPAÑAS GOBIERNO",
+            "uso_en_consumos": 10,
+            "creado": "2026-09-22 00:01:41.492991+00"
+          }
+        ]
+      },
+      "59": {
+        "nombre": "CAPSULAS",
+        "candidatos": [
+          {
+            "uuid": "fcabf511-b606-4f0b-ba41-0397ad372cdf",
+            "nombre": "CAPSULAS",
+            "uso_en_consumos": 8,
+            "creado": "2026-09-22 00:01:41.765688+00"
+          }
+        ]
+      },
+      "60": {
+        "nombre": "PRODUCCIÓN PI",
+        "candidatos": [
+          {
+            "uuid": "f2fd9087-0e4a-481f-862b-cfd085b8b937",
+            "nombre": "PRODUCCIÓN PI",
+            "uso_en_consumos": 28,
+            "creado": "2026-09-22 00:01:42.002338+00"
+          }
+        ]
+      },
+      "61": {
+        "nombre": "SERVICIOS DE PRODUCCIÓN",
+        "candidatos": [
+          {
+            "uuid": "8b675030-cfef-405f-a47f-dd8852e68b1e",
+            "nombre": "SERVICIOS DE PRODUCCIÓN",
+            "uso_en_consumos": 24,
+            "creado": "2026-09-22 00:01:42.246871+00"
+          }
+        ]
+      },
+      "62": {
+        "nombre": "TORNEO DE GOLF",
+        "candidatos": [
+          {
+            "uuid": "d0838f47-99e1-425b-868e-e0a7b9da6a89",
+            "nombre": "TORNEO DE GOLF",
+            "uso_en_consumos": 0,
+            "creado": "2026-09-22 00:01:42.505764+00"
+          }
+        ]
+      }
+    }
+  }
+}

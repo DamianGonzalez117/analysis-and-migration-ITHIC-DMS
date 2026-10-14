@@ -165,3 +165,49 @@ docker run --rm --network host -v "$PWD":/app -w /app ruby:3.3 \
 
 El motor es genérico y guiado por configuración: para una entidad nueva basta crear otro
 `.yml` en `config/mapeos/`.
+
+## Migración de consumos (scripts puntuales)
+
+`data/entrada/migracion/consumos/` contiene el export de ITHIC
+(`consumption_blocked_details.txt` con 122,268 registros + catálogos). El flujo usa dos
+scripts:
+
+```bash
+# 1) Resolver los UUID existentes en DSM y escribir mapa_catalogos.json
+bundle exec ruby scripts/migracion_consumos/generar_mapa.rb
+
+# 2) Simular (no escribe nada) o insertar
+bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb
+bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --ejecutar
+bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --limite 10 --ejecutar  # prueba
+bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --sql salida.sql --reporte incidencias.csv --ejecutar
+
+# 3) Configuración de consumos (data_config_consumption.txt)
+bundle exec ruby scripts/migracion_consumos/insertar_config_consumption.rb
+bundle exec ruby scripts/migracion_consumos/insertar_config_consumption.rb --actualizar --ejecutar
+```
+
+Reglas aplicadas:
+
+- `external_id` ya existente en DSM: se omite. Nuevo: se inserta con UUID generado.
+- `object_status_id = CREADO` (`1f0746ed-9ae6-4055-a641-efb4bf7d0a56`); los estatus
+  válidos alternos son ENVIADO A SAP, NO ENVIADO A SAP y ELIMINADO.
+- Booleanos: `1` => `true`; vacío o `0` => `false`.
+- Fechas `d/m/AAAA`; campos vacíos => `NULL`.
+- Catálogos: el UUID se toma de DSM priorizando el de mayor uso real en consumos
+  existentes (y el más antiguo si hay empate). Códigos vacíos o `0` => `NULL`.
+- Distribuciones referenciadas que no existen en DSM => `contract_investment_distribution_id`
+  `NULL` (decisión de negocio).
+- 4 filas con defecto de exportación (campo extra o `|` dentro de COMENTS) se corrigen
+  por `external_id` en `comun.rb`.
+
+Configuración de consumos (`data_config_consumption`, 1,344 filas):
+
+- La existencia se evalúa por **clave de negocio** (área, tipo de venta, tipo de contrato
+  de inversión, registro contable, centro de costo y detalle de venta) comparando códigos
+  externos, no UUID: la migración previa eligió otras filas duplicadas de los mismos
+  catálogos. Las 1,344 claves ya existen en DSM.
+- Las filas nuevas se insertan con status `ACTIVO` (consistente con esta tabla de
+  configuración y los catálogos) y `account_cost` vacío => `0` (columna NOT NULL).
+- `--actualizar` corrige `account_cost` y `send_sap_cost` de las filas existentes
+  (DSM las tenía en `0`/`false`): 1,214 filas a corregir.
