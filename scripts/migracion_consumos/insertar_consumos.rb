@@ -4,7 +4,8 @@
 # Inserta los consumos de consumption_blocked_details.txt en DSM.
 #
 # Reglas:
-# - Si el external_id ya existe en DSM, el registro se omite.
+# - Si el external_id ya existe en DSM, el registro se omite. Con
+#   --actualizar se rellenan sus cat_*_id que estén en NULL.
 # - Registros nuevos reciben un consumption_blocked_details_id generado.
 # - object_status_id = CREADO (1f0746ed-9ae6-4055-a641-efb4bf7d0a56) salvo
 #   que OBJECT_STATUS_POR_REGISTRO indique uno de los estatus válidos.
@@ -16,6 +17,7 @@
 # Uso:
 #   bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb                # simulación
 #   bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --limite 10 --ejecutar
+#   bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --actualizar --ejecutar
 #   bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --sql salida.sql
 #   bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --reporte incidencias.csv --ejecutar
 
@@ -76,13 +78,23 @@ module MigracionConsumos
 
         valores, incidencias = construir_registros(nuevos, mapa, distribuciones, programas)
 
-        resumen(registros, anomalias, nuevos_todos, valores, incidencias, opciones)
+        actualizaciones = []
+        incidencias_actualizacion = []
+        if opciones[:actualizar]
+          existentes_todos = registros.select { |fila| existentes.include?(normalizar_external_id(fila["EXTENAL_ID"])) }
+          existentes_actualizar = opciones[:limite] ? existentes_todos.first(opciones[:limite]) : existentes_todos
+          actualizaciones, incidencias_actualizacion = construir_actualizaciones(existentes_actualizar, mapa)
+          incidencias += incidencias_actualizacion
+        end
+
+        resumen(registros, anomalias, nuevos_todos, valores, incidencias, opciones, actualizaciones)
         escribir_reporte(incidencias, opciones[:reporte]) if opciones[:reporte]
-        escribir_sql(valores, opciones[:sql]) if opciones[:sql]
+        escribir_sql(valores, actualizaciones, opciones[:sql]) if opciones[:sql]
 
         if opciones[:ejecutar]
           insertar(base, valores, opciones[:lote])
           puts "\n#{valores.size} registro(s) insertado(s) en #{TABLA}"
+          actualizar(base, actualizaciones, opciones[:lote]) if opciones[:actualizar] && !actualizaciones.empty?
         else
           puts "\nSimulación: no se ejecutó nada. Usa --ejecutar para insertar."
         end
@@ -93,11 +105,12 @@ module MigracionConsumos
     end
 
     def self.parsear_opciones(argv)
-      opciones = { ejecutar: false, limite: nil, lote: 250, sql: nil, reporte: nil }
+      opciones = { ejecutar: false, actualizar: false, limite: nil, lote: 250, sql: nil, reporte: nil }
       parser = OptionParser.new do |opts|
         opts.banner = "Uso: bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb [opciones]"
         opts.on("--ejecutar", "Aplica los INSERT (por defecto solo simula)") { opciones[:ejecutar] = true }
-        opts.on("--limite N", Integer, "Procesa solo los primeros N registros nuevos (para pruebas)") { |valor| opciones[:limite] = valor }
+        opts.on("--actualizar", "Rellena los cat_*_id NULL de registros existentes") { opciones[:actualizar] = true }
+        opts.on("--limite N", Integer, "Procesa solo los primeros N registros nuevos/actualizaciones (para pruebas)") { |valor| opciones[:limite] = valor }
         opts.on("--lote N", Integer, "Registros por sentencia INSERT (default 250)") { |valor| opciones[:lote] = valor }
         opts.on("--sql RUTA", "Escribe el SQL de los INSERT con literales") { |valor| opciones[:sql] = valor }
         opts.on("--reporte RUTA", "Escribe un CSV con las incidencias") { |valor| opciones[:reporte] = valor }
@@ -197,6 +210,24 @@ module MigracionConsumos
       [valores, incidencias]
     end
 
+    def self.construir_actualizaciones(filas, mapa)
+      actualizaciones = []
+      incidencias = []
+
+      filas.each do |fila|
+        external_id = normalizar_external_id(fila["EXTENAL_ID"])
+        cce = resolver_catalogo(mapa["cce"], fila["EXTERNAL_CAT_CONST_CENTER_CONSUMPTION"], "cce", external_id, incidencias)
+        art = resolver_catalogo(mapa["art"], fila["EXTERNAL_CAT_ACCOUNTING_RECORD_TYPES"], "art", external_id, incidencias)
+        sales_type = resolver_catalogo(mapa["sales_type"], fila["EXTERNAL_CAT_SALES_TYPES"], "sales_type", external_id, incidencias)
+        sd = resolver_catalogo(mapa["sd"], fila["EXTERNAL_CAT_SALES_DETAILS_TYPE"], "sd", external_id, incidencias)
+        next if [cce, art, sales_type, sd].compact.empty?
+
+        actualizaciones << [external_id, cce, art, sales_type, sd]
+      end
+
+      [actualizaciones, incidencias]
+    end
+
     def self.resolver_catalogo(mapa_categoria, codigo, categoria, external_id, incidencias)
       codigo = codigo.to_s.strip
       return nil if codigo.empty? || codigo == "0"
@@ -211,13 +242,18 @@ module MigracionConsumos
       limpio.empty? ? nil : limpio
     end
 
-    def self.resumen(registros, anomalias, nuevos_todos, valores, incidencias, opciones)
+    def self.resumen(registros, anomalias, nuevos_todos, valores, incidencias, opciones, actualizaciones)
       corregidas = anomalias.count { |anomalia| anomalia[:corregida] }
       ignoradas = anomalias.size - corregidas
+      existentes = registros.size - nuevos_todos.size
       puts "Archivo: #{RUTA_CONSUMOS}"
       puts "Registros leídos: #{registros.size} | corregidos: #{corregidas} | ignorados: #{ignoradas}"
-      puts "Ya existen en DSM (se omiten): #{registros.size - nuevos_todos.size}"
+      puts "Ya existen en DSM: #{existentes}#{opciones[:actualizar] ? " (se actualizarán sus catálogos si están en NULL)" : ' (se omiten)'}"
       puts "Nuevos por insertar: #{valores.size}#{opciones[:limite] ? " (de #{nuevos_todos.size}, limitado con --limite #{opciones[:limite]})" : ""}"
+      if opciones[:actualizar]
+        puts "Actualizaciones de catálogos: #{actualizaciones.size}" \
+             "#{opciones[:limite] ? " (limitado con --limite #{opciones[:limite]})" : ""}"
+      end
 
       motivos = incidencias.group_by { |(_, motivo, _)| motivo }.transform_values(&:size)
       motivos.each { |motivo, total| puts "  #{motivo}: #{total}" }
@@ -239,7 +275,7 @@ module MigracionConsumos
       puts "\nReporte de incidencias: #{ruta} (#{incidencias.size} fila(s))"
     end
 
-    def self.escribir_sql(valores, ruta)
+    def self.escribir_sql(valores, actualizaciones, ruta)
       File.open(ruta, "w") do |archivo|
         archivo.puts "-- Generado por insertar_consumos.rb"
         archivo.puts "-- Registros: #{valores.size}"
@@ -249,8 +285,16 @@ module MigracionConsumos
                        "(#{COLUMNAS.map { |columna| Ithic::Sql.identificador(columna) }.join(', ')}) " \
                        "VALUES (#{placeholders.join(', ')});"
         end
+        actualizaciones.each do |external_id, cce, art, sales_type, sd|
+          archivo.puts "UPDATE #{Ithic::Sql.identificador(TABLA)} SET " \
+                       "cat_cost_center_consumption_id = COALESCE(cat_cost_center_consumption_id, #{Ithic::Sql.literal(cce)}), " \
+                       "cat_accounting_record_type_id = COALESCE(cat_accounting_record_type_id, #{Ithic::Sql.literal(art)}), " \
+                       "cat_sale_type_id = COALESCE(cat_sale_type_id, #{Ithic::Sql.literal(sales_type)}), " \
+                       "cat_sale_detail_type_id = COALESCE(cat_sale_detail_type_id, #{Ithic::Sql.literal(sd)}), " \
+                       "updated_at = now() WHERE external_id = #{Ithic::Sql.literal(external_id)};"
+        end
       end
-      puts "\nSQL generado: #{ruta} (#{valores.size} sentencia(s))"
+      puts "\nSQL generado: #{ruta} (#{valores.size} INSERT, #{actualizaciones.size} UPDATE)"
     end
 
     def self.insertar(base, valores, tamano_lote)
@@ -271,6 +315,41 @@ module MigracionConsumos
       end
       "INSERT INTO #{Ithic::Sql.identificador(TABLA)} (#{columnas_sql}) VALUES #{grupos.join(', ')} " \
         "ON CONFLICT (#{Ithic::Sql.identificador('consumption_blocked_details_id')}) DO NOTHING"
+    end
+
+    def self.actualizar(base, actualizaciones, tamano_lote)
+      total_lotes = (actualizaciones.size.to_f / tamano_lote).ceil
+      actualizaciones.each_slice(tamano_lote).with_index(1) do |lote, indice|
+        base.conexion.transaction do
+          base.ejecutar(sentencia_actualizacion(lote), lote.flatten(1))
+        end
+        if indice == 1 || (indice % 20).zero? || indice == total_lotes
+          puts "  actualización lote #{indice}/#{total_lotes} (#{lote.size} registros)"
+        end
+      end
+      puts "#{actualizaciones.size} registro(s) con catálogos actualizados en #{TABLA}"
+    end
+
+    def self.sentencia_actualizacion(filas)
+      grupos = filas.each_index.map do |indice|
+        base = indice * 5
+        "($#{base + 1}::varchar, $#{base + 2}::uuid, $#{base + 3}::uuid, " \
+          "$#{base + 4}::uuid, $#{base + 5}::uuid)"
+      end
+      <<~SQL
+        UPDATE #{Ithic::Sql.identificador(TABLA)} AS d
+        SET cat_cost_center_consumption_id = COALESCE(d.cat_cost_center_consumption_id, v.cce),
+            cat_accounting_record_type_id = COALESCE(d.cat_accounting_record_type_id, v.art),
+            cat_sale_type_id = COALESCE(d.cat_sale_type_id, v.sales_type),
+            cat_sale_detail_type_id = COALESCE(d.cat_sale_detail_type_id, v.sd),
+            updated_at = now()
+        FROM (VALUES #{grupos.join(', ')}) AS v(external_id, cce, art, sales_type, sd)
+        WHERE d.external_id = v.external_id
+          AND (d.cat_cost_center_consumption_id IS NULL
+            OR d.cat_accounting_record_type_id IS NULL
+            OR d.cat_sale_type_id IS NULL
+            OR d.cat_sale_detail_type_id IS NULL)
+      SQL
     end
   end
 end

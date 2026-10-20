@@ -169,20 +169,25 @@ El motor es genérico y guiado por configuración: para una entidad nueva basta 
 ## Migración de consumos (scripts puntuales)
 
 `data/entrada/migracion/consumos/` contiene el export de ITHIC
-(`consumption_blocked_details.txt` con 122,268 registros + catálogos). El flujo usa dos
+(`consumption_blocked_details.txt` con 122,270 registros + catálogos). El flujo usa cuatro
 scripts:
 
 ```bash
-# 1) Resolver los UUID existentes en DSM y escribir mapa_catalogos.json
+# 1) Insertar los catálogos si aún no existen en DSM (simula por defecto)
+bundle exec ruby scripts/migracion_consumos/insertar_catalogos.rb
+bundle exec ruby scripts/migracion_consumos/insertar_catalogos.rb --actualizar --ejecutar
+
+# 2) Resolver los UUID existentes en DSM y escribir mapa_catalogos.json
 bundle exec ruby scripts/migracion_consumos/generar_mapa.rb
 
-# 2) Simular (no escribe nada) o insertar
+# 3) Simular (no escribe nada) o insertar
 bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb
 bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --ejecutar
+bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --actualizar --ejecutar  # rellena cat_*_id NULL
 bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --limite 10 --ejecutar  # prueba
 bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb --sql salida.sql --reporte incidencias.csv --ejecutar
 
-# 3) Configuración de consumos (data_config_consumption.txt)
+# 4) Configuración de consumos (data_config_consumption.txt)
 bundle exec ruby scripts/migracion_consumos/insertar_config_consumption.rb
 bundle exec ruby scripts/migracion_consumos/insertar_config_consumption.rb --actualizar --ejecutar
 ```
@@ -190,12 +195,22 @@ bundle exec ruby scripts/migracion_consumos/insertar_config_consumption.rb --act
 Reglas aplicadas:
 
 - `external_id` ya existente en DSM: se omite. Nuevo: se inserta con UUID generado.
+  Con `--actualizar` se rellenan sus `cat_*_id` que estén en `NULL` usando `COALESCE`
+  (no sobrescribe valores ya asignados).
 - `object_status_id = CREADO` (`1f0746ed-9ae6-4055-a641-efb4bf7d0a56`); los estatus
   válidos alternos son ENVIADO A SAP, NO ENVIADO A SAP y ELIMINADO.
 - Booleanos: `1` => `true`; vacío o `0` => `false`.
 - Fechas `d/m/AAAA`; campos vacíos => `NULL`.
 - Catálogos: el UUID se toma de DSM priorizando el de mayor uso real en consumos
   existentes (y el más antiguo si hay empate). Códigos vacíos o `0` => `NULL`.
+- `insertar_catalogos.rb` inserta `cat_accounting_record_types` →
+  `cat_cost_center_consumption` → `cat_sales_types` → `cat_sales_details_types` (ese orden
+  por la FK de centros de costo). Omite los `external_id` existentes, usa el estatus
+  `ACTIVO` y resuelve `cat_accounting_record_type_id` por código externo. `--actualizar`
+  corrige nombre/descripción de las filas existentes.
+- `cat_sales_details_types.external_id` es `uuid` en DSM, así que sus filas se insertan con
+  `external_id = NULL` y se identifican por nombre; los nombres repetidos se comparan por
+  cantidad.
 - Distribuciones referenciadas que no existen en DSM => `contract_investment_distribution_id`
   `NULL` (decisión de negocio).
 - 4 filas con defecto de exportación (campo extra o `|` dentro de COMENTS) se corrigen
@@ -211,3 +226,41 @@ Configuración de consumos (`data_config_consumption`, 1,344 filas):
   configuración y los catálogos) y `account_cost` vacío => `0` (columna NOT NULL).
 - `--actualizar` corrige `account_cost` y `send_sap_cost` de las filas existentes
   (DSM las tenía en `0`/`false`): 1,214 filas a corregir.
+
+## Migración de marcas y customer_brands (scripts puntuales)
+
+`data/entrada/marcas/Marcas.txt` (18,255 registros) es el export de submarcas de ITHIC.
+Los scripts de `scripts/migracion_brands_and_customerbrands/` lo comparan contra
+`core.sub_brands` (filtrado por `subsidiary_number = 0` vía `customers_brands` →
+`shared_customers` → `subsidiaries`) y aplican los faltantes. `customer_brands.txt` y
+`sub_brands.txt` contienen los 8 pares que se insertan en un entorno limpio.
+
+```bash
+# Comparar contra DSM y generar reportes (no escribe)
+bundle exec ruby scripts/migracion_brands_and_customerbrands/comparar_marcas.rb
+
+# Base existente (QA): corrige los 6 sub_brands conocidos y crea el shared_customer
+# NACIONAL de GRUPO POSADAS si falta (simula por defecto)
+bundle exec ruby scripts/migracion_brands_and_customerbrands/actualizar_marcas.rb
+bundle exec ruby scripts/migracion_brands_and_customerbrands/actualizar_marcas.rb --ejecutar
+
+# Entorno limpio: inserta shared_customer, customers_brands y sub_brands
+bundle exec ruby scripts/migracion_brands_and_customerbrands/insertar_marcas.rb
+bundle exec ruby scripts/migracion_brands_and_customerbrands/insertar_marcas.rb --ejecutar
+```
+
+Reglas aplicadas:
+
+- `comparar_marcas.rb` reporta faltantes, sobrantes, `external_id` duplicados y diferencias
+  de nombre/`short_name`; escribe `data/reportes/marcas/comparacion_marcas.md`,
+  `faltantes_en_dsm.csv` y `diferencias_nombres.csv`, y sale con código 2 si `NO CUADRA`.
+- `actualizar_marcas.rb` cambia el `external_id` de TENIS CHARLY de `45661` a `68159` y
+  enlaza los 6 `sub_brands` con sus `customer_brand_id`; aborta si los IDs esperados no
+  existen (en ese caso corresponde `insertar_marcas.rb`).
+- `insertar_marcas.rb` usa `MARCA_SIN_MARCA` (o `MARCA_ALTERNA`) como `brand_id` y empareja
+  `customer_brands.txt` con `sub_brands.txt` por posición. Si el `sub_brand_id` ya existe,
+  no inserta y sugiere `actualizar_marcas.rb`.
+- Ambos comandos aceptan `--sql RUTA` (escribe el plan con `BEGIN`/`COMMIT`), simulan por
+  defecto, aplican en una transacción con `--ejecutar` y verifican el resultado
+  (`CUADRA` / `NO CUADRA`).
+- `insert_marcas.sql` y `update_marcas_qa.sql` son los planes ya generados para QA.
