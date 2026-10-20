@@ -6,7 +6,7 @@
 #
 # - Para cce/art/sales_type se resuelve por external_id del catálogo.
 # - Para sales_details_types se resuelve por NAME (la columna external_id en
-#   DSM está mayormente vacía) usando el catálogo del archivo.
+#   DSM está mayormente vacía o no existe) usando el catálogo del archivo.
 # - Ante códigos con varias filas en DSM se elige la de mayor uso en
 #   consumption_blocked_details; si hay empate, la creada primero.
 #
@@ -104,7 +104,7 @@ module MigracionConsumos
 
     def resolver_sd(base, codigos_usados)
       config = TABLAS_CATALOGO["sd"]
-      candidatos = consultar_candidatos(base, config[:tabla], config[:id])
+      candidatos = consultar_candidatos(base, config[:tabla], config[:id], con_external_id: false)
       por_nombre = Hash.new { |hash, clave| hash[clave] = [] }
       candidatos.each do |fila|
         por_nombre[fila["NOMBRE"].to_s.strip.downcase] << fila
@@ -144,9 +144,12 @@ module MigracionConsumos
       [mapa, detalle, sin_match.uniq]
     end
 
-    def consultar_candidatos(base, tabla, id_col)
+    # cat_sales_details_types no tiene columna external_id en todos los
+    # ambientes (p. ej. dbqa), por eso se puede omitir.
+    def consultar_candidatos(base, tabla, id_col, con_external_id: true)
+      ext = con_external_id ? "t.external_id::text" : "NULL::text"
       sql = <<~SQL
-        SELECT t.external_id::text AS ext, t.name AS nombre, t.created_at AS creado,
+        SELECT #{ext} AS ext, t.name AS nombre, t.created_at AS creado,
                t.#{id_col}::text AS uuid,
                (SELECT count(*) FROM consumption_blocked_details d
                  WHERE d.#{id_col} = t.#{id_col}) AS uso
