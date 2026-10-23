@@ -10,7 +10,7 @@ module MigracionMarcas
     module_function
 
     def ejecutar(argv)
-      opciones = parsear_opciones(argv, "actualizar_marcas.rb")
+      opciones = parsear_opciones(argv, "actualizar_marcas.rb", accion: "Marcas y SubMarcas Actualizacion")
       cargar_env!
       describir_conexion
       base = nil

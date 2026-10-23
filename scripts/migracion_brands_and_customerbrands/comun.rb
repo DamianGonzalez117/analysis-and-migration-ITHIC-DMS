@@ -15,10 +15,10 @@ module MigracionMarcas
 
   DIR_ENTRADA = File.join(RAIZ_PROYECTO, "data", "entrada", "marcas")
   RUTA_MARCAS = File.join(DIR_ENTRADA, "Marcas.txt")
-  DIR_FUENTES = File.join(RAIZ_PROYECTO, "scripts", "migracion_brands_and_customerbrands")
-  RUTA_CUSTOMER_BRANDS = File.join(DIR_FUENTES, "customer_brands.txt")
-  RUTA_SUB_BRANDS = File.join(DIR_FUENTES, "sub_brands.txt")
+  RUTA_CUSTOMER_BRANDS = File.join(DIR_ENTRADA, "customer_brands.txt")
+  RUTA_SUB_BRANDS = File.join(DIR_ENTRADA, "sub_brands.txt")
   DIR_REPORTES = File.join(RAIZ_PROYECTO, "data", "reportes", "marcas")
+  DIR_MIGRACIONES = "/home/damiangonzalez/DataGripProjects/copan/Migraciones/Marcas y SubMarcas Nacional"
 
   SUBSIDIARIA_NACIONAL = "019055d0-7a3c-7972-87f3-b52706b4fc67"
   CLIENTE_POSADAS = "01904ccf-6572-7750-80c8-5c55eb10d8bd"
@@ -66,6 +66,18 @@ module MigracionMarcas
   SQL
 
   module_function
+
+  def fecha_migracion
+    Time.now.strftime("%d-%m-%y")
+  end
+
+  def usuario_migracion
+    "migracion-#{Time.now.strftime('%d%m%y')}@muhami.mx"
+  end
+
+  def ruta_sql_por_defecto(nombre = "Marcas y SubMarcas")
+    File.join(DIR_MIGRACIONES, fecha_migracion, "#{nombre} #{fecha_migracion}.sql")
+  end
 
   def cargar_env!
     ruta = File.join(RAIZ_PROYECTO, ".env")
@@ -186,15 +198,19 @@ module MigracionMarcas
     nil
   end
 
-  def shared_nacional(base, customer_id)
+  def shared_existente(base, customer_id, subsidiary_id)
     base.consultar(
       "select * from core.shared_customers where customer_id = $1 and subsidiary_id = $2 limit 1",
-      [customer_id, SUBSIDIARIA_NACIONAL]
+      [customer_id, subsidiary_id]
     ).first
   end
 
-  def sentencia_shared_nacional(base, customer_id)
-    return nil if shared_nacional(base, customer_id)
+  def shared_nacional(base, customer_id)
+    shared_existente(base, customer_id, SUBSIDIARIA_NACIONAL)
+  end
+
+  def sentencia_shared(base, customer_id, subsidiary_id)
+    return nil if shared_existente(base, customer_id, subsidiary_id)
 
     existente = base.consultar(
       "select * from core.shared_customers where customer_id = $1 order by created_at asc limit 1",
@@ -209,11 +225,11 @@ module MigracionMarcas
     valores = [
       SecureRandom.uuid,
       customer_id,
-      SUBSIDIARIA_NACIONAL,
+      subsidiary_id,
       nil,
       existente&.fetch("OBJECT_STATUS_ID", nil) || ESTATUS_SHARED,
       CREADO_POR,
-      nil,
+      usuario_migracion,
       Time.now,
       Time.now,
       existente&.fetch("CAT_CUSTOMER_TYPE_ID", nil),
@@ -225,6 +241,10 @@ module MigracionMarcas
 
     "INSERT INTO core.shared_customers (#{columnas.join(', ')}) " \
       "VALUES (#{valores.map { |valor| literal(valor) }.join(', ')});"
+  end
+
+  def sentencia_shared_nacional(base, customer_id)
+    sentencia_shared(base, customer_id, SUBSIDIARIA_NACIONAL)
   end
 
   def pares_faltantes(faltan)
@@ -245,7 +265,7 @@ module MigracionMarcas
   def insert_customer_brand(customer_brand, customer_brand_id, marca_id)
     columnas = %w[
       customer_brand_id brand_id customer_id subsidiary_id object_status_id
-      created_by created_at business_subsidiary_hierarchy_structure_id external_id description
+      created_by updated_by created_at business_subsidiary_hierarchy_structure_id external_id description
     ]
     valores = [
       customer_brand_id,
@@ -254,6 +274,7 @@ module MigracionMarcas
       uuid(customer_brand["SUBSIDIARY_ID"]),
       uuid(customer_brand["OBJECT_STATUS_ID"]),
       customer_brand["CREATED_BY"],
+      usuario_migracion,
       Time.now,
       customer_brand["BUSINESS_SUBSIDIARY_HIERARCHY_STRUCTURE_ID"].to_s.empty? ? nil : uuid(customer_brand["BUSINESS_SUBSIDIARY_HIERARCHY_STRUCTURE_ID"]),
       customer_brand["EXTERNAL_ID"].to_s.empty? ? nil : customer_brand["EXTERNAL_ID"],
@@ -267,7 +288,7 @@ module MigracionMarcas
   def insert_sub_brand(sub_brand, customer_brand_id, marca_id)
     columnas = %w[
       sub_brand_id name short_name description brand_id cat_brand_product_type_id
-      object_status_id created_by created_at external_id customer_brand_id
+      object_status_id created_by updated_by created_at external_id customer_brand_id
       cat_political_entity_type_id bra_id_external
     ]
     valores = [
@@ -279,6 +300,7 @@ module MigracionMarcas
       uuid(sub_brand["CAT_BRAND_PRODUCT_TYPE_ID"]),
       uuid(sub_brand["OBJECT_STATUS_ID"]),
       sub_brand["CREATED_BY"],
+      usuario_migracion,
       Time.now,
       sub_brand["EXTERNAL_ID"],
       customer_brand_id,
@@ -297,8 +319,12 @@ module MigracionMarcas
     end
 
     sentencias = []
-    shared = sentencia_shared_nacional(base, CLIENTE_POSADAS)
-    sentencias << shared if shared
+    pares.map do |par|
+      [uuid(par[:customer_brand]["CUSTOMER_ID"]), uuid(par[:customer_brand]["SUBSIDIARY_ID"])]
+    end.uniq.each do |customer_id, subsidiary_id|
+      shared = sentencia_shared(base, customer_id, subsidiary_id)
+      sentencias << shared if shared
+    end
 
     pares.each do |par|
       par[:customer_brand_id] = SecureRandom.uuid
@@ -306,6 +332,121 @@ module MigracionMarcas
     end
     pares.each do |par|
       sentencias << insert_sub_brand(par[:sub], par[:customer_brand_id], marca_id)
+    end
+
+    sentencias
+  end
+
+  def insert_customer_brand_idempotente(customer_brand, customer_brand_id, marca_id)
+    customer_id = uuid(customer_brand["CUSTOMER_ID"])
+    subsidiary_id = uuid(customer_brand["SUBSIDIARY_ID"])
+    columnas = %w[
+      customer_brand_id brand_id customer_id subsidiary_id object_status_id
+      created_by updated_by created_at business_subsidiary_hierarchy_structure_id external_id description
+    ]
+    valores = [
+      customer_brand_id,
+      marca_id,
+      customer_id,
+      subsidiary_id,
+      uuid(customer_brand["OBJECT_STATUS_ID"]),
+      customer_brand["CREATED_BY"],
+      usuario_migracion,
+      Time.now,
+      customer_brand["BUSINESS_SUBSIDIARY_HIERARCHY_STRUCTURE_ID"].to_s.empty? ? nil : uuid(customer_brand["BUSINESS_SUBSIDIARY_HIERARCHY_STRUCTURE_ID"]),
+      customer_brand["EXTERNAL_ID"].to_s.empty? ? nil : customer_brand["EXTERNAL_ID"],
+      customer_brand["DESCRIPTION"].to_s.empty? ? nil : customer_brand["DESCRIPTION"]
+    ]
+
+    "INSERT INTO core.customers_brands (#{columnas.join(', ')}) " \
+      "SELECT #{valores.map { |valor| literal(valor) }.join(', ')} " \
+      "WHERE NOT EXISTS (" \
+      "SELECT 1 FROM core.customers_brands " \
+      "WHERE customer_id = #{literal(customer_id)} " \
+      "AND subsidiary_id = #{literal(subsidiary_id)} " \
+      "AND brand_id = #{literal(marca_id)}" \
+      ");"
+  end
+
+  def update_customer_brand_updated_by(customer_brand, marca_id)
+    customer_id = uuid(customer_brand["CUSTOMER_ID"])
+    subsidiary_id = uuid(customer_brand["SUBSIDIARY_ID"])
+
+    "UPDATE core.customers_brands " \
+      "SET updated_by = #{literal(usuario_migracion)} " \
+      "WHERE customer_id = #{literal(customer_id)} " \
+      "AND subsidiary_id = #{literal(subsidiary_id)} " \
+      "AND brand_id = #{literal(marca_id)};"
+  end
+
+  def insert_sub_brand_idempotente(sub_brand, customer_brand, marca_id)
+    sub_brand_id = uuid(sub_brand["SUB_BRAND_ID"])
+    customer_id = uuid(customer_brand["CUSTOMER_ID"])
+    subsidiary_id = uuid(customer_brand["SUBSIDIARY_ID"])
+    customer_brand_expr = "(SELECT customer_brand_id FROM core.customers_brands " \
+                          "WHERE customer_id = #{literal(customer_id)} " \
+                          "AND subsidiary_id = #{literal(subsidiary_id)} " \
+                          "AND brand_id = #{literal(marca_id)} " \
+                          "ORDER BY created_at ASC LIMIT 1)"
+
+    columnas = %w[
+      sub_brand_id name short_name description brand_id cat_brand_product_type_id
+      object_status_id created_by updated_by created_at external_id customer_brand_id
+      cat_political_entity_type_id bra_id_external
+    ]
+    valores = [
+      literal(sub_brand_id),
+      literal(sub_brand["BRA_NAME"]),
+      literal(sub_brand["BRA_SHORT_NAME"]),
+      literal(sub_brand["BRA_LONG_NAME"]),
+      literal(marca_id),
+      literal(uuid(sub_brand["CAT_BRAND_PRODUCT_TYPE_ID"])),
+      literal(uuid(sub_brand["OBJECT_STATUS_ID"])),
+      literal(sub_brand["CREATED_BY"]),
+      literal(usuario_migracion),
+      literal(Time.now),
+      literal(sub_brand["EXTERNAL_ID"]),
+      customer_brand_expr,
+      literal(sub_brand["CAT_POLITICAL_ENTITY_TYPE"].to_s.empty? ? nil : uuid(sub_brand["CAT_POLITICAL_ENTITY_TYPE"])),
+      literal(sub_brand["BRA_ID_EXTERNAL"].to_i)
+    ]
+
+    "INSERT INTO core.sub_brands (#{columnas.join(', ')}) " \
+      "SELECT #{valores.join(', ')} " \
+      "WHERE NOT EXISTS (" \
+      "SELECT 1 FROM core.sub_brands WHERE sub_brand_id = #{literal(sub_brand_id)}" \
+      ");"
+  end
+
+  def update_sub_brand_updated_by(sub_brand, customer_brand, marca_id)
+    sub_brand_id = uuid(sub_brand["SUB_BRAND_ID"])
+    customer_id = uuid(customer_brand["CUSTOMER_ID"])
+    subsidiary_id = uuid(customer_brand["SUBSIDIARY_ID"])
+
+    "UPDATE core.sub_brands " \
+      "SET customer_brand_id = (" \
+      "SELECT customer_brand_id FROM core.customers_brands " \
+      "WHERE customer_id = #{literal(customer_id)} " \
+      "AND subsidiary_id = #{literal(subsidiary_id)} " \
+      "AND brand_id = #{literal(marca_id)} " \
+      "ORDER BY created_at ASC LIMIT 1), " \
+      "updated_by = #{literal(usuario_migracion)} " \
+      "WHERE sub_brand_id = #{literal(sub_brand_id)};"
+  end
+
+  def sentencias_migracion_directa
+    marca_id = MARCA_SIN_MARCA
+    pares = pares_fuente
+    sentencias = []
+
+    pares.each do |par|
+      customer_brand_id = SecureRandom.uuid
+      sentencias << insert_customer_brand_idempotente(par[:customer_brand], customer_brand_id, marca_id)
+      sentencias << update_customer_brand_updated_by(par[:customer_brand], marca_id)
+    end
+    pares.each do |par|
+      sentencias << insert_sub_brand_idempotente(par[:sub], par[:customer_brand], marca_id)
+      sentencias << update_sub_brand_updated_by(par[:sub], par[:customer_brand], marca_id)
     end
 
     sentencias
@@ -357,7 +498,8 @@ module MigracionMarcas
                   "short_name = 'TENCHA', " \
                   "description = 'TENIS CHARLY', " \
                   "brand_id = #{literal(MARCA_SIN_MARCA)}, " \
-                  "customer_brand_id = #{literal(CB_68159)} " \
+                  "customer_brand_id = #{literal(CB_68159)}, " \
+                  "updated_by = #{literal(usuario_migracion)} " \
                   "WHERE sub_brand_id = #{literal(SB_68159)} AND external_id = '45661';"
 
     {
@@ -368,7 +510,8 @@ module MigracionMarcas
       SB_62084 => CB_62084
     }.each do |sub_brand_id, customer_brand_id|
       sentencias << "UPDATE core.sub_brands " \
-                    "SET customer_brand_id = #{literal(customer_brand_id)} " \
+                    "SET customer_brand_id = #{literal(customer_brand_id)}, " \
+                    "updated_by = #{literal(usuario_migracion)} " \
                     "WHERE sub_brand_id = #{literal(sub_brand_id)};"
     end
 
@@ -383,7 +526,12 @@ module MigracionMarcas
 
   def escribir_sql(ruta, sentencias)
     FileUtils.mkdir_p(File.dirname(ruta))
-    contenido = (["BEGIN;"] + sentencias + ["COMMIT;"]).join("\n")
+    encabezado = [
+      "-- Migración de marcas y sub-marcas",
+      "-- Fecha: #{fecha_migracion}",
+      "-- updated_by: #{usuario_migracion}"
+    ]
+    contenido = (encabezado + ["BEGIN;"] + sentencias + ["COMMIT;"]).join("\n")
     File.write(ruta, "#{contenido}\n")
     puts "SQL generado: #{ruta}"
   end
@@ -622,12 +770,13 @@ module MigracionMarcas
     end
   end
 
-  def parsear_opciones(argv, nombre_script)
-    opciones = { ejecutar: false, sql: nil }
+  def parsear_opciones(argv, nombre_script, accion: "Marcas y SubMarcas")
+    opciones = { ejecutar: false, sql: ruta_sql_por_defecto(accion) }
     parser = OptionParser.new do |opts|
       opts.banner = "Uso: bundle exec ruby scripts/migracion_brands_and_customerbrands/#{nombre_script} [opciones]"
       opts.on("--ejecutar", "Aplica las sentencias en una transacción") { opciones[:ejecutar] = true }
-      opts.on("--sql RUTA", "Escribe las sentencias en un archivo SQL") { |ruta| opciones[:sql] = ruta }
+      opts.on("--sql RUTA", "Escribe las sentencias en un archivo SQL (por defecto: #{opciones[:sql]})") { |ruta| opciones[:sql] = ruta }
+      opts.on("--sin-sql", "No escribe archivo SQL") { opciones[:sql] = nil }
       opts.on("-h", "--help", "Muestra esta ayuda") do
         puts opts
         exit(0)
