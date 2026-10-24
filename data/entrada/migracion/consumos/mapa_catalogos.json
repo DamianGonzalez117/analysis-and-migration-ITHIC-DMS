@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-10-21T16:17:36Z",
+  "generado_en": "2026-10-23T23:14:18Z",
   "fuente": "generar_mapa.rb",
   "catalogs": {
     "cce": {
@@ -296,7 +296,7 @@
         {
           "uuid": "9647ba0f-3391-4d76-8b30-70ce44b06b95",
           "nombre": "PRODUCTOS INTEGRADO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 4853,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -304,7 +304,7 @@
         {
           "uuid": "33508053-6f1d-40a8-a555-0ec1fecdb91c",
           "nombre": "INGRESOS VIRTUALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 430,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -312,7 +312,7 @@
         {
           "uuid": "12be540a-1033-4a63-a73d-06eb5203c65f",
           "nombre": "MONTO PROMOESPACIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 40,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -320,7 +320,7 @@
         {
           "uuid": "15955d06-b5ca-407c-a9d0-27f85f8ab900",
           "nombre": "INGRESOS PROMOCIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 157,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -328,7 +328,7 @@
         {
           "uuid": "ef925fa5-2e9a-466d-8a12-6c03f63232fa",
           "nombre": "RECUPERACIONES GOBIERNO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 209,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -336,7 +336,7 @@
         {
           "uuid": "36896bef-8cc0-4219-86c6-44003e64f71d",
           "nombre": "INGRESOS WEB",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 260,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -344,7 +344,7 @@
         {
           "uuid": "ca4a2acf-3309-46a4-a899-0bd779cb0872",
           "nombre": "MONTO INTERACTIVIDAD",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 10,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -352,7 +352,7 @@
         {
           "uuid": "e3f0d4e8-c441-4ed4-9e10-7561fe1b32f5",
           "nombre": "COSTOS VERTIGO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 51,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -360,7 +360,7 @@
         {
           "uuid": "69c8c790-c252-447f-8816-aa9364de2942",
           "nombre": "MONTO DIVERSOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 10,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -368,7 +368,7 @@
         {
           "uuid": "8f44f2d8-ebd1-4aef-aefc-0aacec4d102a",
           "nombre": "CONTENTV",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 484,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -376,7 +376,7 @@
         {
           "uuid": "297731dd-47ff-4ab0-934d-0e2135dbff7a",
           "nombre": "CLUB DE GOLF",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 687,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -384,7 +384,7 @@
         {
           "uuid": "c697428f-4ff5-4357-a93b-cfd21a762fb1",
           "nombre": "EVENTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 147,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -392,7 +392,7 @@
         {
           "uuid": "1b29d907-3d90-4098-b639-bedb1cdf1e29",
           "nombre": "COMERCIALIZACION MONARCAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 21,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -400,7 +400,7 @@
         {
           "uuid": "23f0df1d-d284-4536-9206-eb866dec39be",
           "nombre": "COMERCIALIZACION ATLAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 4,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -408,7 +408,7 @@
         {
           "uuid": "65213755-9394-4db9-80e2-fb72dbb6ec03",
           "nombre": "NACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 22,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -416,7 +416,7 @@
         {
           "uuid": "9ea2ef66-19d7-4648-8a79-d07eebe424fd",
           "nombre": "VENTAS INTERNACIONALES CONTENIDO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 2418,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -424,7 +424,7 @@
         {
           "uuid": "43e883dc-9bdd-4df4-81b1-d3f090850733",
           "nombre": "AZTECA INTERNET",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 7922,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -432,7 +432,7 @@
         {
           "uuid": "f7cc8e97-e48b-4e0d-afed-73a7af7f1c75",
           "nombre": "DI GRAL VE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 315,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -440,7 +440,7 @@
         {
           "uuid": "2a3a4102-60fc-4b2a-8d56-70e1a391c2f6",
           "nombre": "VENTAS INTERNACIONALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 13419,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -456,7 +456,7 @@
         {
           "uuid": "a2443da4-c920-45ec-abd3-35dcbe44ac42",
           "nombre": "KAZA AZTECA AMERICA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 9,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -464,7 +464,7 @@
         {
           "uuid": "e40808a6-84ab-4587-8830-7c143f31043e",
           "nombre": "MONTO BLOQ P40",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 11,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -472,7 +472,7 @@
         {
           "uuid": "733032f3-6fd5-4306-8924-7024bc1b5add",
           "nombre": "MONTO COMPLEMENTARIOS LOCALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 144,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -480,7 +480,7 @@
         {
           "uuid": "0dbb1873-fff6-4bbd-86b7-1ad54843d1a1",
           "nombre": "CESION LOCALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -488,7 +488,7 @@
         {
           "uuid": "2083cd0a-17be-4194-a4ac-2192c133e82e",
           "nombre": "INGRESOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 3,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -496,7 +496,7 @@
         {
           "uuid": "d71554d2-2635-46a0-8c50-85ed47d15060",
           "nombre": "GOBIERNO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 328,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -512,7 +512,7 @@
         {
           "uuid": "80cf7e78-abc8-4596-8fd0-ecd375fa2339",
           "nombre": "INTERACTIVIDAD TVA 500334",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1569,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -520,7 +520,7 @@
         {
           "uuid": "3b4d7cec-735b-4e7c-afa8-7df2882ef182",
           "nombre": "INTERACTIVIDAD TVA 500355",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 12,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -536,7 +536,7 @@
         {
           "uuid": "c4a81d88-ac11-4738-ab9b-46bd3ca9b25a",
           "nombre": "CONCIERTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 23,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -544,7 +544,7 @@
         {
           "uuid": "672a4a7e-f942-48f2-86d5-273c6ab6cf3e",
           "nombre": "ALIANZAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1754,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -568,7 +568,7 @@
         {
           "uuid": "da2774fe-1865-452d-9bd9-64cac8e4bbef",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 3356,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -576,7 +576,7 @@
         {
           "uuid": "3e62d09f-93eb-4db5-a293-fcf81b9ec617",
           "nombre": "AZTECA CONCIERTOS LOCALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 12,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -584,7 +584,7 @@
         {
           "uuid": "d9018917-f170-40ba-bd89-b7cc6bfb24c9",
           "nombre": "IRREVERENTV",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 174,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -592,7 +592,7 @@
         {
           "uuid": "e0bd04c9-88a5-4223-9dd4-c4137afb46d3",
           "nombre": "AZTECA INTERNET",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5809,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -608,7 +608,7 @@
         {
           "uuid": "e23589cd-42bf-4eeb-97db-e98d4b023a70",
           "nombre": "AZTECA VIRTUAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 4548,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -616,7 +616,7 @@
         {
           "uuid": "db08fcd2-9fac-4e95-9e75-a90f813e4543",
           "nombre": "AZTECA INTERNET",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 8,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -624,7 +624,7 @@
         {
           "uuid": "31ce63f6-891f-4b97-bd33-cb4350a1100d",
           "nombre": "SANTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -632,7 +632,7 @@
         {
           "uuid": "12c1af6e-bac7-454c-804e-0f18d26f0688",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 146,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -688,7 +688,7 @@
         {
           "uuid": "a8ce95e8-4be7-4e7c-8355-a3fe1461f363",
           "nombre": "REGALIAS Y DISCOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 50,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -696,7 +696,7 @@
         {
           "uuid": "7191c909-8eb5-43d2-8dc2-f1ac2ecafde6",
           "nombre": "TV DE PAGA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -704,7 +704,7 @@
         {
           "uuid": "be535c77-c82b-48c6-8b26-e01865269471",
           "nombre": "TV DE PAGA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 37650,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -712,7 +712,7 @@
         {
           "uuid": "4dcea0ca-7e67-4a90-a612-a7b9a511ab26",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 9,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -720,7 +720,7 @@
         {
           "uuid": "6e44a919-aedc-4a7f-8dd4-0221b9f8e4ed",
           "nombre": "LICENCIAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 24,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -728,7 +728,7 @@
         {
           "uuid": "bb0e176c-b2b6-4f40-ab87-b4d032bca2ad",
           "nombre": "VENTA CONTENIDO NACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1880,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -736,7 +736,7 @@
         {
           "uuid": "217cf9c4-bf27-4b1e-89fa-5dc21831f300",
           "nombre": "VENTA SEÑAL NACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 27786,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -744,7 +744,7 @@
         {
           "uuid": "df80c941-7300-453e-afc5-9e160de981df",
           "nombre": "VENTA TV DE PAGA NACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 3,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -752,7 +752,7 @@
         {
           "uuid": "13b9320f-9d02-45f2-b892-fcebf9982786",
           "nombre": "VENTA DECOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 76,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -760,7 +760,7 @@
         {
           "uuid": "a56c3774-82c7-4c8b-ba2e-8957da8c4d27",
           "nombre": "NACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 377,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -768,7 +768,7 @@
         {
           "uuid": "68d1eb11-280f-47ae-8919-a3bd52b1a1b2",
           "nombre": "GOBIERNO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 203,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -776,7 +776,7 @@
         {
           "uuid": "3ad74304-7533-47b2-8409-b0371c3401f8",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -784,7 +784,7 @@
         {
           "uuid": "4263e5a9-db0a-4e28-93e7-23d96337ff28",
           "nombre": "TOTAL PLAY",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 143,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -792,7 +792,7 @@
         {
           "uuid": "9eec40a3-1ef3-4ae8-bd69-a92626fd1191",
           "nombre": "INGRESOS PRODUCCION",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 20,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -800,7 +800,7 @@
         {
           "uuid": "9732e0f0-b5e3-4995-982d-318af9146e72",
           "nombre": "VETIGO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 31,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -808,7 +808,7 @@
         {
           "uuid": "6c156b2a-13cc-45dd-ac1e-7705992c3ecf",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 325,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -816,7 +816,7 @@
         {
           "uuid": "aadef4e0-b31f-423e-8586-f1e59d647705",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -824,7 +824,7 @@
         {
           "uuid": "243a2497-ca04-4cb7-8b9a-ac346a9b0b97",
           "nombre": "PRODUCCIÓN COMERCIAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 108,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -832,7 +832,7 @@
         {
           "uuid": "a116388a-286b-4dbe-8ea0-e4ee45f9fb3b",
           "nombre": "DIRVTAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 3,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -840,7 +840,7 @@
         {
           "uuid": "d63e0d66-6674-4c53-8b54-2566d7dd882c",
           "nombre": "STAFF",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -848,7 +848,7 @@
         {
           "uuid": "c6f64eba-a56d-4912-a44a-222b74b60da3",
           "nombre": "PRODUCCION",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 67,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -936,7 +936,7 @@
         {
           "uuid": "4a9885dd-e242-49dc-ad8f-4cc85beecdaf",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 43,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -944,7 +944,7 @@
         {
           "uuid": "ea102fcf-b097-4426-86f3-e41120300046",
           "nombre": "EDITORIAL MANDARINA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 120,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -952,7 +952,7 @@
         {
           "uuid": "0b84a53d-eed6-4e4f-ac9f-3a4bee08c01f",
           "nombre": "CONTACT POINT",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 56,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -960,7 +960,7 @@
         {
           "uuid": "af3d26a7-54e3-4302-9eb0-460c445555f1",
           "nombre": "VENTA SEÑAL NACIONAL (TELEVISA)",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 842,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -968,7 +968,7 @@
         {
           "uuid": "fd2ed5bb-23bb-4197-898d-75c57b8b371f",
           "nombre": "COMISIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 176,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -976,7 +976,7 @@
         {
           "uuid": "3e8206a3-1ee2-4e26-a805-2e4815e5f916",
           "nombre": "VARIABLE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 20,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -984,7 +984,7 @@
         {
           "uuid": "4164965d-89fe-411d-93f5-d04869447258",
           "nombre": "VARIABLE GASTO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 2535,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -992,7 +992,7 @@
         {
           "uuid": "46e6b680-242f-4037-9287-3b2442363f85",
           "nombre": "PROYECTO CINEMEX",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 84,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -1000,7 +1000,7 @@
         {
           "uuid": "0653207d-d1c8-4c32-ae3e-77b1390efdff",
           "nombre": "CLARO OLIMPIADAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 136,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -1008,7 +1008,7 @@
         {
           "uuid": "cec606c3-0289-4885-b25a-ffde881db88c",
           "nombre": "VARIABLE GASTO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 132,
           "creado": "2026-10-21 16:17:16.015778+00"
         }
       ],
@@ -1026,7 +1026,7 @@
         {
           "uuid": "90834f5d-ac02-44e0-be65-c75ad9d31a2a",
           "nombre": "INGRESOS POR SERVICIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 687,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1034,7 +1034,7 @@
         {
           "uuid": "d76fd880-2e8b-4bd4-872a-96d860431387",
           "nombre": "EVENTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 83,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1042,7 +1042,7 @@
         {
           "uuid": "48d8a7a6-cd20-4c8f-9e85-c2312cd2f307",
           "nombre": "PRODUCCIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 13053,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1050,7 +1050,7 @@
         {
           "uuid": "1d2c83f5-e675-4b50-9888-29da2df2e9ba",
           "nombre": "OTROS INGRESOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 15358,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1082,7 +1082,7 @@
         {
           "uuid": "c3854481-dca8-4000-b92d-e837aac36d66",
           "nombre": "INGRESOS POR MANAGEMENT",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1792,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1090,7 +1090,7 @@
         {
           "uuid": "f28841cb-b610-434c-9f6e-eb55fc8ea030",
           "nombre": "VENTA DE TAQUILLA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 47,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1098,7 +1098,7 @@
         {
           "uuid": "335ef942-2bc8-4571-8dc7-cdd1e45ff3e5",
           "nombre": "INGRESOS PUBLICIDAD (BANNERS)",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 449,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1106,7 +1106,7 @@
         {
           "uuid": "f49a35e8-f19f-450e-b0c8-99c4b7eace5e",
           "nombre": "CONTENIDO Y SERVICIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 328,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1130,7 +1130,7 @@
         {
           "uuid": "f4c1586f-a34d-43f5-a1da-83c3c70b0325",
           "nombre": "PUBLICIDAD",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 51,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1138,7 +1138,7 @@
         {
           "uuid": "f7b89b91-1f1a-406e-ab48-dea9886bd2a9",
           "nombre": "DERECHOS DE TRANSMISIÓN",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 10,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1162,7 +1162,7 @@
         {
           "uuid": "93799e07-bf22-4d3b-9297-9af7787f386b",
           "nombre": "INGRESOS EN EL EXTRANJERO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 4173,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1170,7 +1170,7 @@
         {
           "uuid": "9a031809-e00b-42dc-ba9d-3f73d99be166",
           "nombre": "DERECHOS REGALIAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 40,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1178,7 +1178,7 @@
         {
           "uuid": "b81555b9-3e8c-4676-8c56-21043ed6fc09",
           "nombre": "PRODUCCIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 8,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1186,7 +1186,7 @@
         {
           "uuid": "2a9d324b-2494-465b-b7f0-42cd79dc30c6",
           "nombre": "DERECHOS DISTRIBUCION DE SEÑAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 42207,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1194,7 +1194,7 @@
         {
           "uuid": "74f6afe7-4278-4a00-bff4-b4a6d5ae8fef",
           "nombre": "DERECHOS DE EXHIBICION",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 534,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1202,7 +1202,7 @@
         {
           "uuid": "e82831e6-55c9-4994-bb5c-2c50388749e5",
           "nombre": "PUBLICIDAD INTERNET",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 10926,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1210,7 +1210,7 @@
         {
           "uuid": "96ecc7a8-60fa-4b80-8bd3-b8b85467bb9e",
           "nombre": "DERECHOS DE TRANSMISION POR EXPORTACION",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1740,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1218,7 +1218,7 @@
         {
           "uuid": "a047b1fa-5553-4e90-bd79-add6972ff834",
           "nombre": "DERECHOS DE DISTRIBUCIÓN DE SEÑAL POR EXPORTACIÓN",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 29005,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1234,7 +1234,7 @@
         {
           "uuid": "9c463328-3ce8-4fcd-9ec9-9af141710f8d",
           "nombre": "ANTICIPO DE CLIENTES CORTO PLAZO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 6,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1274,7 +1274,7 @@
         {
           "uuid": "289866eb-1116-452f-b6fb-8d7be0e4740f",
           "nombre": "PRODUCCIONES GASTO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 116,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ],
@@ -1282,7 +1282,7 @@
         {
           "uuid": "06994c9a-23c0-44e1-b55d-f188f9978349",
           "nombre": "PUBLICIDAD LIGUILLA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 20,
           "creado": "2026-10-21 16:17:15.82456+00"
         }
       ]
@@ -1292,7 +1292,7 @@
         {
           "uuid": "49ba9bfa-9526-44f3-85bc-685bfd2e5c76",
           "nombre": "INTERACTIVIDAD EXTERNA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1319,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1300,7 +1300,7 @@
         {
           "uuid": "d6425907-5706-48bb-a15d-e3701519f1b7",
           "nombre": "CONTENTV",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 484,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1308,7 +1308,7 @@
         {
           "uuid": "85419eb8-05ff-43a3-b1e6-cfcf3af16e3f",
           "nombre": "RENTA CAMPO DE GOLF",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 587,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1316,7 +1316,7 @@
         {
           "uuid": "a0832133-f672-4b22-a670-e290e6e5a013",
           "nombre": "RENTA EQUIPO DE GOLF",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 66,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1324,7 +1324,7 @@
         {
           "uuid": "d3e60d9b-bee3-4b6a-9579-0027fbf9d566",
           "nombre": "CAFETERIA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 34,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1332,7 +1332,7 @@
         {
           "uuid": "8d115329-cbac-47be-a191-a1f78a8c1974",
           "nombre": "TAQUILLA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 43,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1340,7 +1340,7 @@
         {
           "uuid": "6a7669a8-cacf-4b8f-96fe-07cad1c9fad0",
           "nombre": "PATROCINIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 8,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1348,7 +1348,7 @@
         {
           "uuid": "472d1af2-af6a-4162-84d9-86324ca3c8b9",
           "nombre": "BOOKING",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 25,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1372,7 +1372,7 @@
         {
           "uuid": "b826adc8-606b-4226-9f51-3f81140a5ef3",
           "nombre": "ESTATICA ESTADIO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 25,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1380,7 +1380,7 @@
         {
           "uuid": "e3528ba3-9e35-41cc-b07d-327ddab2709f",
           "nombre": "PROMOESPACIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 661,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1388,7 +1388,7 @@
         {
           "uuid": "9858c37a-4fd7-4f09-96a1-3c003b260ae3",
           "nombre": "VERTIGO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 124,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1396,7 +1396,7 @@
         {
           "uuid": "0c202fb2-479a-445e-b5bd-bec8ae7e43f6",
           "nombre": "GOBIERNO AGENCIA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 89,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1404,7 +1404,7 @@
         {
           "uuid": "00f8b6f2-fb1b-42f9-842c-a4366aa8653e",
           "nombre": "EVENTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 66,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1412,7 +1412,7 @@
         {
           "uuid": "019cdf46-8e08-7cc9-aba6-4fa2cf30e063",
           "nombre": "CONTENIDO / FABRICA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 12818,
           "creado": "2026-05-25 18:35:37.555"
         }
       ],
@@ -1420,7 +1420,7 @@
         {
           "uuid": "019cdf46-8e08-7cc9-aba6-4fa3cf30e063",
           "nombre": "CONTENIDO DIGITAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 822,
           "creado": "2026-05-25 18:35:37.555"
         }
       ],
@@ -1428,7 +1428,7 @@
         {
           "uuid": "68f473f7-4ef6-4947-a9c0-fb45362e62e1",
           "nombre": "IRREVERENTV",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 174,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1436,7 +1436,7 @@
         {
           "uuid": "05db35d6-b684-4761-97f5-0d2b95c608ae",
           "nombre": "INTERACTIVIDAD INTERNA",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 262,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1444,7 +1444,7 @@
         {
           "uuid": "a65be484-27f9-428c-9f89-63306217ca6d",
           "nombre": "VENTAS DE SENAL NACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 40797,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1460,7 +1460,7 @@
         {
           "uuid": "eafc278b-5ded-4f1f-996e-1b2a6ff22f14",
           "nombre": "VENTAS AL EXTRANJERO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5640,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1476,7 +1476,7 @@
         {
           "uuid": "35a0e948-0597-4e44-baa0-51757448f32c",
           "nombre": "REDES SOCIALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 10,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1484,7 +1484,7 @@
         {
           "uuid": "4220a7ea-1c96-40f3-85cd-0943274bdb7e",
           "nombre": "ESTRATEGIAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 6,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1492,7 +1492,7 @@
         {
           "uuid": "dd793ae9-64f7-4f74-bfe1-160b3de5e7e0",
           "nombre": "PRODUCCIÓN PI",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 4540,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1500,7 +1500,7 @@
         {
           "uuid": "d5c6d7e6-bb43-462c-ab0d-a09a3c42e8b5",
           "nombre": "VIRTUALES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 4549,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1508,7 +1508,7 @@
         {
           "uuid": "75879047-9840-490b-b05e-b60d5597af62",
           "nombre": "PROMOCIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 2471,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1532,7 +1532,7 @@
         {
           "uuid": "b56ed1a0-079c-4245-bbb5-c42a7a48c80f",
           "nombre": "VENTA DE CONCIERTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 14,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1564,7 +1564,7 @@
         {
           "uuid": "7af5a77d-a685-4240-9d8a-beb10e95966f",
           "nombre": "PUBLICIDAD Y EXCLUSIVAS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 77,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1668,7 +1668,7 @@
         {
           "uuid": "bc524226-633d-43f4-9d7e-254a9d78642d",
           "nombre": "GOBIERNO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 271,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1676,7 +1676,7 @@
         {
           "uuid": "327fec8f-67c7-4de5-8325-df22f7ae8754",
           "nombre": "VENTA DE SHOWS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 17,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1684,7 +1684,7 @@
         {
           "uuid": "c08c8576-d3aa-4916-afe3-55c36f2c22fc",
           "nombre": "REGALIAS CONCIERTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 3,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1692,7 +1692,7 @@
         {
           "uuid": "4d642326-3b87-44c5-af21-de572f71675b",
           "nombre": "DIVERSOS CONCIERTOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 3,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1700,7 +1700,7 @@
         {
           "uuid": "bc1db933-c165-4574-ab79-dcf8a10067c0",
           "nombre": "PATROCINIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 1754,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1740,7 +1740,7 @@
         {
           "uuid": "e30969f9-dc9e-4b15-a2b8-70aad1b5fa1e",
           "nombre": "OTROS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 359,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1748,7 +1748,7 @@
         {
           "uuid": "d9f909db-4128-4272-bb46-7afc45c9588b",
           "nombre": "REGALIAS VE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 50,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1756,7 +1756,7 @@
         {
           "uuid": "6d3b5a9f-5340-4344-b79b-20d5934cd812",
           "nombre": "REVISTA CENTRAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 342,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1764,7 +1764,7 @@
         {
           "uuid": "bd75f011-0b52-4c53-b787-a8e082739b17",
           "nombre": "SEÑAL INTERNACIONAL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 37656,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1772,7 +1772,7 @@
         {
           "uuid": "0dadfe77-9758-4c5f-a10f-f2fdc7235392",
           "nombre": "PUBLICIDAD",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 6,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1780,7 +1780,7 @@
         {
           "uuid": "8e933737-9a58-4f18-b280-a3ad00218f89",
           "nombre": "CONSIGNACION",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1796,7 +1796,7 @@
         {
           "uuid": "2277e6d8-b757-4b6d-89d9-238411418411",
           "nombre": "DIRECTO",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 19,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1804,7 +1804,7 @@
         {
           "uuid": "3d574504-7ba3-4634-8331-b4915e4531f1",
           "nombre": "COMPLEMENTARIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 415,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1812,7 +1812,7 @@
         {
           "uuid": "1a2196a6-cd27-4ada-9c2d-e44ad04ebde2",
           "nombre": "COMPLEMENT TORNEO GOLF",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 5,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1820,7 +1820,7 @@
         {
           "uuid": "771a6114-d1ce-411b-af28-ef294ab60256",
           "nombre": "TORNEO DE GOLF WGC",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 406,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1828,7 +1828,7 @@
         {
           "uuid": "ef409da8-4d7b-4ad7-80ba-b90b4a51d390",
           "nombre": "TOTAL PLAY",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 143,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1836,7 +1836,7 @@
         {
           "uuid": "7654baa8-ecaf-4748-b0a2-e0959b1a7aa2",
           "nombre": "SERVICIOS DE PRODUCCION",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 111,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1852,7 +1852,7 @@
         {
           "uuid": "6fae94bf-03f0-4dc9-b78e-bdb4d14562c9",
           "nombre": "ACTIVACIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 2,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1860,7 +1860,7 @@
         {
           "uuid": "5ed4d278-f5d7-4825-8a81-3c557d18fafc",
           "nombre": "PUBLICIDAD BTL",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 44,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1868,7 +1868,7 @@
         {
           "uuid": "d2ce9ba0-ce76-41d5-b99a-52d423115951",
           "nombre": "PRODUCCIONES",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 61,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1876,7 +1876,7 @@
         {
           "uuid": "ceb8a24f-2126-4b3e-94a8-9b1505785d7e",
           "nombre": "OTROS SERVICIOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 48,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1884,7 +1884,7 @@
         {
           "uuid": "7a3ced7e-666b-4cfb-8e48-4fb39cb40da4",
           "nombre": "UPAX",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 56,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1892,7 +1892,7 @@
         {
           "uuid": "ddd8fa87-9150-4742-baba-7c980d0b850a",
           "nombre": "SERVICIOS DIVERSOS",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 176,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1900,7 +1900,7 @@
         {
           "uuid": "af391763-f0c1-488f-833e-8ba3429275e4",
           "nombre": "CONTENIDO DIGITAL-ADN40",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 83,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ],
@@ -1908,7 +1908,7 @@
         {
           "uuid": "08473308-8e83-4e26-956a-ba5f50637293",
           "nombre": "SERVICIOS NO AIRE",
-          "uso_en_consumos": 0,
+          "uso_en_consumos": 2887,
           "creado": "2026-10-21 16:17:16.275455"
         }
       ]
@@ -1920,7 +1920,7 @@
           {
             "uuid": "b622b488-77e0-4576-a690-13cac7241c42",
             "nombre": "N/A",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 20670,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -1931,7 +1931,7 @@
           {
             "uuid": "a90ad0bf-f886-4dcb-9f9f-7756ced5708e",
             "nombre": "NOTICIAS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 11,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -1942,7 +1942,7 @@
           {
             "uuid": "7488df33-aabd-45ba-85cc-960f641f9e86",
             "nombre": "ESPECTACULOS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 4,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -1953,7 +1953,7 @@
           {
             "uuid": "4464d838-39a0-4f1a-8cbc-761213dd73c1",
             "nombre": "ENTRETENIMIENTO",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 2,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -1964,7 +1964,7 @@
           {
             "uuid": "4efc6a0f-f8ba-4d79-8723-0c4a2a502ab9",
             "nombre": "DEPORTES",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 3,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -1975,7 +1975,7 @@
           {
             "uuid": "a5410098-abc9-4360-b633-a8e0c335a864",
             "nombre": "TELENOVELAS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 1,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -1997,7 +1997,7 @@
           {
             "uuid": "6a02ba91-db5a-4fa8-9649-7a028269d65a",
             "nombre": "OTROS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 15681,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2019,7 +2019,7 @@
           {
             "uuid": "eb4345bb-71ca-49b9-bd31-6558bed2520e",
             "nombre": "FUTBOL",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 2,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2030,7 +2030,7 @@
           {
             "uuid": "33a66287-0fe1-4731-976c-cfc001ef0eaa",
             "nombre": "INFOMERCIALES",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 1,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2052,7 +2052,7 @@
           {
             "uuid": "3420a37e-c6d7-45c1-b89e-2b98132d3a47",
             "nombre": "SELECCION NACIONAL",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 1,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2063,7 +2063,7 @@
           {
             "uuid": "870401d8-a712-476a-87e8-da494f2c1023",
             "nombre": "SEÑALES",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 80952,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2074,7 +2074,7 @@
           {
             "uuid": "ca35f547-3358-4e9e-9333-1b3c5e4a86bc",
             "nombre": "PROGRAMAS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 19,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2085,7 +2085,7 @@
           {
             "uuid": "7123cc0b-aea6-494d-988d-6696915a8f9f",
             "nombre": "LIGUILLA MX",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 51,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2096,7 +2096,7 @@
           {
             "uuid": "32182938-bb10-42a1-a176-595b756a84cc",
             "nombre": "TORNEO INTERNACIONAL",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 3,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2107,7 +2107,7 @@
           {
             "uuid": "bc802df5-0e33-4deb-b8e8-2de0ba869a74",
             "nombre": "DERECHOS DE EXHIBICION",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 2613,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2118,7 +2118,7 @@
           {
             "uuid": "42afce4f-d262-4fef-a4bf-e7eb1861dfec",
             "nombre": "REGALIAS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 11,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2129,7 +2129,7 @@
           {
             "uuid": "2823f410-a615-49a3-94cb-579b8461b5a3",
             "nombre": "DECODIFICADORES",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 471,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2140,7 +2140,7 @@
           {
             "uuid": "4b9d6be6-73fa-46e0-b060-6a7a7fa2636a",
             "nombre": "PUBLICIDAD",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 7,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2151,7 +2151,7 @@
           {
             "uuid": "69533b1b-be87-40bb-a4f5-9c768d416050",
             "nombre": "LATINOAMERICA",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 6,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2162,7 +2162,7 @@
           {
             "uuid": "2b57718b-b924-42aa-a166-91c9b6432fa9",
             "nombre": "TAQUILLA",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 4,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2173,7 +2173,7 @@
           {
             "uuid": "5ae335ea-8d92-4b0e-95cf-b162db3e3807",
             "nombre": "PRODUCCION",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 20,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2339,7 +2339,7 @@
           {
             "uuid": "6c773b27-7a9f-4640-bfcd-03749d5f7959",
             "nombre": "PATROCINIOS  Y ESPACIOS PUBLICITARIOS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 6,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2350,7 +2350,7 @@
           {
             "uuid": "edcb440c-4e95-48ea-bad0-5ea20a4aa674",
             "nombre": "AMORTIZACIÓN PATROCINIOS Y ESPACIOS PUBLICITARIOS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 17,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2559,7 +2559,7 @@
           {
             "uuid": "d2a65002-3d3a-4ccf-92ba-89551f09f48c",
             "nombre": "CAMPAÑAS GOBIERNO",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 14,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2570,7 +2570,7 @@
           {
             "uuid": "9571791d-db6a-440c-b42f-f842e91805fb",
             "nombre": "CAPSULAS",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 8,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2581,7 +2581,7 @@
           {
             "uuid": "879da2a4-0782-4d69-acbb-67cd29ad9bc9",
             "nombre": "PRODUCCIÓN PI",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 28,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]
@@ -2592,7 +2592,7 @@
           {
             "uuid": "694fd731-fb03-45c1-826e-2c3de856eeed",
             "nombre": "SERVICIOS DE PRODUCCIÓN",
-            "uso_en_consumos": 0,
+            "uso_en_consumos": 27,
             "creado": "2026-10-21 16:17:16.614645+00"
           }
         ]

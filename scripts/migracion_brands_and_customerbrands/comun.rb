@@ -17,6 +17,17 @@ module MigracionMarcas
   RUTA_MARCAS = File.join(DIR_ENTRADA, "Marcas.txt")
   RUTA_CUSTOMER_BRANDS = File.join(DIR_ENTRADA, "customer_brands.txt")
   RUTA_SUB_BRANDS = File.join(DIR_ENTRADA, "sub_brands.txt")
+  CAMPOS_CUSTOMER_BRANDS = [%w[CUSTOMER_ID], %w[SUBSIDIARY_ID], %w[OBJECT_STATUS_ID]].freeze
+  CAMPOS_SUB_BRANDS = [
+    %w[SUB_BRAND_ID],
+    %w[BRA_NAME NAME],
+    %w[BRA_SHORT_NAME SHORT_NAME],
+    %w[BRA_LONG_NAME DESCRIPTION],
+    %w[BRAND_ID],
+    %w[OBJECT_STATUS_ID],
+    %w[EXTERNAL_ID],
+    %w[BRA_ID_EXTERNAL]
+  ].freeze
   DIR_REPORTES = File.join(RAIZ_PROYECTO, "data", "reportes", "marcas")
   DIR_MIGRACIONES = "/home/damiangonzalez/DataGripProjects/copan/Migraciones/Marcas y SubMarcas Nacional"
 
@@ -108,8 +119,8 @@ module MigracionMarcas
   end
 
   def pares_fuente
-    customer_brands = leer_filas(RUTA_CUSTOMER_BRANDS)
-    sub_brands = leer_filas(RUTA_SUB_BRANDS)
+    customer_brands = leer_filas_validas(RUTA_CUSTOMER_BRANDS, CAMPOS_CUSTOMER_BRANDS, "customer_brands.txt")
+    sub_brands = leer_filas_validas(RUTA_SUB_BRANDS, CAMPOS_SUB_BRANDS, "sub_brands.txt")
     if customer_brands.size != sub_brands.size
       raise ErrorMigracion, "customer_brands.txt y sub_brands.txt no tienen la misma cantidad de filas"
     end
@@ -117,6 +128,36 @@ module MigracionMarcas
     sub_brands.each_with_index.map do |sub_brand, indice|
       { indice: indice, sub: sub_brand, customer_brand: customer_brands[indice] }
     end
+  end
+
+  def leer_filas_validas(ruta, campos_requeridos, nombre)
+    fuente = Ithic::LectorTxt.leer(ruta)
+    faltantes = campos_requeridos.filter_map do |alternativas|
+      alternativas.join("/") unless alternativas.any? { |campo| fuente.campos.include?(campo) }
+    end
+    unless faltantes.empty?
+      raise ErrorMigracion,
+            "#{nombre} no tiene el encabezado esperado; faltan las columnas: #{faltantes.join(', ')}"
+    end
+
+    filas = fuente.filas.map do |fila|
+      normalizada = fila.dup
+      campos_requeridos.each do |alternativas|
+        valor = alternativas.filter_map { |campo| fila[campo] }.find { |v| !v.to_s.strip.empty? }
+        normalizada[alternativas.first] = valor.to_s unless valor.nil?
+      end
+      normalizada
+    end
+
+    incompletas = filas.each_with_index.filter_map do |fila, indice|
+      vacios = campos_requeridos.map(&:first).select { |campo| fila[campo].to_s.strip.empty? }
+      "fila #{indice + 2} sin #{vacios.join('/')}" unless vacios.empty?
+    end
+    unless incompletas.empty?
+      raise ErrorMigracion, "#{nombre} tiene filas incompletas: #{incompletas.join('; ')}"
+    end
+
+    filas
   end
 
   def dsm(base)
@@ -379,15 +420,20 @@ module MigracionMarcas
       "AND brand_id = #{literal(marca_id)};"
   end
 
-  def insert_sub_brand_idempotente(sub_brand, customer_brand, marca_id)
-    sub_brand_id = uuid(sub_brand["SUB_BRAND_ID"])
+  def customer_brand_subquery(customer_brand, marca_id)
     customer_id = uuid(customer_brand["CUSTOMER_ID"])
     subsidiary_id = uuid(customer_brand["SUBSIDIARY_ID"])
-    customer_brand_expr = "(SELECT customer_brand_id FROM core.customers_brands " \
-                          "WHERE customer_id = #{literal(customer_id)} " \
-                          "AND subsidiary_id = #{literal(subsidiary_id)} " \
-                          "AND brand_id = #{literal(marca_id)} " \
-                          "ORDER BY created_at ASC LIMIT 1)"
+
+    "(SELECT customer_brand_id FROM core.customers_brands " \
+      "WHERE customer_id = #{literal(customer_id)} " \
+      "AND subsidiary_id = #{literal(subsidiary_id)} " \
+      "AND brand_id = #{literal(marca_id)} " \
+      "ORDER BY created_at ASC LIMIT 1)"
+  end
+
+  def insert_sub_brand_idempotente(sub_brand, customer_brand, marca_id, customer_brand_id: nil)
+    sub_brand_id = uuid(sub_brand["SUB_BRAND_ID"])
+    customer_brand_expr = customer_brand_id ? literal(customer_brand_id) : customer_brand_subquery(customer_brand, marca_id)
 
     columnas = %w[
       sub_brand_id name short_name description brand_id cat_brand_product_type_id
@@ -418,18 +464,12 @@ module MigracionMarcas
       ");"
   end
 
-  def update_sub_brand_updated_by(sub_brand, customer_brand, marca_id)
+  def update_sub_brand_updated_by(sub_brand, customer_brand, marca_id, customer_brand_id: nil)
     sub_brand_id = uuid(sub_brand["SUB_BRAND_ID"])
-    customer_id = uuid(customer_brand["CUSTOMER_ID"])
-    subsidiary_id = uuid(customer_brand["SUBSIDIARY_ID"])
+    customer_brand_expr = customer_brand_id ? literal(customer_brand_id) : customer_brand_subquery(customer_brand, marca_id)
 
     "UPDATE core.sub_brands " \
-      "SET customer_brand_id = (" \
-      "SELECT customer_brand_id FROM core.customers_brands " \
-      "WHERE customer_id = #{literal(customer_id)} " \
-      "AND subsidiary_id = #{literal(subsidiary_id)} " \
-      "AND brand_id = #{literal(marca_id)} " \
-      "ORDER BY created_at ASC LIMIT 1), " \
+      "SET customer_brand_id = #{customer_brand_expr}, " \
       "updated_by = #{literal(usuario_migracion)} " \
       "WHERE sub_brand_id = #{literal(sub_brand_id)};"
   end
@@ -450,6 +490,90 @@ module MigracionMarcas
     end
 
     sentencias
+  end
+
+  def clave_customer_brand(customer_brand, marca_id)
+    [uuid(customer_brand["CUSTOMER_ID"]), uuid(customer_brand["SUBSIDIARY_ID"]), marca_id]
+  end
+
+  def customer_brand_ids_cuadre(base, pares, marca_id)
+    pares.each_with_object({}) do |par, ids|
+      customer_brand = par[:customer_brand]
+      clave = clave_customer_brand(customer_brand, marca_id)
+      next if ids.key?(clave)
+
+      existente = base.consultar(
+        "select customer_brand_id from core.customers_brands " \
+        "where customer_id = $1 and subsidiary_id = $2 and brand_id = $3 " \
+        "order by created_at asc limit 1",
+        clave
+      ).first
+      ids[clave] = existente&.fetch("CUSTOMER_BRAND_ID") ||
+                   uuid(customer_brand["CUSTOMER_BRAND_ID"]) ||
+                   SecureRandom.uuid
+    end
+  end
+
+  def sentencias_cuadre(base)
+    marca_id = marca_insert(base)
+    if marca_id.nil?
+      raise ErrorMigracion, "No existe en core.brands ni #{MARCA_SIN_MARCA} ni #{MARCA_ALTERNA}"
+    end
+
+    pares = pares_fuente
+    customer_brand_ids = customer_brand_ids_cuadre(base, pares, marca_id)
+    sentencias = []
+
+    pares.map do |par|
+      [uuid(par[:customer_brand]["CUSTOMER_ID"]), uuid(par[:customer_brand]["SUBSIDIARY_ID"])]
+    end.uniq.each do |customer_id, subsidiary_id|
+      shared = sentencia_shared(base, customer_id, subsidiary_id)
+      sentencias << shared if shared
+    end
+
+    pares.each do |par|
+      par[:customer_brand_id] = customer_brand_ids[clave_customer_brand(par[:customer_brand], marca_id)]
+      sentencias << insert_customer_brand_idempotente(par[:customer_brand], par[:customer_brand_id], marca_id)
+      sentencias << update_customer_brand_updated_by(par[:customer_brand], marca_id)
+    end
+    pares.each do |par|
+      sentencias << insert_sub_brand_idempotente(par[:sub], par[:customer_brand], marca_id)
+      sentencias << update_sub_brand_updated_by(par[:sub], par[:customer_brand], marca_id)
+    end
+
+    sentencias
+  end
+
+  def resumen_cuadre(base, pares, marca_id)
+    shared_nuevos = 0
+    pares.map do |par|
+      [uuid(par[:customer_brand]["CUSTOMER_ID"]), uuid(par[:customer_brand]["SUBSIDIARY_ID"])]
+    end.uniq.each do |customer_id, subsidiary_id|
+      shared_nuevos += 1 if shared_existente(base, customer_id, subsidiary_id).nil?
+    end
+
+    claves_customer_brand = pares.map do |par|
+      customer_brand = par[:customer_brand]
+      [uuid(customer_brand["CUSTOMER_ID"]), uuid(customer_brand["SUBSIDIARY_ID"]), marca_id]
+    end.uniq
+    customer_brands_nuevos = claves_customer_brand.count do |customer_id, subsidiary_id, brand_id|
+      base.consultar(
+        "select 1 from core.customers_brands where customer_id = $1 and subsidiary_id = $2 and brand_id = $3 limit 1",
+        [customer_id, subsidiary_id, brand_id]
+      ).empty?
+    end
+
+    sub_brands_nuevos = pares.count do |par|
+      sub_brand_existente(base, uuid(par[:sub]["SUB_BRAND_ID"])).nil?
+    end
+
+    {
+      shared_nuevos: shared_nuevos,
+      customer_brands_nuevos: customer_brands_nuevos,
+      customer_brands_existentes: claves_customer_brand.size - customer_brands_nuevos,
+      sub_brands_nuevos: sub_brands_nuevos,
+      sub_brands_existentes: pares.size - sub_brands_nuevos
+    }
   end
 
   def sentencias_update(base)
@@ -552,35 +676,44 @@ module MigracionMarcas
   end
 
   def detalle_faltantes(base, registros_marcas, faltan)
-    fuente = pares_fuente.to_h { |par| [par[:sub]["EXTERNAL_ID"], par] }
+    fuente = begin
+      pares_fuente.to_h { |par| [par[:sub]["EXTERNAL_ID"], par] }
+    rescue ErrorMigracion => e
+      warn "Aviso: #{e.message}"
+      {}
+    end
     marcas_por_externo = registros_marcas.group_by { |fila| fila["EXTERNAL_ID"] }
     faltan.map do |externo|
       par = fuente[externo]
-      sub_brand_id = par && uuid(par[:sub]["SUB_BRAND_ID"])
+      fila_marcas = marcas_por_externo[externo]&.first
+      sub_brand_id = if par
+                       uuid(par[:sub]["SUB_BRAND_ID"])
+                     elsif fila_marcas
+                       uuid(fila_marcas["SUB_BRAND"])
+                     end
       actual = sub_brand_id && sub_brand_existente(base, sub_brand_id)
+
       if par.nil?
-        situacion = "NO EXISTE EN core.sub_brands y no está en los archivos de entrada"
-        accion = "SIN DATOS PARA INSERTAR"
+        situacion = if actual
+                      "FALTA EN LOS ARCHIVOS DE ENTRADA (en DSM tiene external_id #{actual['EXTERNAL_ID']})"
+                    else
+                      "NO EXISTE EN core.sub_brands; falta en los archivos de entrada"
+                    end
+        accion = "AGREGAR A ARCHIVOS DE ENTRADA"
+        sugerencia = "Agregar la fila en customer_brands.txt y sub_brands.txt"
       elsif actual.nil?
         situacion = "NO EXISTE EN core.sub_brands"
         accion = "INSERT"
+        sugerencia = "INSERT: no existe el sub_brand_id"
       elsif actual["EXTERNAL_ID"] == externo
         situacion = "EXISTE en core.sub_brands, pero no aparece en la consulta (subsidiaria/shared_customers)"
         accion = "UPDATE customer_brand_id / shared_customers"
+        sugerencia = SUGERENCIAS[sub_brand_id] || "UPDATE customer_brand_id / shared_customers"
       else
         situacion = "EXISTE el sub_brand_id, pero con external_id #{actual['EXTERNAL_ID']}"
         accion = "UPDATE external_id/customer_brand_id"
+        sugerencia = SUGERENCIAS[sub_brand_id] || "UPDATE external_id y customer_brand_id"
       end
-
-      sugerencia = if par.nil?
-                     "Conseguir los datos en los archivos de entrada"
-                   elsif actual.nil?
-                     "INSERT: no existe el sub_brand_id"
-                   elsif actual["EXTERNAL_ID"] != externo
-                     SUGERENCIAS[sub_brand_id] || "UPDATE external_id y customer_brand_id"
-                   else
-                     SUGERENCIAS[sub_brand_id] || "UPDATE customer_brand_id / shared_customers"
-                   end
 
       coincidencias = []
       if actual && actual["EXTERNAL_ID"] != externo
@@ -599,12 +732,16 @@ module MigracionMarcas
 
       {
         external_id: externo,
-        bra_id_external: par && par[:sub]["BRA_ID_EXTERNAL"],
-        nombre: par && par[:sub]["BRA_NAME"],
-        short_name: par && par[:sub]["BRA_SHORT_NAME"],
+        sub_brand: (par && par[:sub]["SUB_BRAND_ID"]) || (fila_marcas && fila_marcas["SUB_BRAND"]),
+        bra_id_external: (par && par[:sub]["BRA_ID_EXTERNAL"]) || (fila_marcas && fila_marcas["BRA_ID_EXTERNAL"]),
+        nombre: (par && par[:sub]["BRA_NAME"]) || (fila_marcas && fila_marcas["SB_NAME"]),
+        short_name: (par && par[:sub]["BRA_SHORT_NAME"]) || (fila_marcas && fila_marcas["SB_SHORT_NAME"]),
+        subsidiary_number: fila_marcas && fila_marcas["SUBSIDIARY_NUMBER"],
+        subsidiary_name: fila_marcas && fila_marcas["SUBSIDIARY_NAME"],
         sub_brand_id_dsm: actual && uuid(actual["SUB_BRAND_ID"]),
         external_id_dsm: actual && actual["EXTERNAL_ID"],
         customer_brand_id_dsm: actual && actual["CUSTOMER_BRAND_ID"],
+        en_archivos: !par.nil?,
         situacion: situacion,
         accion: accion,
         sugerencia: sugerencia,
@@ -617,8 +754,11 @@ module MigracionMarcas
     return if detalle.empty?
 
     puts "\nDetalle de faltantes:"
+    puts "  BRA_ID_EXTERNAL | EXTERNAL_ID | SUB_BRAND | NOMBRE | SHORT | SUBSIDIARIA"
     detalle.each do |d|
-      puts "  #{d[:external_id]} | #{d[:nombre]} | #{d[:situacion]}"
+      puts "  #{d[:bra_id_external]} | #{d[:external_id]} | #{d[:sub_brand]} | " \
+           "#{d[:nombre]} | #{d[:short_name]} | subsidiaria #{d[:subsidiary_number]} #{d[:subsidiary_name]}"
+      puts "    Situación: #{d[:situacion]}"
       puts "    Qué hacer: #{d[:sugerencia]}"
       next if d[:external_id_dsm].nil? || d[:external_id_dsm] == d[:external_id]
 
@@ -639,10 +779,11 @@ module MigracionMarcas
 
     csv_faltantes = File.join(DIR_REPORTES, "faltantes_en_dsm.csv")
     CSV.open(csv_faltantes, "w") do |csv|
-      csv << %w[EXTERNAL_ID BRA_ID_EXTERNAL SB_NAME SB_SHORT_NAME SUB_BRAND_ID_DSM EXTERNAL_ID_DSM CUSTOMER_BRAND_ID_DSM SITUACION ACCION QUE_HACER MARCAS_TXT_EXTERNAL_ID MARCAS_TXT_SUB_BRAND MARCAS_TXT_BRA_ID_EXTERNAL MARCAS_TXT_SB_NAME MARCAS_TXT_SB_SHORT_NAME MARCAS_TXT_SUBSIDIARY]
+      csv << %w[BRA_ID_EXTERNAL EXTERNAL_ID SUB_BRAND SB_NAME SB_SHORT_NAME SUBSIDIARY_NUMBER SUBSIDIARY_NAME SUB_BRAND_ID_DSM EXTERNAL_ID_DSM CUSTOMER_BRAND_ID_DSM SITUACION ACCION QUE_HACER MARCAS_TXT_EXTERNAL_ID MARCAS_TXT_SUB_BRAND MARCAS_TXT_BRA_ID_EXTERNAL MARCAS_TXT_SB_NAME MARCAS_TXT_SB_SHORT_NAME MARCAS_TXT_SUBSIDIARY]
       detalle.each do |d|
         coincidencias = d[:coincidencias_marcas]
-        csv << [d[:external_id], d[:bra_id_external], d[:nombre], d[:short_name],
+        csv << [d[:bra_id_external], d[:external_id], d[:sub_brand], d[:nombre], d[:short_name],
+                d[:subsidiary_number], d[:subsidiary_name],
                 d[:sub_brand_id_dsm], d[:external_id_dsm], d[:customer_brand_id_dsm],
                 d[:situacion], d[:accion], d[:sugerencia],
                 coincidencias.map { |c| c[:external_id] }.join("; "),
@@ -691,10 +832,11 @@ module MigracionMarcas
 
     lineas << "## external_id faltantes en DSM"
     lineas << ""
-    lineas << "| external_id | bra_id_external | Nombre | Short | Situación | Qué hacer |"
-    lineas << "| ---: | ---: | --- | --- | --- | --- |"
+    lineas << "| bra_id_external | external_id | sub_brand | Nombre | Short | Subsidiaria | Situación | Qué hacer |"
+    lineas << "| ---: | ---: | --- | --- | --- | --- | --- | --- |"
     detalle.each do |d|
-      lineas << "| #{d[:external_id]} | #{d[:bra_id_external]} | #{d[:nombre]} | #{d[:short_name]} | #{d[:situacion]} | #{d[:sugerencia]} |"
+      lineas << "| #{d[:bra_id_external]} | #{d[:external_id]} | #{d[:sub_brand]} | #{d[:nombre]} | " \
+                "#{d[:short_name]} | #{d[:subsidiary_number]} #{d[:subsidiary_name]} | #{d[:situacion]} | #{d[:sugerencia]} |"
     end
     lineas << ""
 

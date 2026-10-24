@@ -37,19 +37,15 @@ module MigracionMarcas
         end
 
         unless comparacion[:faltan].empty?
-          begin
-            acciones = sentencias_update(base)
-            puts "\nQué hacer (SQL de actualización para esta base):"
-            acciones.each_with_index do |sql, indice|
-              puts "\n-- #{indice + 1}"
-              puts sql
-            end
-            puts "\nPara aplicarlo: bundle exec ruby scripts/migracion_brands_and_customerbrands/actualizar_marcas.rb --ejecutar"
-            puts "Para un entorno limpio: bundle exec ruby scripts/migracion_brands_and_customerbrands/insertar_marcas.rb"
-          rescue ErrorMigracion => e
-            puts "\nNo se pudo construir el plan de actualización automático: #{e.message}"
-            puts "Si los registros no existen, revisa insertar_marcas.rb."
+          puts "\nSiguiente paso:"
+          sin_archivo = detalle.reject { |d| d[:en_archivos] }.map { |d| d[:external_id] }
+          if sin_archivo.empty?
+            puts "  1. Los faltantes ya están en customer_brands.txt y sub_brands.txt."
+          else
+            puts "  1. Agrega a customer_brands.txt y sub_brands.txt: #{sin_archivo.join(', ')}"
           end
+          puts "  2. Genera los scripts para cuadrar marcas con:"
+          puts "     bundle exec ruby scripts/migracion_brands_and_customerbrands/cuadrar_marcas.rb"
         end
 
         ruta = escribir_reporte_comparacion(base, comparacion, detalle)

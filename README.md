@@ -51,11 +51,11 @@ y genera en `data/reportes/<mapeo>/`:
 `migrar` es segura por defecto: **simula** y muestra el plan; solo aplica cambios con
 `--ejecutar` (en una transacción). Opciones:
 
-| Opción | Efecto |
-| --- | --- |
-| `--sql RUTA` | escribe el script SQL generado (sin ejecutarlo) |
-| `--ejecutar` | aplica las sentencias en una transacción |
-| `--conflicto nada` | `ON CONFLICT DO NOTHING`: solo inserta faltantes (default) |
+| Opción                   | Efecto                                                           |
+| ------------------------ | ---------------------------------------------------------------- |
+| `--sql RUTA`             | escribe el script SQL generado (sin ejecutarlo)                  |
+| `--ejecutar`             | aplica las sentencias en una transacción                         |
+| `--conflicto nada`       | `ON CONFLICT DO NOTHING`: solo inserta faltantes (default)       |
 | `--conflicto actualizar` | `ON CONFLICT DO UPDATE`: inserta y actualiza existentes (upsert) |
 
 ## Arquitectura
@@ -94,18 +94,18 @@ sentencias SQL transaccionales.
 
 ```yaml
 nombre: pagares
-clave:                # campo que identifica el registro
-  fuente: COI_UUID    # columna en el .txt
-  dsm: COI_UUID       # alias devuelto por la consulta
+clave: # campo que identifica el registro
+  fuente: COI_UUID # columna en el .txt
+  dsm: COI_UUID # alias devuelto por la consulta
   tipo: uuid
-parametros:           # parámetros de la consulta
+parametros: # parámetros de la consulta
   - nombre: year
     tipo: entero
-    desde_nombre: 'pagares-(\d+)\.txt$'  # se infiere del archivo
-    sumar: 2000                          # 26 -> 2026
-consulta: |           # SQL con placeholders :nombre -> $1, $2...
+    desde_nombre: 'pagares-(\d+)\.txt$' # se infiere del archivo
+    sumar: 2000 # 26 -> 2026
+consulta: | # SQL con placeholders :nombre -> $1, $2...
   select ... where con.year = :year
-campos:               # columnas comparadas y reportadas
+campos: # columnas comparadas y reportadas
   - fuente: COI_AMOUNT
     dsm: COI_AMOUNT
     tipo: decimal
@@ -113,7 +113,7 @@ reporte:
   carpeta: pagares
 migracion:
   tabla: promissory_notes
-  conflicto: nada     # nada | actualizar
+  conflicto: nada # nada | actualizar
   clave:
     fuente: COI_UUID
     columna: promissory_note_id
@@ -126,14 +126,14 @@ migracion:
 
 Tipos de normalización disponibles:
 
-| Tipo | Uso |
-| --- | --- |
-| `texto` | comparación literal (trim) |
+| Tipo                 | Uso                                                               |
+| -------------------- | ----------------------------------------------------------------- |
+| `texto`              | comparación literal (trim)                                        |
 | `entero` / `decimal` | comparación numérica; en decimales el reporte resta `DSM - ITHIC` |
-| `fecha` | comparación por día (`20/07/2026 00:00` = `20/07/2026`) |
-| `fecha_iso` | conversión a `YYYY-MM-DD` para migración |
-| `uuid` | mayúsculas sin guiones (comparación) |
-| `uuid_postgres` | minúsculas con guiones (clave para INSERT) |
+| `fecha`              | comparación por día (`20/07/2026 00:00` = `20/07/2026`)           |
+| `fecha_iso`          | conversión a `YYYY-MM-DD` para migración                          |
+| `uuid`               | mayúsculas sin guiones (comparación)                              |
+| `uuid_postgres`      | minúsculas con guiones (clave para INSERT)                        |
 
 Si el `.txt` no trae un campo declarado, se omite de la comparación y se reporta como
 ausente. Si un campo de migración obligatorio falta en el `.txt`, `migrar` falla con un
@@ -154,14 +154,14 @@ docker run --rm --network host -v "$PWD":/app -w /app ruby:3.3 \
 
 ## Migrado desde `balance-of-ITHIC` (Python)
 
-| Original | Ruby |
-| --- | --- |
-| `app.py` + `nucleo/ejecutor.py` | `bin/ithic` + Thor (`lib/ithic/cli.rb`) |
-| `conexion/database.py` | `lib/ithic/base_datos.rb` + `configuracion.rb` |
-| `pagares/compare/compare.py` | `comparador.rb` + `reporte_markdown.rb` (genérico) |
-| `pagares/compare/query.py` | mapeo YAML (`consulta`) + `consultar` |
-| `pagares/compare/import_pagares.py` | `ithic importar` |
-| `pagares/migracion/migrate.py` (vacío) | `migrador.rb` + `ithic migrar` |
+| Original                               | Ruby                                               |
+| -------------------------------------- | -------------------------------------------------- |
+| `app.py` + `nucleo/ejecutor.py`        | `bin/ithic` + Thor (`lib/ithic/cli.rb`)            |
+| `conexion/database.py`                 | `lib/ithic/base_datos.rb` + `configuracion.rb`     |
+| `pagares/compare/compare.py`           | `comparador.rb` + `reporte_markdown.rb` (genérico) |
+| `pagares/compare/query.py`             | mapeo YAML (`consulta`) + `consultar`              |
+| `pagares/compare/import_pagares.py`    | `ithic importar`                                   |
+| `pagares/migracion/migrate.py` (vacío) | `migrador.rb` + `ithic migrar`                     |
 
 El motor es genérico y guiado por configuración: para una entidad nueva basta crear otro
 `.yml` en `config/mapeos/`.
@@ -236,8 +236,13 @@ Los scripts de `scripts/migracion_brands_and_customerbrands/` lo comparan contra
 `sub_brands.txt` contienen los 8 pares que se insertan en un entorno limpio.
 
 ```bash
-# Comparar contra DSM y generar reportes (no escribe)
+# 1) Comparar contra DSM (solo lectura: no genera ni ejecuta SQL)
 bundle exec ruby scripts/migracion_brands_and_customerbrands/comparar_marcas.rb
+
+# 2) Con el listado de faltantes, completar customer_brands.txt y sub_brands.txt
+# 3) Generar el script de cuadre en la carpeta de migraciones (simula por defecto)
+bundle exec ruby scripts/migracion_brands_and_customerbrands/cuadrar_marcas.rb
+bundle exec ruby scripts/migracion_brands_and_customerbrands/cuadrar_marcas.rb --ejecutar
 
 # Base existente (QA): corrige los 6 sub_brands conocidos y crea el shared_customer
 # NACIONAL de GRUPO POSADAS si falta (simula por defecto)
@@ -251,9 +256,15 @@ bundle exec ruby scripts/migracion_brands_and_customerbrands/insertar_marcas.rb 
 
 Reglas aplicadas:
 
-- `comparar_marcas.rb` reporta faltantes, sobrantes, `external_id` duplicados y diferencias
-  de nombre/`short_name`; escribe `data/reportes/marcas/comparacion_marcas.md`,
-  `faltantes_en_dsm.csv` y `diferencias_nombres.csv`, y sale con código 2 si `NO CUADRA`.
+- `comparar_marcas.rb` solo compara: no genera ni ejecuta SQL. Reporta faltantes, sobrantes,
+  `external_id` duplicados y diferencias de nombre/`short_name`; escribe
+  `data/reportes/marcas/comparacion_marcas.md`, `faltantes_en_dsm.csv` y
+  `diferencias_nombres.csv`, y sale con código 2 si `NO CUADRA`.
+- `cuadrar_marcas.rb` toma `customer_brands.txt` y `sub_brands.txt`, genera el SQL
+  idempotente (shared_customer, INSERT de customer_brands/sub_brands y UPDATE del vínculo)
+  en `.../Migraciones/Marcas y SubMarcas Nacional/<dd-mm-aa>/`, con
+  `created_by = migracion@muhami.mx` y `updated_by = migracion-<ddmmaa>@muhami.mx`.
+  Simula por defecto; con `--ejecutar` aplica en una transacción y verifica (`CUADRA`).
 - `actualizar_marcas.rb` cambia el `external_id` de TENIS CHARLY de `45661` a `68159` y
   enlaza los 6 `sub_brands` con sus `customer_brand_id`; aborta si los IDs esperados no
   existen (en ese caso corresponde `insertar_marcas.rb`).
