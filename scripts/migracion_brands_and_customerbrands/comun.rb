@@ -17,6 +17,16 @@ module MigracionMarcas
   RUTA_MARCAS = File.join(DIR_ENTRADA, "Marcas.txt")
   RUTA_CUSTOMER_BRANDS = File.join(DIR_ENTRADA, "customer_brands.txt")
   RUTA_SUB_BRANDS = File.join(DIR_ENTRADA, "sub_brands.txt")
+  ALIAS_MARCAS = {
+    "BRA_ID_PK" => "EXTERNAL_ID",
+    "BRA_UUID" => "SUB_BRAND",
+    "BRA_ID" => "BRA_ID_EXTERNAL",
+    "BRA_NAME" => "SB_NAME",
+    "BRA_SHORT_NAME" => "SB_SHORT_NAME",
+    "STA_ID" => "SUBSIDIARY_NUMBER",
+    "STA_NAME" => "SUBSIDIARY_NAME"
+  }.freeze
+  CAMPOS_MARCAS = %w[EXTERNAL_ID SUB_BRAND BRA_ID_EXTERNAL SB_NAME SB_SHORT_NAME].freeze
   CAMPOS_CUSTOMER_BRANDS = [%w[CUSTOMER_ID], %w[SUBSIDIARY_ID], %w[OBJECT_STATUS_ID]].freeze
   CAMPOS_SUB_BRANDS = [
     %w[SUB_BRAND_ID],
@@ -115,7 +125,57 @@ module MigracionMarcas
   end
 
   def marcas
-    leer_filas(RUTA_MARCAS)
+    filas = leer_filas_marcas.map do |fila|
+      normalizada = fila.dup
+      ALIAS_MARCAS.each do |origen, destino|
+        next unless fila.key?(origen)
+        next unless normalizada[destino].to_s.strip.empty?
+
+        normalizada[destino] = fila[origen]
+      end
+      normalizada
+    end
+
+    faltantes = CAMPOS_MARCAS.reject { |campo| filas.first&.key?(campo) }
+    unless faltantes.empty?
+      raise ErrorMigracion,
+            "Marcas.txt no tiene las columnas esperadas; faltan: #{faltantes.join(', ')}"
+    end
+
+    incompletas = filas.each_with_index.filter_map do |fila, indice|
+      "fila #{indice + 2}" if fila["EXTERNAL_ID"].to_s.strip.empty?
+    end
+    unless incompletas.empty?
+      raise ErrorMigracion, "Marcas.txt tiene filas sin EXTERNAL_ID: #{incompletas.join(', ')}"
+    end
+
+    filas
+  end
+
+  def leer_filas_marcas
+    fuente = Ithic::LectorTxt.leer(RUTA_MARCAS)
+    return fuente.filas if fuente.campos.include?("EXTERNAL_ID")
+
+    leer_filas_tabuladas(RUTA_MARCAS)
+  end
+
+  def leer_filas_tabuladas(ruta)
+    contenido = Ithic::LectorTxt.decodificar(Pathname.new(ruta))
+    lineas = contenido.split(/\r\n|\n|\r/).reject { |linea| linea.strip.empty? }
+    raise ErrorMigracion, "El archivo está vacío: #{ruta}" if lineas.empty?
+
+    tabla = CSV.parse(lineas.join("\n"), col_sep: "\t", headers: true, liberal_parsing: true)
+    encabezados = (tabla.headers || []).map { |encabezado| encabezado.to_s.strip }
+    tabla.map do |fila|
+      valores = fila.fields.dup
+      while valores.size > encabezados.size
+        vacio = valores.index { |valor| valor.to_s.strip.empty? }
+        break unless vacio
+
+        valores.delete_at(vacio)
+      end
+      encabezados.each_with_index.to_h { |encabezado, indice| [encabezado, valores[indice].to_s.strip] }
+    end
   end
 
   def pares_fuente
