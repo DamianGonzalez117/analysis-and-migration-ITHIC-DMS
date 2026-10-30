@@ -208,9 +208,11 @@ Reglas aplicadas:
   por la FK de centros de costo). Omite los `external_id` existentes, usa el estatus
   `ACTIVO` y resuelve `cat_accounting_record_type_id` por código externo. `--actualizar`
   corrige nombre/descripción de las filas existentes.
-- `cat_sales_details_types.external_id` es `uuid` en DSM, así que sus filas se insertan con
-  `external_id = NULL` y se identifican por nombre; los nombres repetidos se comparan por
-  cantidad.
+- `cat_sales_details_types.external_id` es `varchar(25)` en DSM: sus filas se insertan con
+  el `EXTERNAL_ID` del archivo y se identifican por ese código; si la fila aún no lo tiene,
+  se compara por nombre (los nombres repetidos se comparan por cantidad). `--actualizar`
+  rellena el `external_id` de las filas existentes que esté vacío, sin sobrescribir valores
+  ya asignados. Si el entorno no tiene esa columna, se omite y se identifica solo por nombre.
 - Distribuciones referenciadas que no existen en DSM => `contract_investment_distribution_id`
   `NULL` (decisión de negocio).
 - 4 filas con defecto de exportación (campo extra o `|` dentro de COMENTS) se corrigen

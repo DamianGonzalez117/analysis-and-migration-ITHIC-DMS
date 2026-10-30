@@ -6,13 +6,14 @@
 # y cat_sales_details_types.
 #
 # - Omite registros cuyo external_id ya existe. En cat_sales_details_types
-#   la clave es el nombre (su external_id en DSM es uuid), por lo que se
-#   compara por cantidad de nombres repetidos.
+#   se compara por external_id y, si la fila aún no lo tiene, por nombre
+#   (se conserva la comparación por cantidad de nombres repetidos).
 # - Los registros nuevos usan object_status ACTIVO.
 # - cat_cost_center_consumption resuelve cat_accounting_record_type_id con
 #   el external_id del catálogo de registros contables.
-# - --actualizar corrige los campos de filas existentes (no aplica a
-#   cat_sales_details_types).
+# - --actualizar corrige los campos de filas existentes; en
+#   cat_sales_details_types rellena el external_id de las filas que lo
+#   tengan vacío (no sobrescribe valores ya asignados).
 #
 # Uso:
 #   bundle exec ruby scripts/migracion_consumos/insertar_catalogos.rb
@@ -59,8 +60,8 @@ module MigracionConsumos
       clave: :sales_details,
       tabla: "cat_sales_details_types",
       id: "cat_sale_detail_type_id",
-      columnas: %w[cat_sale_detail_type_id name short_name description object_status_id created_by],
-      actualizables: []
+      columnas: %w[cat_sale_detail_type_id external_id name short_name description object_status_id created_by],
+      actualizables: %w[external_id]
     }.freeze
 
     def self.ejecutar(argv)
@@ -68,7 +69,7 @@ module MigracionConsumos
       base = conexion
       begin
         art = preparar_art(base, opciones)
-        planes = [art, preparar_cce(base, art[:por_codigo], opciones), preparar_st(base, opciones), preparar_sd(base)]
+        planes = [art, preparar_cce(base, art[:por_codigo], opciones), preparar_st(base, opciones), preparar_sd(base, opciones)]
 
         resumen(planes, opciones)
         escribir_sql(planes, opciones[:sql]) if opciones[:sql]
@@ -173,39 +174,92 @@ module MigracionConsumos
       planificar(ST, registros, existentes_por_codigo(base, ST), opciones[:actualizar])
     end
 
-    def self.preparar_sd(base)
+    def self.preparar_sd(base, opciones)
       _, filas = leer_catalogo("cat_sales_details_types.txt")
-      existentes = base.consultar(<<~SQL).to_h { |fila| [fila["CLAVE"], fila["TOTAL"].to_i] }
-        SELECT lower(btrim(name)) AS clave, count(*) AS total
-        FROM #{Ithic::Sql.identificador(SD[:tabla])}
-        WHERE name IS NOT NULL
-        GROUP BY 1
-      SQL
+      con_external_id = columna_external_id?(base, SD[:tabla])
+      columnas = con_external_id ? SD[:columnas] : SD[:columnas] - %w[external_id]
+      existentes = existentes_sd(base, con_external_id)
 
-      vistos = Hash.new(0)
+      por_nombre = existentes.group_by { |fila| normalizar_nombre(fila["NAME"]) }
+      por_external_id = existentes.each_with_object({}) do |fila, mapa|
+        clave = normalizar_codigo(fila["EXTERNAL_ID"])
+        mapa[clave] ||= fila unless clave.empty?
+      end
       nuevos = []
+      actualizaciones = []
       omitidos = 0
-      filas.each do |fila|
-        clave = normalizar_nombre(fila["NAME"])
-        vistos[clave] += 1
-        if vistos[clave] <= existentes.fetch(clave, 0)
+      diferencias = 0
+
+      filas.group_by { |fila| normalizar_nombre(fila["NAME"]) }.each do |nombre, grupo|
+        pendientes = grupo.dup
+        candidatos = (por_nombre[nombre] || [])
+                     .partition { |candidato| candidato["EXTERNAL_ID"].to_s.strip.empty? }
+                     .flatten
+
+        pendientes.reject! do |fila|
+          external_id = normalizar_codigo(fila["EXTERNAL_ID"])
+          actual = external_id.empty? ? nil : por_external_id[external_id]
+          next false if actual.nil?
+
+          indice = candidatos.index { |candidato| candidato["ID"] == actual["ID"] }
+          candidatos.delete_at(indice) if indice
           omitidos += 1
-          next
+          true
         end
 
-        valores = {
-          "cat_sale_detail_type_id" => SecureRandom.uuid,
-          "name" => texto(fila["NAME"]),
-          "short_name" => texto(fila["SHORT_NAME"]),
-          "description" => texto(fila["LONG_NAME"]),
-          "object_status_id" => OBJECT_STATUS_ACTIVO,
-          "created_by" => CREADO_POR
-        }
-        nuevos << { clave: clave, id: valores["cat_sale_detail_type_id"], valores: valores }
+        pendientes.each do |fila|
+          actual = candidatos.shift
+          if actual
+            omitidos += 1
+            next unless con_external_id
+
+            external_id = texto(fila["EXTERNAL_ID"])
+            next if external_id.nil? || !normalizar_codigo(actual["EXTERNAL_ID"]).empty?
+
+            diferencias += 1
+            actualizaciones << { id: actual["ID"], cambios: { "external_id" => external_id } } if opciones[:actualizar]
+            next
+          end
+
+          valores = {
+            "cat_sale_detail_type_id" => SecureRandom.uuid,
+            "name" => texto(fila["NAME"]),
+            "short_name" => texto(fila["SHORT_NAME"]),
+            "description" => texto(fila["LONG_NAME"]),
+            "object_status_id" => OBJECT_STATUS_ACTIVO,
+            "created_by" => CREADO_POR
+          }
+          valores["external_id"] = texto(fila["EXTERNAL_ID"]) if con_external_id
+          nuevos << { clave: nombre, id: valores["cat_sale_detail_type_id"], valores: valores }
+        end
       end
 
-      { clave: SD[:clave], tabla: SD[:tabla], id: SD[:id], columnas: SD[:columnas],
-        nuevos: nuevos, actualizaciones: [], omitidos: omitidos, diferencias: 0, incidencias: [] }
+      { clave: SD[:clave], tabla: SD[:tabla], id: SD[:id], columnas: columnas,
+        nuevos: nuevos, actualizaciones: actualizaciones, omitidos: omitidos, diferencias: diferencias,
+        incidencias: [] }
+    end
+
+    def self.existentes_sd(base, con_external_id)
+      external_id = con_external_id ? "external_id::text" : "NULL::text"
+      base.consultar(<<~SQL)
+        SELECT #{Ithic::Sql.identificador(SD[:id])}::text AS id,
+               #{external_id} AS external_id,
+               name
+        FROM #{Ithic::Sql.identificador(SD[:tabla])}
+        WHERE name IS NOT NULL
+        ORDER BY created_at, #{Ithic::Sql.identificador(SD[:id])}
+      SQL
+    end
+
+    def self.columna_external_id?(base, tabla)
+      base.consultar(<<~SQL).any?
+        SELECT 1
+        FROM information_schema.columns
+        WHERE table_schema = ANY (current_schemas(false))
+          AND table_name = #{Ithic::Sql.literal(tabla)}
+          AND column_name = 'external_id'
+        LIMIT 1
+      SQL
     end
 
     def self.filas_cce(incidencias)
