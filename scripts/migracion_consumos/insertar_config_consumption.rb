@@ -41,6 +41,7 @@ module MigracionConsumos
       object_status_id
       account_cost
       send_sap_cost
+      created_by
     ].freeze
 
     def self.ejecutar(argv)
@@ -138,7 +139,8 @@ module MigracionConsumos
           sd,
           OBJECT_STATUS_CONFIG,
           decimal(fila["ACCOUNT_COST"]) || BigDecimal("0"),
-          booleano(fila["SEND_SAP_COST"])
+          booleano(fila["SEND_SAP_COST"]),
+          CREADO_POR
         ]
         registros << { clave: clave, valores: valores,
                        account_cost: valores[8], send_sap_cost: valores[9] }

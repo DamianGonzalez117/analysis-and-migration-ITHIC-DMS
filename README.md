@@ -200,7 +200,8 @@ Reglas aplicadas:
 - `object_status_id = CREADO` (`1f0746ed-9ae6-4055-a641-efb4bf7d0a56`); los estatus
   válidos alternos son ENVIADO A SAP, NO ENVIADO A SAP y ELIMINADO.
 - Booleanos: `1` => `true`; vacío o `0` => `false`.
-- Fechas `d/m/AAAA`; campos vacíos => `NULL`.
+- Fechas `d/m/AAAA` o `AAAA-MM-DD`; campos vacíos => `NULL`. `sap_date` se toma de
+  `CBD_SEND_SAP_DATE`.
 - Catálogos: el UUID se toma de DSM priorizando el de mayor uso real en consumos
   existentes (y el más antiguo si hay empate). Códigos vacíos o `0` => `NULL`.
 - `insertar_catalogos.rb` inserta `cat_accounting_record_types` →

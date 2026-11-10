@@ -18,6 +18,7 @@ module MigracionConsumos
   RUTA_MAPA = File.join(DIR_CONSUMOS, "mapa_catalogos.json").freeze
 
   OBJECT_STATUS_POR_DEFECTO = "1f0746ed-9ae6-4055-a641-efb4bf7d0a56" # CREADO
+  CREADO_POR = "migracion@muhami.com"
   OBJECT_STATUS_VALIDOS = [
     OBJECT_STATUS_POR_DEFECTO,
     "fd702fb1-91ac-43a3-a305-ea24549d57cf", # ENVIADO A SAP
@@ -170,8 +171,13 @@ module MigracionConsumos
     limpio = valor.to_s.strip
     return nil if limpio.empty?
 
-    Date.strptime(limpio, "%d/%m/%Y")
-  rescue Date::Error
+    Ithic::Normalizador::FORMATOS_FECHA.each do |formato|
+      begin
+        return Date.strptime(limpio, formato)
+      rescue Date::Error
+        next
+      end
+    end
     limpio
   end
 

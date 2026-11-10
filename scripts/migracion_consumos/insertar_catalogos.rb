@@ -29,7 +29,6 @@ module MigracionConsumos
     extend MigracionConsumos
 
     OBJECT_STATUS_ACTIVO = "01905186-4ff0-7041-93a3-404eff394ff9"
-    CREADO_POR = "migracion@muhami.com.mx"
 
     ART = {
       clave: :art,

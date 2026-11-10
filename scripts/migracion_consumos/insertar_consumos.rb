@@ -12,7 +12,7 @@
 # - Los UUID de catálogos se resuelven con mapa_catalogos.json (generar_mapa.rb).
 # - Si la distribución referenciada no existe en DSM, se inserta con NULL.
 # - Booleanos: "1" => true; vacío o "0" => false.
-# - Fechas d/m/YYYY -> date; campos vacíos -> NULL.
+# - Fechas d/m/YYYY o YYYY-MM-DD -> date; campos vacíos -> NULL.
 #
 # Uso:
 #   bundle exec ruby scripts/migracion_consumos/insertar_consumos.rb                # simulación
@@ -55,6 +55,8 @@ module MigracionConsumos
       original_date
       sub_production
       external_id
+      sap_date
+      created_by
     ].freeze
 
     def self.ejecutar(argv)
@@ -203,7 +205,9 @@ module MigracionConsumos
           decimal(fila["UPLOAD_CONSECUTIVE"]),
           fecha(fila["ORIGINAL_DATE"]),
           decimal(fila["SUB_PRODUCTION"]),
-          external_id
+          external_id,
+          fecha(fila["CBD_SEND_SAP_DATE"]),
+          CREADO_POR
         ]
       end
 
