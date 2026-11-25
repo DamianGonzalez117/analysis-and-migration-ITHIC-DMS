@@ -278,3 +278,63 @@ Reglas aplicadas:
   defecto, aplican en una transacción con `--ejecutar` y verifican el resultado
   (`CUADRA` / `NO CUADRA`).
 - `insert_marcas.sql` y `update_marcas_qa.sql` son los planes ya generados para QA.
+
+## Comparación de descuentos por tipo de pauta (script puntual)
+
+`data/entrada/descuentos_tipo_pauta/Descuentos_tipo_pauta_26.txt` contiene los descuentos
+de contratos 2026 con sus banderas `TF`, `SR` y `PI` (una fila por `CONTRACT_ID` +
+`DISCOUNT_ID`). El script de `scripts/migracion_descuentos_tipo_pauta/` compara ese archivo
+contra la consulta DSM de `core.contracts` / `core.contract_discounts` /
+`core.guideline_types` y escribe los resultados en `data/reportes/descuentos_tipo_pauta/`.
+
+```bash
+# El año se infiere del sufijo del archivo: _26.txt -> 2026, _25.txt -> 2025
+bundle exec ruby scripts/migracion_descuentos_tipo_pauta/comparar_descuentos_tipo_pauta.rb
+
+# También se puede indicar otro archivo
+bundle exec ruby scripts/migracion_descuentos_tipo_pauta/comparar_descuentos_tipo_pauta.rb \
+  data/entrada/descuentos_tipo_pauta/Descuentos_tipo_pauta_25.txt
+```
+
+Reglas aplicadas:
+
+- La clave es `contract_id` + `discount_id`; los UUID se normalizan sin guiones y en
+  mayúsculas para comparar el `.txt` contra DSM.
+- Compara la cantidad de registros, claves únicas y contratos de cada lado, además de las
+  banderas `TF`, `SR` y `PI` de cada descuento.
+- Reporta descuentos con diferencias de valores, solo en ITHIC, solo en DSM y contratos con
+  distinta cantidad de descuentos. La consola muestra el resumen y el detalle con
+  `CONTRACT_ID`, `DISCOUNT_ID` y las diferencias.
+- Es solo lectura: no genera ni ejecuta SQL. Sale con código 2 si `NO CUADRA`
+  (0 si `CUADRA`).
+
+Archivos generados:
+
+- `data/reportes/descuentos_tipo_pauta/comparacion_descuentos_tipo_pauta-<aa>.md`: resumen,
+  totales, diferencias por campo y tablas con `CONTRACT_ID`, `DISCOUNT_ID`, valores ITHIC/DSM
+  y detalle de cada diferencia.
+- `data/reportes/descuentos_tipo_pauta/diferencias_descuentos_tipo_pauta-<aa>.csv`: una fila
+  por descuento con diferencia (`VALORES`, `SOLO_ITHIC`, `SOLO_DSM`), banderas `TF`/`SR`/`PI`
+  de ambos lados y el detalle en la columna `DIFERENCIAS`.
+
+### Generación del SQL de inserción
+
+Con el mismo archivo ITHIC y la misma consulta, el generador crea los `INSERT` faltantes en
+`core.contract_discount_guideline_types`:
+
+```bash
+bundle exec ruby scripts/migracion_descuentos_tipo_pauta/generar_sql_descuentos_tipo_pauta.rb
+```
+
+El SQL se guarda en
+`/home/damiangonzalez/DataGripProjects/copan/Migraciones/Descuentos Tipo Pauta/<dd-mm-aa>/Descuentos Tipo Pauta <dd-mm-aa>.sql`
+y contiene un `INSERT` por cada bandera que está en `1` en ITHIC y en `0` en DSM. Usa los
+`guideline_type_id` de `TF`, `SR` y `PI`, el `object_status_id` ACTIVO que ya utiliza la tabla
+y `created_by = migracion-<ddmmaa>@muhami.com`; los `INSERT` son idempotentes con
+`ON CONFLICT (contract_discount_id, guideline_type_id) DO NOTHING`.
+
+- Solo genera inserciones: no elimina ni modifica registros existentes.
+- Las banderas que DSM tiene en `1` e ITHIC en `0`, y los descuentos que no existen en DSM,
+  se listan como advertencias en consola y en el encabezado del `.sql` (no se insertan).
+- Opciones: `--archivo RUTA` (por defecto el `_26.txt`), `--sql RUTA` (ruta de salida) y
+  `--object-status UUID` (forzar el estado; por defecto se detecta el ACTIVO de la tabla).
